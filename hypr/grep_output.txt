@@ -1,0 +1,19 @@
+[{
+    "id": 0,
+    "name": "eDP-1",
+    "description": "AU Optronics 0xB69B (eDP-1)",
+    "width": 1920,
+    "height": 1080,
+    "refreshRate": 165.009995,
+    "x": 0,
+    "y": 0,
+    "activeWorkspace": {
+        "id": 1,
+        "name": "1"
+    },
+    "reserved": [0, 0, 0, 0],
+    "scale": 1.50,
+    "transform": 0,
+    "focused": true,
+    "dpmsStatus": true
+}]

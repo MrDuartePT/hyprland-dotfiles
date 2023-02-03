@@ -1,0 +1,21 @@
+[LOG] Welcome to hyprpaper!
+built from commit 60013ee65566ec7601c367829da2560d7b8638fa ()
+[LOG] Cleaned old hyprpaper preloads (3), removing 24.9MB
+[LOG] Preloaded target /home/mrduarte/Pictures/wallpapers/DSC_01.jpg in 58.94ms -> Pixel size: [6016, 4000]
+[LOG] Preloaded target /home/mrduarte/Pictures/wallpapers/0101.jpg in 12.31ms -> Pixel size: [2332, 1631]
+[LOG] Preloaded target /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg in 50.39ms -> Pixel size: [3840, 2160]
+[LOG] hyprpaper socket started at /tmp/hypr/c0c7c12bb907ea8cdc6e17653cddb3691102beac_1673859282/.hyprpaper.sock (fd: 4)
+[LOG] configure for eDP-2
+[LOG] Buffer created for target /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg, Shared Memory usage: 8.3MB
+[LOG] Buffer created for target /home/mrduarte/Pictures/wallpapers/0101.jpg, Shared Memory usage: 8.3MB
+[LOG] Buffer created for target /home/mrduarte/Pictures/wallpapers/DSC_01.jpg, Shared Memory usage: 8.3MB
+[LOG] Total SM usage for all buffers: 24.9MB
+[LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
+[LOG] configure for eDP-2
+[LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
+[LOG] configure for eDP-2
+[LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
+[LOG] configure for eDP-2
+[LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
+[LOG] configure for eDP-2
+[LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
