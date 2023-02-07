@@ -21,7 +21,15 @@ In this repo you have available my dotfiles for configuration of Hyprland and Wa
  - wdisplays
 
 ## Notes
-[^1]: Both script need to be in $HOME/.local/bin and .zprofile in the $HOME directory (only works with zsh sheel)
+
+For Fix screen recording on OBS add this enviroment LIBVA_DRIVER_NAME on the hyp and hyp-nvidia (you can use my settings if you have AMD+NVIDIA Laptop):
+ - For AMD: export LIBVA_DRIVER_NAME="radeonsi;vdpau;nvidia"
+ - For intel:
+   - libva-intel-driver: LIBVA_DRIVER_NAME="i965;vdpau;nvidia"
+   - intel-media-driver: LIBVA_DRIVER_NAME="iHD;vdpau;nvidia"
+ - Only NVIDIA: LIBVA_DRIVER_NAME="vdpau;nvidia" 
+
+[^1]: Both script need to be in $HOME/.local/bin and .zprofile in the $HOME directory (only works with zsh sheel):
 
 [^2]: For using Hyprland with NVIDIA (desktop GPU or Mobile GPU) you need to patch wlroots manually (or in arch base distro install this [aur](https://aur.archlinux.org/packages/hyprland-nvidia-git) package) and install the appropriate Nvidia drivers (nvidia-dkms) see this [link](https://wiki.hyprland.org/Nvidia/) for more 
 information.

@@ -1,6 +1,6 @@
 #!/bin/zsh
-DISP_LAPTOP_NVIDIA=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'eDP-1')
-EXT_MONITOR=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'HDMI-A-1')
+DISP_LAPTOP_NVIDIA=$(grep -rnw /home/mrduarte/.config/hypr/grep_output.txt -e 'eDP-1')
+EXT_MONITOR=$(grep -rnw /home/mrduarte/.config/hypr/grep_output.txt -e 'HDMI-A-1')
 
 if [ $EXT_MONITOR ]; then
    #External Dispay + LID OPEN + HYBRID MODE

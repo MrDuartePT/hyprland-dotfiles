@@ -10,6 +10,7 @@
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "bluetooth", "custom/bluetooth-battery", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "custom/weather", "clock", "tray"],
     // Modules configuration
     "wlr/workspaces": {
+        "sort-by-number": true,
         "disable-scroll": true,
         "on-click": "activate",
         "all-outputs": true,

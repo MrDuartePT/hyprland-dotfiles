@@ -19,11 +19,11 @@ if [ $POWER_ADAPTER ]; then; refresh_rate="165hz" && time_1=300 && time_2=305 &&
 #Set Internal Display Variable
 if [ $DISP_LAPTOP_NVIDIA ]; then
   #Nvidia Optimus Enable
-  laptop=eDP-1
+  export laptop=eDP-1
   hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 else
   #Nvidia Optimus Disable
-  laptop=eDP-2
+  export laptop=eDP-2
   hyprpaper -c $HOME/.config/hypr/hyprpaper-nvidia.conf &
 fi
 

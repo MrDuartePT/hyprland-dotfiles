@@ -1,6 +1,6 @@
 #!/bin/zsh
-DISP_LAPTOP_NVIDIA=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'eDP-1')
-EXT_MONITOR=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'HDMI-A-1')
+DISP_LAPTOP_NVIDIA=$(grep -rnw /home/mrduarte/.config/hypr/grep_output.txt -e 'eDP-1')
+EXT_MONITOR=$(grep -rnw /home/mrduarte/.config/hypr/grep_output.txt -e 'HDMI-A-1')
 
 if [ $EXT_MONITOR ]; then
    #External Dispay + LID CLOSE + HYBRID MODE
@@ -11,9 +11,9 @@ if [ $EXT_MONITOR ]; then
    fi
    #Change swayidle built in screen is disable
    swayidle -w \
-      timeout 300 'grim -s 0.1 -g "0,0 0x1080" $HOME/.config/sway/screenlockbg.png && swaylock -f --clock --indicator  -i $HOME/.config/sway/screenlockbg.png -s fill' \
+      timeout 300 'grim -s 0.1 -g "0,0 0x1080" /home/mrduarte/.config/sway/screenlockbg.png && swaylock -f --clock --indicator  -i /home/mrduarte/.config/sway/screenlockbg.png -s fill' \
       timeout 500 'systemctl suspend' \
-      before-sleep 'grim -s 0.1 -g "0,0 0x1080" $HOME/.config/hypr/screenlockbg.png && swaylock -f --clock --indicator  -i $HOME/.config/hypr/screenlockbg.png -s fill'
+      before-sleep 'grim -s 0.1 -g "0,0 0x1080" /home/mrduarte/.config/hypr/screenlockbg.png && swaylock -f --clock --indicator  -i /home/mrduarte/.config/hypr/screenlockbg.png -s fill'
 else
     systemctl suspend
 fi

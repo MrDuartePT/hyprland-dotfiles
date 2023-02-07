@@ -17,5 +17,6 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export ENABLE_VKBASALT=1
 export WLR_BACKEND=vulkan
 #export XWAYLAND_NO_GLAMOR=1
- 
+export LIBVA_DRIVER_NAME="vdpau;nvidia" 
+
 exec Hyprland
