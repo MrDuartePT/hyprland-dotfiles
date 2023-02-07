@@ -14,6 +14,7 @@ In this repo you have available my dotfiles for configuration of Hyprland and Wa
 ## Dependencies[^4]
  - hyprland-nvidia-git
  - waybar-hyprland-git
+ - xdg-desktop-portal-hyprland-git
  - hyprpaper-git[^3]
  - swayidle-git
  - swaylock-effects-git[^5]
@@ -22,12 +23,18 @@ In this repo you have available my dotfiles for configuration of Hyprland and Wa
 
 ## Notes
 
-For Fix screen recording on OBS add this enviroment LIBVA_DRIVER_NAME on the hyp and hyp-nvidia (you can use my settings if you have AMD+NVIDIA Laptop):
- - For AMD: export LIBVA_DRIVER_NAME="radeonsi;vdpau;nvidia"
- - For intel:
+For Fix Recording on OBS add this enviroment LIBVA_DRIVER_NAME on the hyp and hyp-nvidia (you can use my settings if you have AMD+NVIDIA Laptop):
+- For AMD+NVIDIA: LIBVA_DRIVER_NAME="radeonsi;vdpau;nvidia"
+- For NVIDIA dGPU MODE: LIBVA_DRIVER_NAME="vdpau;nvidia"
+- For AMD iGPU & dGPU: export LIBVA_DRIVER_NAME="radeonsi"
+- For Intel+Nvidia:
    - libva-intel-driver: LIBVA_DRIVER_NAME="i965;vdpau;nvidia"
    - intel-media-driver: LIBVA_DRIVER_NAME="iHD;vdpau;nvidia"
- - Only NVIDIA: LIBVA_DRIVER_NAME="vdpau;nvidia" 
+- For Intel+AMD*:
+   - libva-intel-driver: LIBVA_DRIVER_NAME="i965;radeonsi"
+   - intel-media-driver: LIBVA_DRIVER_NAME="iHD;radeonsi"
+
+*very strange configuration but exist 
 
 [^1]: Both script need to be in $HOME/.local/bin and .zprofile in the $HOME directory (only works with zsh sheel):
 
