@@ -34,7 +34,15 @@ For Fix Recording on OBS add this enviroment LIBVA_DRIVER_NAME on the hyp and hy
    - libva-intel-driver: LIBVA_DRIVER_NAME="i965;radeonsi"
    - intel-media-driver: LIBVA_DRIVER_NAME="iHD;radeonsi"
 
-*very strange configuration but exist 
+*very strange configuration but exist
+
+Fixing app recording on obs or screensharing in the browser you need to install xdg-desktop-portal-hyprland-git and add this line to the hyprland.conf [^6]:
+
+```
+hypr/hyprland.conf
+------------
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+```
 
 [^1]: Both script need to be in $HOME/.local/bin and .zprofile in the $HOME directory (only works with zsh sheel):
 
@@ -47,3 +55,4 @@ information.
 
 [^5]: you can use [gtklock and respective modules](https://aur.archlinux.org/packages?O=0&SeB=nd&K=gtklock&outdated=&SB=p&SO=d&PP=50&submit=Go) but need to change hypr/set-displays-swayidle.sh script on the swayidle command
 
+[^6]: [Hyprland wiki page](https://wiki.hyprland.org/Useful-Utilities/Screen-Sharing/) about Screen Sharing section [Screensharing](https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580)
