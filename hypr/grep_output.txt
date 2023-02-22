@@ -1,7 +1,7 @@
 [{
     "id": 0,
-    "name": "eDP-1",
-    "description": "AU Optronics 0xB69B (eDP-1)",
+    "name": "eDP-2",
+    "description": "AU Optronics 0xB69B (eDP-2)",
     "width": 1920,
     "height": 1080,
     "refreshRate": 165.009995,
