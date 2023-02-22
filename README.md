@@ -17,7 +17,7 @@ In this repo you have available my dotfiles for configuration of Hyprland and Wa
  - xdg-desktop-portal-hyprland-git
  - hyprpaper-git[^3]
  - swayidle-git
- - ~~swaylock-effects-git[^5]~~
+ - ~~swaylock-effects-git~~[^5]
  - gtlock & modules [^6]
  - grim
  - wdisplays
@@ -54,7 +54,7 @@ information.
 
 [^4]: Arch and AUR package you need to shearch for other distro or compile from source
 
-~~[^5]: you can use [gtklock and respective modules](https://aur.archlinux.org/packages?O=0&SeB=nd&K=gtklock&outdated=&SB=p&SO=d&PP=50&submit=Go) but need to change hypr/set-displays-swayidle.sh script on the swayidle command~~
+[^5]: ~~you can use [gtklock and respective modules](https://aur.archlinux.org/packages?O=0&SeB=nd&K=gtklock&outdated=&SB=p&SO=d&PP=50&submit=Go) but need to change hypr/set-displays-swayidle.sh script on the swayidle command~~
 
 [^6]: https://aur.archlinux.org/packages?O=0&SeB=nd&K=gtklock&outdated=&SB=p&SO=d&PP=50&submit=Go
 
