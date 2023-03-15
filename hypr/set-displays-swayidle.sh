@@ -19,11 +19,11 @@ if [ $POWER_ADAPTER ]; then; refresh_rate="165hz" && time_1=300 && time_2=305 &&
 #Set Internal Display Variable
 if [ $DISP_LAPTOP_NVIDIA ]; then
   #Nvidia Optimus Enable
-  INTERNAL_DISPLAY=eDP-1
+  laptop=eDP-1
   hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 else
   #Nvidia Optimus Disable
-  INTERNAL_DISPLAY=eDP-2
+  laptop=eDP-2
   hyprpaper -c $HOME/.config/hypr/hyprpaper-nvidia.conf &
 fi
 
@@ -40,8 +40,8 @@ hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
 
 ## GTKLock command
 swayidle -w \
-  timeout $time_1 'grim -s 0.1 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
-  timeout $time_2 'gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerba -b $HOME/.config/hypr/screenlockbg.png' \
+  timeout $time_1 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
+  timeout $time_2 'gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
   timeout $time_3 'systemctl suspend' \
   before-sleep 'gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' &
 

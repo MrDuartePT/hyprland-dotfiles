@@ -1,0 +1,36 @@
+52      1074MB  4218MB  3144MB  ext4         system             msftdata
+53      4218MB  5376MB  1158MB  ext4         preas              msftdata
+54      5376MB  5409MB  33.6M  ext4         preavs             msftdata
+55      5409MB  5552MB  143MB   ext4         cust               msftdata
+56      5552MB  5585MB  33.6MB  ext4         version            msftdata
+57      5585MB  6197MB  612MB   ext4         vendor             msftdata
+58      6197MB  6759MB  562MB   ext4         product            msftdata
+59      6759MB  31.3GB  25.2GB               userdata           msftdata
+
+mkpart system ext4 52 1074 3144
+mkpart preas ext4 53 4218 5376
+mkpart preavs ext4 54 5376 5409
+mkpart cust ext4 55 5409 5552
+mkpart version ext4 56 5552 5585
+mkpart vendor ext4 57 5585 6197
+mkpart product ext4 58 6197MB 6759
+
+name 52 system
+name 53 preas
+name 54 preavs
+name 55 cust
+name 56 version
+name 57 vendor
+name 58 product
+name 59 userdata
+
+set 52 msftdata on
+set 53 msftdata on
+set 54 msftdata on
+set 55 msftdata on
+set 56 msftdata on
+set 57 msftdata on
+set 58 msftdata on
+set 59 msftdata on
+
+

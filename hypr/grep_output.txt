@@ -1,19 +1,23 @@
 [{
     "id": 0,
-    "name": "eDP-2",
-    "description": "AU Optronics 0xB69B (eDP-2)",
+    "name": "eDP-1",
+    "description": "AU Optronics 0xB69B (eDP-1)",
+    "make": "AU Optronics",
+    "model": "0xB69B",
+    "serial": "",
     "width": 1920,
     "height": 1080,
     "refreshRate": 165.009995,
     "x": 0,
     "y": 0,
     "activeWorkspace": {
-        "id": 1,
-        "name": "1"
+        "id": 2,
+        "name": "2"
     },
     "reserved": [0, 0, 0, 0],
     "scale": 1.50,
     "transform": 0,
     "focused": true,
-    "dpmsStatus": true
+    "dpmsStatus": true,
+    "vrr": true
 }]

@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces", "sway/mode", "custom/waybar-mpris"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "bluetooth", "custom/bluetooth-battery", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "custom/weather", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "custom/weather", "clock", "tray"],
     // Modules configuration
     "wlr/workspaces": {
         "sort-by-number": true,
@@ -15,6 +15,8 @@
         "on-click": "activate",
         "all-outputs": true,
         "format": "{name}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
          "format-icons": {
     //         "1": "",
     //         "2": "",
@@ -120,7 +122,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -164,7 +166,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "~/.config/rofi/applets/volume.sh",
+        "on-click-right": "pavucontrol"
     },
     "custom/media": {
         "format": "{icon} {}",
@@ -193,7 +196,7 @@
         "escape": true,
     },
     "custom/displays": {
-        "format": " {}",
+        "format": " {}",
         "on-click": "wdisplays",
     },
     "custom/weather": {
@@ -207,7 +210,7 @@
         "format": "{}",
         "return-type": "json",
         "interval": 20,
-        "exec": "~/.config/waybar/modules/bluetooth-battery.sh",
+        "exec": "$HOME/.config/waybar/modules/toggle_battery_conservation.sh",
         "exec-if": "~/.config/waybar/connected_bluetooth_devices.sh >/dev/null 2>&1",
         "signal": 9
     },
@@ -216,7 +219,7 @@
         "format": "{icon}",
         "format-icons": 
         {
-            "notification": " ",
+            "notification": " ",
             "none": " ",
             "dnd-notification": " <span foreground='red'><sup></sup></span>",
             "dnd-none": " ",
