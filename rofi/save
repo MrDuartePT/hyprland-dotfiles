@@ -1,0 +1,114 @@
+####
+# Choose Timer
+# CMD
+timer_cmd () {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
+		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 1; lines: 5;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Choose Option' \
+		-mesg 'Choose timer:'
+}
+
+# Ask for confirmation
+timer_exit() {
+	echo -e "$option_time_1\n$option_time_2\n$option_time_3\n$option_time_4\n$option_time_5" | timer_cmd
+}
+
+# Confirm and execute
+timer_run () {	
+	selected_timer="$(timer_exit)"
+	if [[ "$selected_timer" == "$option_time_1" ]]; then
+		countdown=5
+    	${1}
+	elif [[ "$selected_timer" == "$option_time_2" ]]; then
+		countdown=10
+    	${1}
+	elif [[ "$selected_timer" == "$option_time_3" ]]; then
+		countdown=20
+        ${1}
+    elif [[ "$selected_timer" == "$option_time_4" ]]; then
+       countdown=30
+        ${1}
+	elif [[ "$selected_timer" == "$option_time_5" ]]; then
+    	countdown=60
+        ${1}
+    fi	
+}
+###
+
+####
+# Chose Screenshot Type
+# CMD
+type_screen_cmd () {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
+		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 1; lines: 4;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Choose Option' \
+		-mesg 'Type Of Screenshot:'
+}
+
+# Ask for confirmation
+type_screen_exit() {
+	echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3\n$option_capture_4" | type_screen_cmd
+}
+
+# Confirm and execute
+type_screen_run () {	
+	selected_type="$(type_screen_exit)"
+	if [[ "$selected_type" == "$option_capture_1" ]]; then
+		option_type=screen
+    	${1}
+	elif [[ "$selected_type" == "$option_capture_1" ]]; then
+		option_type=output
+    	${1}
+	elif [[ "$selected_type" == "$option_capture_1" ]]; then
+		option_type=area
+        ${1}
+    elif [[ "$selected_type" == "$option_capture_1" ]]; then
+        option_type=window
+        ${1}
+    fi	
+}
+
+####
+# Choose to save or copy photo
+# CMD
+copy_save_gimp_cmd () {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
+		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 2; lines: 2;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Choose Option' \
+		-mesg 'You whant to copy or/and save the screenshot or open in Gimp'
+}
+
+# Ask for confirmation
+copy_save_gimp_exit() {
+	echo -e "$copy\n$save\n$copy_save\n$gimp" | copy_save_gimp_cmd
+}
+
+# Confirm and execute
+copy_save_gimp_run () {	
+	selected_csg="$(copy_save_gimp_exit)"
+	if [[ "$selected_csg" == "$copy" ]]; then
+		option_csg=copy
+    	${1}
+	elif [[ "$selected_csg" == "$save" ]]; then
+		option_csg=save
+    	${1}
+	elif [[ "$selected_csg" == "$copy_save" ]]; then
+		option_csg=copysave
+        ${1}
+    elif [[ "$selected_csg" == "$gimp" ]]; then
+        option_csg=edit
+        ${1}
+    fi	
+}

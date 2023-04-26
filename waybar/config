@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces", "sway/mode", "custom/waybar-mpris"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "custom/weather", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "wireplumber", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "clock", "tray"],
     // Modules configuration
     "wlr/workspaces": {
         "sort-by-number": true,
@@ -135,18 +135,18 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "{essid} ({signalStrength}%) 󰖩",
+        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
         "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-linked": "{ifname} (No IP) 󰈂",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "networkmanager_dmenu"
+        "on-click-right": "$HOME/.local/bin/networkmanager_dmenu"
     },
     "bluetooth": {
         "format": "{device_alias}: ",
         "format-off": "Disconnected ",
-        "on-click": "rofi-bluetooth",
+        "on-click": "$HOME/.local/bin/rofi-bluetooth",
         "tooltip-format": "{status}"
     },
     "pulseaudio": {
@@ -159,8 +159,8 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -168,6 +168,15 @@
         },
         "on-click": "~/.config/rofi/applets/volume.sh",
         "on-click-right": "pavucontrol"
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "{volume}% ",
+        "on-click": "~/.config/rofi/applets/volume.sh",
+        "signal": 8,
+        "interval": "once",
+        "on-click-right": "pavucontrol",
+        "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
     "custom/media": {
         "format": "{icon} {}",
@@ -196,8 +205,8 @@
         "escape": true,
     },
     "custom/displays": {
-        "format": " {}",
-        "on-click": "wdisplays",
+        "format": "󰍹",
+        "on-click": "wdisplays"
     },
     "custom/weather": {
         "format": "{}",
@@ -206,23 +215,15 @@
         "exec": "$HOME/.config/waybar/modules/waybar-wttr.py",
         "return-type": "json"
     },
-    "custom/bluetooth-battery": {
-        "format": "{}",
-        "return-type": "json",
-        "interval": 20,
-        "exec": "$HOME/.config/waybar/modules/toggle_battery_conservation.sh",
-        "exec-if": "~/.config/waybar/connected_bluetooth_devices.sh >/dev/null 2>&1",
-        "signal": 9
-    },
     "custom/notification": {
         "tooltip": false,
         "format": "{icon}",
         "format-icons": 
         {
-            "notification": " ",
-            "none": " ",
-            "dnd-notification": " <span foreground='red'><sup></sup></span>",
-            "dnd-none": " ",
+            "notification": " ",
+            "none": " ",
+            "dnd-notification": " <span foreground='red'><sup></sup></span>",
+            "dnd-none": " ",
         },
         "return-type": "json",
         "exec-if": "which swaync-client",

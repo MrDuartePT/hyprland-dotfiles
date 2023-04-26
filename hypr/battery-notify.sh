@@ -16,8 +16,11 @@ while [[ 0 -eq 0 ]]; do
 		if   [[ $battery_charge -le 8 ]]; then
 			notify-send --urgency=critical "Battery critical ! -> Plug the Charger or hibernate in 1m!" "${battery_charge}%"
             sleep 60
-			if [[ $battery_status == 'Discharging' && $battery_charge -eq 8 ]]; then
-				/usr/bin/systemctl hibernate
+			battery_status="$(cat /sys/class/power_supply/BAT0/status)" # see if charger is detected after 60s
+			if [[ $battery_status == 'Discharging' ]]; then
+				/bin/systemctl hibernate #prevents double hibernation
+			else
+				sleep 300
 			fi
 			sleep 300
 		elif   [[ $battery_charge -le 15 ]]; then
@@ -25,9 +28,9 @@ while [[ 0 -eq 0 ]]; do
 			sleep 300
 		elif [[ $battery_charge -le 25 ]]; then
 			notify-send --urgency=critical "Battery low !" "${battery_charge}%"
-			sleep 300
+			sleep 600
 		else
-			sleep 300
+			sleep 600
 		fi
 	else
 		sleep 600

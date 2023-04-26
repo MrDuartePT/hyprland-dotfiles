@@ -12,9 +12,9 @@ if [ $EXT_MONITOR ]; then
    #Change swayidle built in screen is disable
    swayidle -w \
       timeout 299 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png' \
-      timeout 300 'gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
+      timeout 300 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
       timeout 500 'systemctl suspend' \
-      before-sleep 'gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png'
+      before-sleep 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png'
 else
     systemctl suspend
 fi

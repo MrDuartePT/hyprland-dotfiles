@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Roboto", "Font Awesome 5 Free";
     font-size: 13px;
 }
 
@@ -205,7 +205,7 @@ label:focus {
 }
 
 #wireplumber {
-    background-color: #fff0f5;
+    background-color: #f1c40f;
     color: #000000;
 }
 

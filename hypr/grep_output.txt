@@ -11,8 +11,8 @@
     "x": 0,
     "y": 0,
     "activeWorkspace": {
-        "id": 2,
-        "name": "2"
+        "id": 1,
+        "name": "1"
     },
     "reserved": [0, 0, 0, 0],
     "scale": 1.50,

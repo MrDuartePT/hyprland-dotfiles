@@ -19,3 +19,55 @@ built from commit 60013ee65566ec7601c367829da2560d7b8638fa ()
 [LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
 [LOG] configure for eDP-2
 [LOG] Image data for eDP-2: /home/mrduarte/Pictures/wallpapers/wall-chainsawman1.jpg at [-0.00, 0.00], scale: 0.50 (original image size: [3840, 2160])
+(node:53916) DeprecationWarning: file property is deprecated and will be removed in v5.
+(Use `bitwarden --trace-deprecation ...` to show where the warning was created)
+Gtk-Message: 20:02:44.726: Failed to load module "colorreload-gtk-module"
+Gtk-Message: 20:02:44.727: Failed to load module "window-decorations-gtk-module"
+[53916:0323/200244.738483:ERROR:object_proxy.cc(623)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.InvalidArgs: No such interface “org.freedesktop.portal.FileChooser”
+[53916:0323/200244.738512:ERROR:select_file_dialog_linux_portal.cc(242)] Failed to read portal version property
+(node:54126) DeprecationWarning: file property is deprecated and will be removed in v5.
+(Use `bitwarden --trace-deprecation ...` to show where the warning was created)
+Gtk-Message: 20:02:48.241: Failed to load module "colorreload-gtk-module"
+Gtk-Message: 20:02:48.241: Failed to load module "window-decorations-gtk-module"
+[54126:0323/200248.262721:ERROR:object_proxy.cc(623)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.InvalidArgs: No such interface “org.freedesktop.portal.FileChooser”
+[54126:0323/200248.262748:ERROR:select_file_dialog_linux_portal.cc(242)] Failed to read portal version property
+[53916:0323/200253.746168:ERROR:zygote_communication_linux.cc(275)] Failed to send GetTerminationStatus message to zygote
+[53916:0323/200253.768788:ERROR:network_service_instance_impl.cc(470)] Network service crashed, restarting service.
+20:02:53.783 › TypeError: Object has been destroyed
+    at WindowMain.<anonymous> (/opt/Bitwarden/resources/app.asar/main.js:50081:36)
+    at Generator.next (<anonymous>)
+    at /opt/Bitwarden/resources/app.asar/main.js:49895:71
+    at new Promise (<anonymous>)
+    at window_main_awaiter (/opt/Bitwarden/resources/app.asar/main.js:49891:12)
+    at WindowMain.updateWindowState (/opt/Bitwarden/resources/app.asar/main.js:50076:16)
+    at WindowMain.<anonymous> (/opt/Bitwarden/resources/app.asar/main.js:50030:28)
+    at Generator.next (<anonymous>)
+    at /opt/Bitwarden/resources/app.asar/main.js:49895:71
+    at new Promise (<anonymous>)
+[53916:0323/200253.904901:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.906632:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.907440:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.907739:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.908008:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.908276:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.908915:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.909196:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.909459:ERROR:gpu_process_host.cc(968)] GPU process launch failed: error_code=1002
+[53916:0323/200253.909476:FATAL:gpu_data_manager_impl_private.cc(450)] GPU process isn't usable. Goodbye.
+(node:54949) DeprecationWarning: file property is deprecated and will be removed in v5.
+(Use `bitwarden --trace-deprecation ...` to show where the warning was created)
+Gtk-Message: 20:03:16.332: Failed to load module "colorreload-gtk-module"
+Gtk-Message: 20:03:16.332: Failed to load module "window-decorations-gtk-module"
+[54949:0323/200316.347810:ERROR:object_proxy.cc(623)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.InvalidArgs: No such interface “org.freedesktop.portal.FileChooser”
+[54949:0323/200316.347834:ERROR:select_file_dialog_linux_portal.cc(242)] Failed to read portal version property
+20:03:19.619 › TypeError: Object has been destroyed
+    at WindowMain.<anonymous> (/opt/Bitwarden/resources/app.asar/main.js:50081:36)
+    at Generator.next (<anonymous>)
+    at /opt/Bitwarden/resources/app.asar/main.js:49895:71
+    at new Promise (<anonymous>)
+    at window_main_awaiter (/opt/Bitwarden/resources/app.asar/main.js:49891:12)
+    at WindowMain.updateWindowState (/opt/Bitwarden/resources/app.asar/main.js:50076:16)
+    at WindowMain.<anonymous> (/opt/Bitwarden/resources/app.asar/main.js:50030:28)
+    at Generator.next (<anonymous>)
+    at /opt/Bitwarden/resources/app.asar/main.js:49895:71
+    at new Promise (<anonymous>)
