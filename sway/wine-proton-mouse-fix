@@ -1,0 +1,7 @@
+#!/bin/bash
+
+laptop=eDP-2
+external_disp=HDMI-A-1
+
+swaymsg output $laptop mode 1920x1080@165.00hz pos 0 0 adaptive_sync on
+swaymsg output $external_disp mode 1920x1080@60.0Hz pos 0 1080 adaptive_sync off

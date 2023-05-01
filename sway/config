@@ -1,0 +1,317 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $xpen otd-gui
+# Your preferred terminal emulator
+set $term alacritty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu rofi -show drun | xargs swaymsg exec --
+set $appswitcher rofi -show window | xargs swaymsg exec --
+#Suspend Script laptop lid
+set $script_lid /home/mrduarte/.config/sway/set-displays-swayidle.sh
+#set $menu nwg-drawer
+exec_always kdeconnect-indicator
+exec_always polychromatic-tray-applet
+exec_always autotiling
+#exec_always $script_lid
+exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+exec_always /usr/bin/polkit-dumb-agent
+exec_always optimus-manager-qt
+
+###Borders
+#
+default_border none
+default_floating_border none
+
+### Output configuration
+#
+#Display Set
+set $laptop eDP-2
+set $external_disp HDMI-A-1
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/mrduarte/Pictures/wallpapers/DSC_01.heic fill
+output $laptop mode 1920x1080@165.00Hz pos 0 1080 adaptive_sync on render_bit_depth 10
+output $external_disp mode 1920x1080 pos 0 0 adaptive_sync off
+
+#XWayland WINE & PRONTON MOUSE FIX (Set XWAYLAND0 as primary display and XWAYLAND1 as secundary)
+#xwayland force
+exec_always xrandr --output XWAYLAND0 --primary
+
+### Clamshell Mode configuration
+# AKA Closed Display mode.
+# This mode is where your laptop lid is closed and you have external monitor(s) as outputs
+#bindswitch --reload --locked lid:on output $laptop exec $script_lid
+
+#bindswitch --reload --locked lid:off output $laptop enable
+
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+# default layout
+    input 1165:49409:ITE_Tech._Inc._ITE_Device(8910)_Keyboard {
+        xkb_layout pt
+        xkb_model 105
+    }
+
+# custom layout for an external keyboard
+    input 7847:2311:SEMITEK_USB-HID_Gaming_Keyboard {
+        xkb_layout us
+    }
+
+    input 1267:12765:MSFT0001:00_04F3:31DD_Touchpad {
+        left_handed enable
+        click_method clickfinger
+        tap enabled
+        natural_scroll disabled
+        dwt enabled
+        accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+        pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
+    }
+
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+Shift+Return exec $menu
+
+    #Start Common Apps
+    set $discord discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+    bindsym $mod+b exec firefox
+    bindsym $mod+d exec $discord
+    bindsym $mod+w exec whatsapp-for-linux
+    bindsym $mod+p exec okular
+    bindsym $mod+x exec xournalpp
+    bindsym $mod+shift+x exec $xpen
+    bindsym $mod+l exec libreoffice
+    bindsym $mod+m exec tidal-hifi
+    bindsym $mod+Shift+m exec strawberry
+    bindsym $mod+f exec pcmanfm
+    bindsym Print exec sway-interactive-screenshot
+    # For Spotify or Apple Musicc
+    # bindsys $mod+m cider
+    # bindsys $mod+m spotify
+    bindsym $mod+Shift+q exec $screenlock
+    #Alt+Tab Feature
+    bindsym Control+Alt+tab exec $appswitcher
+    
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # Exit sway and ask if you want to turn off the computer (logs you out of your Wayland session)
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym Mod4+shift+e exec swaynag \
+        -t warning \
+        -m 'What do you want to do? (This will end your Wayland session.)' \
+        -b 'Yes, exit sway' 'swaymsg exit' \
+        -b 'Hibernate' 'systemctl hibernate' \
+        -b 'Hybrid Sleep' 'systemctl hybrid-sleep' \
+        -b 'Poweroff' 'swaymsg exit & systemctl poweroff' \
+        -b 'Reboot' 'swaymsg exit & systemctl reboot'
+
+    #Brithness, Volume, & Mic & Media Controls
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+#
+# Moving around:
+#
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # move focused window
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+
+#
+# Workspaces:
+#
+    #Set Workspace Laptop Monitor
+    workspace 1 output $laptop 
+    workspace 2 output $laptop
+    workspace 3 output $laptop
+    workspace 4 output $laptop
+    workspace 5 output $laptop
+    workspace 6 output $laptop
+    workspace 7 output $laptop
+    workspace 8 output $laptop 
+    workspace 9 output $laptop
+    workspace 10 output $laptop
+
+    # Switch to workspace Laptop
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+
+    # Move focused container to workspace Laptop
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+
+    #Set Workspace External Monitor
+    workspace 11 output $external_disp
+    workspace 12 output $external_disp
+    workspace 13 output $external_disp
+    workspace 14 output $external_disp
+    workspace 15 output $external_disp
+    workspace 16 output $external_disp
+    workspace 17 output $external_disp
+    workspace 18 output $external_disp
+    workspace 19 output $external_disp
+    workspace 20 output $external_disp
+
+    # Switch to workspace External Monitor
+    bindsym $mod+F1 workspace number 11
+    bindsym $mod+F2 workspace number 12
+    bindsym $mod+F3 workspace number 13
+    bindsym $mod+F4 workspace number 14
+    bindsym $mod+F5 workspace number 15
+    bindsym $mod+F6 workspace number 16
+    bindsym $mod+F7 workspace number 17
+    bindsym $mod+F8 workspace number 18
+    bindsym $mod+F9 workspace number 19
+    bindsym $mod+F10 workspace number 20
+
+    # Move focused container to workspace External Display
+    bindsym $mod+Shift+F1 move container to workspace number 11
+    bindsym $mod+Shift+F2 move container to workspace number 12
+    bindsym $mod+Shift+F3 move container to workspace number 13
+    bindsym $mod+Shift+F4 move container to workspace number 14
+    bindsym $mod+Shift+F5 move container to workspace number 15
+    bindsym $mod+Shift+F6 move container to workspace number 16
+    bindsym $mod+Shift+F7 move container to workspace number 17
+    bindsym $mod+Shift+F8 move container to workspace number 18
+    bindsym $mod+Shift+F9 move container to workspace number 19
+    bindsym $mod+Shift+F10 move container to workspace number 20
+
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+h or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+t layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+Shift+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+Shift+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+bar {
+     swaybar_command waybar
+}
+include /etc/sway/config.d/*

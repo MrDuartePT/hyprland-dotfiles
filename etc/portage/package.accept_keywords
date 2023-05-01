@@ -1,0 +1,22 @@
+gui-libs/xdg-desktop-portal-hyprland **
+=dev-qt/qtbase-6.4.0
+=dev-qt/qtwayland-6.4.0
+=dev-qt/qtdeclarative-6.4.0
+=dev-qt/qtshadertools-6.4.0
+=gui-apps/cliphist-9999 **
+=games-util/mangohud-9999-r6 **
+>=dev-qt/qtwebengine-5.15.8_p20230112::gentoo
+=games-util/gamescope-9999 **
+=sys-power/auto-cpufreq-1.9.6::guru
+=gui-apps/waybar-9999::gentoo
+=gui-wm/cage-9999 **
+=app-emulation/looking-glass-9999 **
+=gui-apps/waybar-9999 **
+=sys-firmware/lenovolegionlinux-9999 **
+=app-misc/legion-fan-utils-linux-9999 **
+=gui-wm/hyprland-9999-r4 **
+=app-misc/onedrivegui-9999 **
+=app-misc/hyprland-contrib-9999 **
+=gui-apps/gtklock-extras-9999 **
+=app-misc/onedrivegui-9999 **
+=app-misc/polychromatic-9999 **

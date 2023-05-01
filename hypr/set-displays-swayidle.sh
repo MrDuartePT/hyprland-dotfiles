@@ -40,8 +40,8 @@ hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
 
 ## GTKLock command
 swayidle -w \
-  timeout $time_1 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
-  timeout $time_2 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
+  timeout $time_1 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png' \
+  timeout $time_2 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png && hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
   timeout $time_3 'systemctl suspend' \
   before-sleep 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' &
 

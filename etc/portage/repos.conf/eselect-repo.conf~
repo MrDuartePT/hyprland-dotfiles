@@ -1,0 +1,153 @@
+# created by eselect-repo
+
+[brother-overlay]
+location = /var/db/repos/brother-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/brother-overlay.git
+
+
+[mv]
+location = /var/db/repos/mv
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/mv.git
+
+
+[vaacus]
+location = /var/db/repos/vaacus
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/vaacus.git
+
+[cg]
+location = /var/db/repos/cg
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/cg.git
+
+
+[gentoo-zh]
+location = /var/db/repos/gentoo-zh
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/gentoo-zh.git
+
+
+[nest]
+location = /var/db/repos/nest
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/nest.git
+
+
+[tatsh-overlay]
+location = /var/db/repos/tatsh-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/tatsh-overlay.git
+
+
+[vifino-overlay]
+location = /var/db/repos/vifino-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/vifino-overlay.git
+
+
+[dlang]
+location = /var/db/repos/dlang
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/dlang.git
+
+
+[guru]
+location = /var/db/repos/guru
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/guru.git
+
+
+[pentoo]
+location = /var/db/repos/pentoo
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/pentoo.git
+
+
+[waffle-builds]
+location = /var/db/repos/waffle-builds
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/waffle-builds.git
+
+
+[farmboy0]
+location = /var/db/repos/farmboy0
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/farmboy0.git
+
+
+[lto-overlay]
+location = /var/db/repos/lto-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/lto-overlay.git
+
+
+[robertgzr]
+location = /var/db/repos/robertgzr
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/robertgzr.git
+
+
+[thegreatmcpain]
+location = /var/db/repos/thegreatmcpain
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/thegreatmcpain.git
+
+
+[wayland-desktop]
+location = /var/db/repos/wayland-desktop
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/wayland-desktop.git
+
+
+[fictitiousexistence]
+location = /var/db/repos/fictitiousexistence
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/fictitiousexistence.git
+
+
+[steam-overlay]
+location = /var/db/repos/steam-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/steam-overlay.git
+
+
+[zGentoo]
+location = /var/db/repos/zGentoo
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/zGentoo.git
+
+[swirl]
+location = /var/db/repos/swirl
+sync-type = git
+sync-uri = https://github.com/binex-dsk/ebuilds
+
+
+[useless-overlay]
+location = /var/db/repos/useless-overlay
+sync-type = git
+sync-uri = https://github.com/Wa1t5/useless-overlay.git
+priority = 100
+
+[The-Anime-Game]
+location = /var/db/repos/theanimegame
+sync-type = git
+sync-uri = https://github.com/an-anime-team/aagl-ebuilds.git
+priority = 100
+
+[librewolf]
+location = /var/db/repos/librewolf
+sync-type = git
+sync-uri = https://gitlab.com/librewolf-community/browser/gentoo.git
+
+[simonvanderveldt]
+# Use the location where you store your overlays
+location = /usr/local/overlay/simonvanderveldt
+sync-type = git
+sync-uri = https://github.com/simonvanderveldt/simonvanderveldt-overlay.git
+auto-sync = yes
+
+
+[mrduarte-ebuilds]
+location = /var/db/repos/mrduarte-ebuilds

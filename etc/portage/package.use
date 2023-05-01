@@ -1,0 +1,323 @@
+>=app-text/poppler-23.03.0 cairo
+>=x11-libs/libdrm-2.4.115 video_cards_radeon video_cards_amdgpu
+>=app-cdr/cdrtools-99999999 schily-tools
+media-fonts/nerd-fonts X 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono cascadiacode codenewroman cousine daddytimemono dejavusansmono droidsansmono fantasquesansmono firacode firamono go-mono gohu hack hasklig heavydata hermit ia-writer ibmplexmono inconsolata inconsolatago inconsolatalgc iosevka jetbrainsmono lekton liberationmono lilex meslo monofur monoid mononoki mplus noto opendyslexic overpass profont proggyclean robotomono sharetechmono sourcecodepro spacemono symbols terminus tinos ubuntu ubuntumono victormono
+dev-python/PyQt5 gui widgets
+media-libs/libsdl2 gles2
+>=dev-libs/libxml2-2.10.3-r1 icu
+>=sys-libs/zlib-1.2.13-r1 minizip abi_x86_32
+>=dev-python/PyQt5-5.15.9 svg network webchannel printsupport
+>=dev-qt/qtwebengine-5.15.8_p20230313 widgets jumbo-build jumbo-frames
+>=dev-qt/qtwebchannel-5.15.8 qml
+>=media-video/ffmpeg-4.4.3 x264 fdk abi_x86_32
+>=dev-libs/boost-1.81.0-r1 icu
+>=media-libs/gegl-0.4.42-r1 cairo
+>=dev-qt/qtmultimedia-5.15.8 qml
+>=kde-frameworks/sonnet-5.105.0 qml
+>=kde-frameworks/kconfig-5.105.0 qml
+>=dev-qt/qtcore-5.15.8-r4 icu
+>=app-text/poppler-23.03.0 qt5 nss
+>=media-video/vlc-3.0.18 ogg
+>=media-plugins/gst-plugins-meta-1.20.5 vorbis ogg abi_x86_32
+
+>=gui-libs/gtk-layer-shell-0.8.0 introspection
+
+>=x11-drivers/nvidia-drivers-530.41.03 abi_x86_32
+
+>=media-libs/libglvnd-1.6.0 abi_x86_32
+
+>=x11-libs/libX11-1.8.4-r1 abi_x86_32
+
+>=x11-libs/libXext-1.3.5 abi_x86_32
+
+>=x11-libs/libxcb-1.15-r1 abi_x86_32
+
+>=x11-libs/libXau-1.0.11 abi_x86_32
+
+>=x11-libs/libXdmcp-1.1.4-r2 abi_x86_32
+
+>=x11-libs/gdk-pixbuf-2.42.10-r1 jpeg
+
+>=media-libs/harfbuzz-7.1.0 icu
+
+>=net-dns/dnsmasq-2.89 script
+
+>=net-libs/gnutls-3.8.0 tools pkcs11 abi_x86_32
+
+>=sys-libs/libcap-2.68 static-libs abi_x86_32
+
+>=dev-ruby/minitest-5.18.0 ruby_targets_ruby31
+
+>=dev-ruby/power_assert-2.0.3 ruby_targets_ruby31
+>=dev-ruby/rake-13.0.6-r1 ruby_targets_ruby31
+>=dev-ruby/rbs-3.0.4 ruby_targets_ruby31
+>=dev-ruby/rexml-3.2.5-r1 ruby_targets_ruby31
+>=dev-ruby/rss-0.2.9-r1 ruby_targets_ruby31
+>=dev-ruby/test-unit-3.5.7 ruby_targets_ruby31
+>=dev-ruby/typeprof-0.21.7 ruby_targets_ruby31
+>=dev-ruby/bundler-2.4.6 ruby_targets_ruby31
+>=dev-ruby/did_you_mean-1.6.3 ruby_targets_ruby31
+>=dev-ruby/json-2.6.3 ruby_targets_ruby31
+>=dev-ruby/rdoc-6.5.0 ruby_targets_ruby31
+>=virtual/rubygems-18 ruby_targets_ruby31
+>=dev-ruby/rubygems-3.4.6 ruby_targets_ruby31
+>=x11-libs/libXcursor-1.2.1 abi_x86_32
+>=x11-libs/libXfixes-6.0.0 abi_x86_32
+>=x11-libs/libXi-1.8 abi_x86_32
+>=x11-libs/libXrandr-1.5.3 abi_x86_32
+>=x11-libs/libXrender-0.9.11 abi_x86_32
+>=x11-libs/libXxf86vm-1.1.5 abi_x86_32
+>=x11-libs/libXcomposite-0.4.6 abi_x86_32
+>=net-print/cups-2.4.2-r7 abi_x86_32
+
+>=media-libs/fontconfig-2.14.2 abi_x86_32
+>=media-libs/libsdl2-2.26.3 abi_x86_32 haptic
+>=media-libs/freetype-2.13.0 abi_x86_32
+>=media-libs/libv4l-1.24.1 abi_x86_32
+
+>=media-libs/vulkan-loader-1.3.243 abi_x86_32
+
+>=media-libs/alsa-lib-1.2.8-r1 abi_x86_32
+>=dev-libs/glib-2.76.1 abi_x86_32
+>=media-libs/gst-plugins-base-1.20.5 abi_x86_32
+>=media-libs/gstreamer-1.20.5 abi_x86_32
+
+>=media-gfx/sane-backends-1.2.1 abi_x86_32
+>=sys-libs/libunwind-1.6.2-r1 abi_x86_32
+
+
+>=dev-libs/wayland-1.21.0-r1 abi_x86_32
+>=dev-libs/libffi-3.4.4-r1 abi_x86_32
+>=media-libs/libjpeg-turbo-2.1.5.1 abi_x86_32
+>=media-libs/tiff-4.5.0-r2 abi_x86_32
+
+>=net-dns/avahi-0.8-r7 abi_x86_32
+>=net-misc/curl-8.0.1 abi_x86_32
+
+>=net-dns/c-ares-1.19.0 abi_x86_32
+>=net-libs/nghttp2-1.52.0 abi_x86_32
+
+>=dev-libs/openssl-3.0.8-r3 abi_x86_32
+>=dev-libs/libevent-2.1.12-r1 abi_x86_32
+>=sys-libs/gdbm-1.23 abi_x86_32
+
+>=sys-apps/dbus-1.15.4 abi_x86_32
+>=sys-libs/readline-8.2_p1 abi_x86_32
+>=sys-libs/ncurses-6.4 abi_x86_32
+
+>=dev-libs/libpcre2-10.42-r1 abi_x86_32
+>=sys-apps/util-linux-2.38.1-r2 abi_x86_32
+>=app-arch/bzip2-1.0.8-r4 abi_x86_32
+>=media-libs/libpng-1.6.39 abi_x86_32
+>=dev-libs/expat-2.5.0 abi_x86_32
+>=virtual/libintl-0-r2 abi_x86_32
+>=virtual/libiconv-0-r2 abi_x86_32
+>=virtual/libudev-232-r7 abi_x86_32
+>=sys-apps/systemd-253.3 abi_x86_32 gnuefi
+>=dev-libs/libgcrypt-1.10.2 abi_x86_32
+>=app-arch/lz4-1.9.4 abi_x86_32
+>=sys-libs/pam-1.5.2-r3 abi_x86_32
+>=app-arch/zstd-1.5.5 abi_x86_32
+>=dev-libs/libgpg-error-1.47 abi_x86_32
+>=virtual/opengl-7.0-r2 abi_x86_32
+
+>=media-libs/mesa-23.0.1 abi_x86_32
+>=sys-apps/lm-sensors-3.6.0-r1 abi_x86_32
+>=media-libs/libva-2.18.0 abi_x86_32
+>=x11-libs/libvdpau-1.5 abi_x86_32
+>=x11-libs/libdrm-2.4.115 abi_x86_32
+>=x11-libs/libxshmfence-1.3.2 abi_x86_32
+>=sys-devel/llvm-16.0.1 abi_x86_32
+>=virtual/libelf-3-r1 abi_x86_32
+
+>=dev-libs/elfutils-0.189-r1 abi_x86_32
+
+>=media-libs/libogg-1.3.5-r1 abi_x86_32
+>=x11-libs/pango-1.50.14 abi_x86_32
+>=media-libs/libvorbis-1.3.7-r1 abi_x86_32
+>=x11-libs/libXv-1.0.12 abi_x86_32
+>=media-libs/graphene-1.10.8 abi_x86_32
+>=dev-libs/fribidi-1.0.12 abi_x86_32
+>=media-libs/harfbuzz-7.1.0 abi_x86_32
+>=x11-libs/cairo-1.17.8 abi_x86_32
+>=x11-libs/libXft-2.3.6 abi_x86_32
+>=dev-libs/lzo-2.10 abi_x86_32
+>=x11-libs/pixman-0.42.2 abi_x86_32
+>=media-gfx/graphite2-1.3.14_p20210810-r3 abi_x86_32
+>=dev-libs/icu-72.1 abi_x86_32
+>=dev-libs/libtasn1-4.19.0 abi_x86_32
+>=dev-libs/libunistring-1.1-r1 abi_x86_32
+>=dev-libs/nettle-3.8.1 abi_x86_32
+>=dev-libs/gmp-6.2.1-r5 abi_x86_32
+>=app-crypt/p11-kit-0.24.1-r1 abi_x86_32
+>=net-dns/libidn2-2.3.4 abi_x86_32
+>=media-libs/gst-plugins-good-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-libav-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-flac-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-v4l2-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-vaapi-1.20.5 abi_x86_32
+
+>=media-libs/gst-plugins-bad-1.20.5-r1 abi_x86_32
+>=dev-libs/libgudev-237-r1 abi_x86_32
+>=media-libs/flac-1.4.2-r1 abi_x86_32
+>=media-video/pipewire-0.3.68 abi_x86_32
+>=x11-libs/libxkbcommon-1.5.0 abi_x86_32
+>=dev-libs/libxml2-2.10.3-r1 abi_x86_32
+>=virtual/glu-9.0-r2 abi_x86_32
+>=media-libs/glu-9.0.2 abi_x86_32
+>=dev-ruby/psych-5.1.0 ruby_targets_ruby31
+>=dev-ruby/kpeg-1.3.3 ruby_targets_ruby31
+>=dev-ruby/racc-1.6.2 ruby_targets_ruby31
+>=dev-ruby/stringio-3.0.5 ruby_targets_ruby31
+>=virtual/ruby-ssl-13 ruby_targets_ruby31
+>=media-plugins/gst-plugins-cdparanoia-1.20.5 abi_x86_32
+
+>=media-sound/cdparanoia-3.10.2-r7 abi_x86_32
+dev-qt/qtbase opengl egl eglfs gles2-only
+dev-qt/qtdeclarative opengl
+gui-wm/hyprland X systemd vulkan
+gui-libs/xdg-desktop-portal-hyprland select-window select-region
+sys-apps/xdg-desktop-portal screencast
+gui-libs/wlroots X hwdata seatd udev vulkan x11-backend -tinywl
+
+>=media-libs/dav1d-1.1.0 abi_x86_32
+
+>=media-libs/x264-0.0.20220222 abi_x86_32
+
+>=media-libs/fdk-aac-2.0.2 abi_x86_32
+
+>=dev-libs/openssl-1.1.1t-r3 abi_x86_32
+
+net-libs/webkit-gtk jumbo-build
+
+#For onedrive client
+net-misc/onedrive debug libnotify dmd-2_099 ldc2-1_3
+dev-lang/ldc2 dmd-2_099
+
+>=x11-libs/libfm-1.3.2 gtk
+
+#wine
+virtual/wine proton staging
+app-emulation/wine-staging X wayland dos fontconfig llvm-libunwind gecko alsa gstreamer mono net-api opencl opengl onmesa sdl v4l vulkan xinerama abi_x86_32
+app-emulation/wine-proton X wayland fontconfig llvm-libunwind gecko alsa gstreamer onmesa sdl v4l vulkan xinerama abi_x86_32
+>=app-emulation/vkd3d-1.7 abi_x86_32
+games-util/gamemode systemd
+gui-wm/gamescope wsi-layer
+>=x11-libs/libXinerama-1.1.5 abi_x86_32
+>=virtual/opencl-3-r2 abi_x86_32
+>=dev-libs/opencl-icd-loader-2023.02.06 abi_x86_32
+>=x11-drivers/nvidia-drivers-525.105.17 abi_x86_32 persistenced
+
+#obs
+media-video/obs-studio browser pipewire pulseaudio python vlc websocket alsa nvenc truetype v4l wayland
+media-video/pipewire echo-cancel jack-client system-service bluetooth ffmpeg gstreamer v4l sound-server extra
+#libvirt and qemu
+app-emulation/libvirt firewalld lvm lxc numa qemu virt-network virtualbox
+app-emulation/virt-manager gui policykit 
+app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs opengl jack
+>=net-misc/spice-gtk-0.42 usbredir
+>=sys-fs/lvm2-2.03.20 lvm
+>=net-firewall/nftables-1.0.7-r1 xtables json python
+>=media-libs/freetype-2.13.0 harfbuzz
+
+#tpm2-tss
+app-crypt/tpm2-tss fapi openssl
+
+#desktop
+x11-terms/alacritty wayland debug X
+x11-misc/rofi drun windowmode
+app-admin/doas persist
+gui-apps/waybar hyprland evdev popups udev experimental mpd mpris popups udev upower pipewire network sndio tray wifi -libcxx jack libinput
+>=dev-libs/libdbusmenu-16.04.0-r2 gtk3
+app-crypt/pinentry gnome-keyring gtk 
+>=app-misc/openrazer-3.3.0 client daemon
+>=sys-libs/gpm-1.20.7-r5 abi_x86_32
+>=x11-libs/gtk+-3.24.37 abi_x86_32
+>=media-libs/libepoxy-1.5.10-r1 abi_x86_32
+>=x11-libs/gdk-pixbuf-2.42.10-r1 abi_x86_32
+>=x11-misc/colord-1.4.6-r1 abi_x86_32
+>=x11-libs/libXdamage-1.1.6 abi_x86_32
+>=media-libs/lcms-2.15 abi_x86_32
+>=dev-db/sqlite-3.41.2-r1 abi_x86_32
+>=dev-libs/libgusb-0.4.5 abi_x86_32
+>=dev-libs/json-glib-1.6.6-r1 abi_x86_32
+>=dev-lang/orc-0.4.33 abi_x86_32
+>=media-sound/lame-3.100-r3 abi_x86_32
+>=media-libs/xvid-1.3.7-r1 abi_x86_32
+>=gnome-base/librsvg-2.56.0 abi_x86_32
+>=dev-qt/qtmultimedia-5.15.8 widgets
+>=media-plugins/gst-plugins-faad-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-dts-1.20.5 abi_x86_32
+>=media-libs/gst-plugins-ugly-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-a52dec-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-dvdread-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-mpeg2dec-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-resindvd-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-mpg123-1.20.5 abi_x86_32
+>=media-plugins/gst-plugins-x264-1.20.5 abi_x86_32
+>=media-sound/mpg123-1.31.3 abi_x86_32
+>=media-libs/libdvdnav-6.1.1 abi_x86_32
+>=media-libs/libdvdread-6.1.3 abi_x86_32
+>=media-libs/libdvdcss-1.4.3 abi_x86_32
+>=media-libs/libmpeg2-0.5.1-r3 abi_x86_32
+>=media-libs/libdca-0.0.7 abi_x86_32
+>=media-libs/faad2-2.10.1 abi_x86_32
+>=media-libs/a52dec-0.7.4-r8 abi_x86_32
+>=dev-libs/libusb-1.0.26 abi_x86_32
+>=virtual/rust-1.68.2 abi_x86_32
+>=dev-lang/rust-bin-1.68.2-r1 abi_x86_32
+>=virtual/libusb-1-r2 abi_x86_32
+>=virtual/jpeg-100-r1 abi_x86_32
+app-crypt/tpm2-tools fapi
+app-crypt/tpm2-tss fapi openssl
+>=app-accessibility/at-spi2-core-2.48.0 abi_x86_32
+>=x11-libs/libXtst-1.2.4 abi_x86_32
+
+#GIMP gtk flag
+>=media-gfx/gimp-2.10.34-r1:0/2::gentoo gtk
+
+#Octave (free [from freedom] Matlab)
+sci-mathematics/octave curl doc fftw fltk glpk gnuplot gui hdf5 imagemagick java opengl portaudio postscript qhull readline sndfile sparse ssl sundials zlib qrupdate json
+
+media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau vulkan vulkan-overlay wayland
+>=sys-devel/clang-16.0.1 abi_x86_32
+
+dev-qt/qtgui jpeg vulkan wayland libinput
+games-util/mangohud abi_x86_32
+>=dev-libs/libfmt-8.1.1-r1 abi_x86_32
+>=dev-libs/spdlog-1.11.0 abi_x86_32
+>=gui-libs/wlroots-0.16.2 x11-backend
+
+#librewolf
+www-client/librewolf wayland clang dbus geckodriver gmp-autoupdate hwaccel lto openh264 screencast sndio system-av1 system-jpeg system-png system-python-libs system-webp wifi
+>=media-libs/libpng-1.6.39 apng
+>=media-libs/libvpx-1.12.0-r1 postproc
+
+#Firefox
+www-client/firefox wayland clang dbus geckodriver gmp-autoupdate hwaccel lto openh264 screencast sndio system-av1 system-jpeg system-png system-python-libs system-webp wifi
+
+#vulkan
+media-libs/vulkan-loader layers X wayland
+>=media-libs/vulkan-layers-1.3.243 abi_x86_32
+>=dev-util/spirv-tools-1.3.243 abi_x86_32
+>=dev-util/glslang-1.3.243 abi_x86_32
+
+media-sound/spotify libnotify 
+
+#GWE
+>=dev-python/pillow-9.5.0 webp
+>=dev-libs/libpcre2-10.42-r1 pcre32
+
+dev-lang/python tk
+
+sys-firmware/lenovolegionlinux python
+
+app-misc/legion-fan-utils-linux downgrade-nvidia
+dev-python/pyside6 gles2-only
+dev-python/pyside6 widgets webengine quick webchannel qml
+
+>=gui-libs/wlroots-0.16.2 tinywl
+>=x11-base/xorg-server-21.1.8 xvfb
+app-misc/hyprland-contrib grimblast scratchpad shellevents hyprprop
+gui-apps/gtklock-extras playerctl powerbar userinfo
+net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer

@@ -1,0 +1,11 @@
+>=dev-qt/qtshadertools-6.4.0
+>=dev-qt/qtdeclarative-6.4.0
+>=dev-qt/qtbase-6.4.0
+>=dev-qt/qtwayland-6.4.0
+=gui-apps/waybar-9999 
+=dev-python/shiboken6-6.4.3
+=dev-python/pyside6-6.4.3
+=dev-qt/qtsvg-6.4.3
+=dev-qt/qtwebchannel-6.4.3
+=dev-qt/qtwebengine-6.4.3
+=dev-qt/qtwebsockets-6.4.3
