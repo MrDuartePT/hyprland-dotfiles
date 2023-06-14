@@ -1,0 +1,2 @@
+virtual/wine -staging
+media-gfx/blender -cuda
