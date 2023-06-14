@@ -1,15 +1,16 @@
->=app-text/poppler-23.03.0 cairo
+sys-devel/gcc lto pgo graphite
+>=app-text/poppler-23.03.0 caizro
 >=x11-libs/libdrm-2.4.115 video_cards_radeon video_cards_amdgpu
 >=app-cdr/cdrtools-99999999 schily-tools
 media-fonts/nerd-fonts X 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono cascadiacode codenewroman cousine daddytimemono dejavusansmono droidsansmono fantasquesansmono firacode firamono go-mono gohu hack hasklig heavydata hermit ia-writer ibmplexmono inconsolata inconsolatago inconsolatalgc iosevka jetbrainsmono lekton liberationmono lilex meslo monofur monoid mononoki mplus noto opendyslexic overpass profont proggyclean robotomono sharetechmono sourcecodepro spacemono symbols terminus tinos ubuntu ubuntumono victormono
 dev-python/PyQt5 gui widgets
-media-libs/libsdl2 gles2
+media-libs/libsdl2 gles2 pipewire
 >=dev-libs/libxml2-2.10.3-r1 icu
 >=sys-libs/zlib-1.2.13-r1 minizip abi_x86_32
 >=dev-python/PyQt5-5.15.9 svg network webchannel printsupport
 >=dev-qt/qtwebengine-5.15.8_p20230313 widgets jumbo-build jumbo-frames
 >=dev-qt/qtwebchannel-5.15.8 qml
->=media-video/ffmpeg-4.4.3 x264 fdk abi_x86_32
+>=media-video/ffmpeg-4.4.3 x264 fdk abi_x86_32 sdl
 >=dev-libs/boost-1.81.0-r1 icu
 >=media-libs/gegl-0.4.42-r1 cairo
 >=dev-qt/qtmultimedia-5.15.8 qml
@@ -18,176 +19,17 @@ media-libs/libsdl2 gles2
 >=dev-qt/qtcore-5.15.8-r4 icu
 >=app-text/poppler-23.03.0 qt5 nss
 >=media-video/vlc-3.0.18 ogg
->=media-plugins/gst-plugins-meta-1.20.5 vorbis ogg abi_x86_32
+media-video/pipewire ffmpeg echo-cancel v4l
 
->=gui-libs/gtk-layer-shell-0.8.0 introspection
-
->=x11-drivers/nvidia-drivers-530.41.03 abi_x86_32
-
->=media-libs/libglvnd-1.6.0 abi_x86_32
-
->=x11-libs/libX11-1.8.4-r1 abi_x86_32
-
->=x11-libs/libXext-1.3.5 abi_x86_32
-
->=x11-libs/libxcb-1.15-r1 abi_x86_32
-
->=x11-libs/libXau-1.0.11 abi_x86_32
-
->=x11-libs/libXdmcp-1.1.4-r2 abi_x86_32
-
->=x11-libs/gdk-pixbuf-2.42.10-r1 jpeg
-
->=media-libs/harfbuzz-7.1.0 icu
-
->=net-dns/dnsmasq-2.89 script
-
->=net-libs/gnutls-3.8.0 tools pkcs11 abi_x86_32
-
->=sys-libs/libcap-2.68 static-libs abi_x86_32
-
->=dev-ruby/minitest-5.18.0 ruby_targets_ruby31
-
->=dev-ruby/power_assert-2.0.3 ruby_targets_ruby31
->=dev-ruby/rake-13.0.6-r1 ruby_targets_ruby31
->=dev-ruby/rbs-3.0.4 ruby_targets_ruby31
->=dev-ruby/rexml-3.2.5-r1 ruby_targets_ruby31
->=dev-ruby/rss-0.2.9-r1 ruby_targets_ruby31
->=dev-ruby/test-unit-3.5.7 ruby_targets_ruby31
->=dev-ruby/typeprof-0.21.7 ruby_targets_ruby31
->=dev-ruby/bundler-2.4.6 ruby_targets_ruby31
->=dev-ruby/did_you_mean-1.6.3 ruby_targets_ruby31
->=dev-ruby/json-2.6.3 ruby_targets_ruby31
->=dev-ruby/rdoc-6.5.0 ruby_targets_ruby31
->=virtual/rubygems-18 ruby_targets_ruby31
->=dev-ruby/rubygems-3.4.6 ruby_targets_ruby31
->=x11-libs/libXcursor-1.2.1 abi_x86_32
->=x11-libs/libXfixes-6.0.0 abi_x86_32
->=x11-libs/libXi-1.8 abi_x86_32
->=x11-libs/libXrandr-1.5.3 abi_x86_32
->=x11-libs/libXrender-0.9.11 abi_x86_32
->=x11-libs/libXxf86vm-1.1.5 abi_x86_32
->=x11-libs/libXcomposite-0.4.6 abi_x86_32
->=net-print/cups-2.4.2-r7 abi_x86_32
-
->=media-libs/fontconfig-2.14.2 abi_x86_32
->=media-libs/libsdl2-2.26.3 abi_x86_32 haptic
->=media-libs/freetype-2.13.0 abi_x86_32
->=media-libs/libv4l-1.24.1 abi_x86_32
-
->=media-libs/vulkan-loader-1.3.243 abi_x86_32
-
->=media-libs/alsa-lib-1.2.8-r1 abi_x86_32
->=dev-libs/glib-2.76.1 abi_x86_32
->=media-libs/gst-plugins-base-1.20.5 abi_x86_32
->=media-libs/gstreamer-1.20.5 abi_x86_32
-
->=media-gfx/sane-backends-1.2.1 abi_x86_32
->=sys-libs/libunwind-1.6.2-r1 abi_x86_32
-
-
->=dev-libs/wayland-1.21.0-r1 abi_x86_32
->=dev-libs/libffi-3.4.4-r1 abi_x86_32
->=media-libs/libjpeg-turbo-2.1.5.1 abi_x86_32
->=media-libs/tiff-4.5.0-r2 abi_x86_32
-
->=net-dns/avahi-0.8-r7 abi_x86_32
->=net-misc/curl-8.0.1 abi_x86_32
-
->=net-dns/c-ares-1.19.0 abi_x86_32
->=net-libs/nghttp2-1.52.0 abi_x86_32
-
->=dev-libs/openssl-3.0.8-r3 abi_x86_32
->=dev-libs/libevent-2.1.12-r1 abi_x86_32
->=sys-libs/gdbm-1.23 abi_x86_32
-
->=sys-apps/dbus-1.15.4 abi_x86_32
->=sys-libs/readline-8.2_p1 abi_x86_32
->=sys-libs/ncurses-6.4 abi_x86_32
-
->=dev-libs/libpcre2-10.42-r1 abi_x86_32
->=sys-apps/util-linux-2.38.1-r2 abi_x86_32
->=app-arch/bzip2-1.0.8-r4 abi_x86_32
->=media-libs/libpng-1.6.39 abi_x86_32
->=dev-libs/expat-2.5.0 abi_x86_32
->=virtual/libintl-0-r2 abi_x86_32
->=virtual/libiconv-0-r2 abi_x86_32
->=virtual/libudev-232-r7 abi_x86_32
->=sys-apps/systemd-253.3 abi_x86_32 gnuefi
->=dev-libs/libgcrypt-1.10.2 abi_x86_32
->=app-arch/lz4-1.9.4 abi_x86_32
->=sys-libs/pam-1.5.2-r3 abi_x86_32
->=app-arch/zstd-1.5.5 abi_x86_32
->=dev-libs/libgpg-error-1.47 abi_x86_32
->=virtual/opengl-7.0-r2 abi_x86_32
-
->=media-libs/mesa-23.0.1 abi_x86_32
->=sys-apps/lm-sensors-3.6.0-r1 abi_x86_32
->=media-libs/libva-2.18.0 abi_x86_32
->=x11-libs/libvdpau-1.5 abi_x86_32
->=x11-libs/libdrm-2.4.115 abi_x86_32
->=x11-libs/libxshmfence-1.3.2 abi_x86_32
->=sys-devel/llvm-16.0.1 abi_x86_32
->=virtual/libelf-3-r1 abi_x86_32
-
->=dev-libs/elfutils-0.189-r1 abi_x86_32
-
->=media-libs/libogg-1.3.5-r1 abi_x86_32
->=x11-libs/pango-1.50.14 abi_x86_32
->=media-libs/libvorbis-1.3.7-r1 abi_x86_32
->=x11-libs/libXv-1.0.12 abi_x86_32
->=media-libs/graphene-1.10.8 abi_x86_32
->=dev-libs/fribidi-1.0.12 abi_x86_32
->=media-libs/harfbuzz-7.1.0 abi_x86_32
->=x11-libs/cairo-1.17.8 abi_x86_32
->=x11-libs/libXft-2.3.6 abi_x86_32
->=dev-libs/lzo-2.10 abi_x86_32
->=x11-libs/pixman-0.42.2 abi_x86_32
->=media-gfx/graphite2-1.3.14_p20210810-r3 abi_x86_32
->=dev-libs/icu-72.1 abi_x86_32
->=dev-libs/libtasn1-4.19.0 abi_x86_32
->=dev-libs/libunistring-1.1-r1 abi_x86_32
->=dev-libs/nettle-3.8.1 abi_x86_32
->=dev-libs/gmp-6.2.1-r5 abi_x86_32
->=app-crypt/p11-kit-0.24.1-r1 abi_x86_32
->=net-dns/libidn2-2.3.4 abi_x86_32
->=media-libs/gst-plugins-good-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-libav-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-flac-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-v4l2-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-vaapi-1.20.5 abi_x86_32
-
->=media-libs/gst-plugins-bad-1.20.5-r1 abi_x86_32
->=dev-libs/libgudev-237-r1 abi_x86_32
->=media-libs/flac-1.4.2-r1 abi_x86_32
->=media-video/pipewire-0.3.68 abi_x86_32
->=x11-libs/libxkbcommon-1.5.0 abi_x86_32
->=dev-libs/libxml2-2.10.3-r1 abi_x86_32
->=virtual/glu-9.0-r2 abi_x86_32
->=media-libs/glu-9.0.2 abi_x86_32
->=dev-ruby/psych-5.1.0 ruby_targets_ruby31
->=dev-ruby/kpeg-1.3.3 ruby_targets_ruby31
->=dev-ruby/racc-1.6.2 ruby_targets_ruby31
->=dev-ruby/stringio-3.0.5 ruby_targets_ruby31
->=virtual/ruby-ssl-13 ruby_targets_ruby31
->=media-plugins/gst-plugins-cdparanoia-1.20.5 abi_x86_32
-
->=media-sound/cdparanoia-3.10.2-r7 abi_x86_32
+#Hyprland
 dev-qt/qtbase opengl egl eglfs gles2-only
 dev-qt/qtdeclarative opengl
-gui-wm/hyprland X systemd vulkan
+gui-wm/hyprland X systemd
 gui-libs/xdg-desktop-portal-hyprland select-window select-region
 sys-apps/xdg-desktop-portal screencast
-gui-libs/wlroots X hwdata seatd udev vulkan x11-backend -tinywl
+gui-libs/wlroots X hwdata seatd udev vulkan x11-backend tinywl
 
->=media-libs/dav1d-1.1.0 abi_x86_32
-
->=media-libs/x264-0.0.20220222 abi_x86_32
-
->=media-libs/fdk-aac-2.0.2 abi_x86_32
-
->=dev-libs/openssl-1.1.1t-r3 abi_x86_32
-
+#Webkit-gtk
 net-libs/webkit-gtk jumbo-build
 
 #For onedrive client
@@ -198,28 +40,25 @@ dev-lang/ldc2 dmd-2_099
 
 #wine
 virtual/wine proton staging
-app-emulation/wine-staging X wayland dos fontconfig llvm-libunwind gecko alsa gstreamer mono net-api opencl opengl onmesa sdl v4l vulkan xinerama abi_x86_32
-app-emulation/wine-proton X wayland fontconfig llvm-libunwind gecko alsa gstreamer onmesa sdl v4l vulkan xinerama abi_x86_32
->=app-emulation/vkd3d-1.7 abi_x86_32
+app-emulation/wine-staging X wayland dos fontconfig -llvm-libunwind gecko alsa gstreamer mono net-api opencl opengl onmesa sdl v4l vulkan xinerama abi_x86_32
+app-emulation/wine-proton X wayland fontconfig -llvm-libunwind gecko alsa gstreamer onmesa sdl v4l vulkan xinerama abi_x86_32
+app-emulation/vkd3d abi_x86_32
 games-util/gamemode systemd
 gui-wm/gamescope wsi-layer
->=x11-libs/libXinerama-1.1.5 abi_x86_32
->=virtual/opencl-3-r2 abi_x86_32
->=dev-libs/opencl-icd-loader-2023.02.06 abi_x86_32
->=x11-drivers/nvidia-drivers-525.105.17 abi_x86_32 persistenced
+x11-drivers/nvidia-drivers abi_x86_32 persistenced -kernel-open
 
 #obs
 media-video/obs-studio browser pipewire pulseaudio python vlc websocket alsa nvenc truetype v4l wayland
 media-video/pipewire echo-cancel jack-client system-service bluetooth ffmpeg gstreamer v4l sound-server extra
 #libvirt and qemu
-app-emulation/libvirt firewalld lvm lxc numa qemu virt-network virtualbox
+app-emulation/libvirt firewalld lvm lxc numa qemu virt-network virtualbox python_single_target_python3_10
 app-emulation/virt-manager gui policykit 
 app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs opengl jack
 >=net-misc/spice-gtk-0.42 usbredir
 >=sys-fs/lvm2-2.03.20 lvm
 >=net-firewall/nftables-1.0.7-r1 xtables json python
 >=media-libs/freetype-2.13.0 harfbuzz
-
+sys-apps/systemd gnuefi
 #tpm2-tss
 app-crypt/tpm2-tss fapi openssl
 
@@ -227,69 +66,32 @@ app-crypt/tpm2-tss fapi openssl
 x11-terms/alacritty wayland debug X
 x11-misc/rofi drun windowmode
 app-admin/doas persist
-gui-apps/waybar hyprland evdev popups udev experimental mpd mpris popups udev upower pipewire network sndio tray wifi -libcxx jack libinput
+gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network sndio tray wifi -libcxx jack libinput
 >=dev-libs/libdbusmenu-16.04.0-r2 gtk3
 app-crypt/pinentry gnome-keyring gtk 
 >=app-misc/openrazer-3.3.0 client daemon
->=sys-libs/gpm-1.20.7-r5 abi_x86_32
->=x11-libs/gtk+-3.24.37 abi_x86_32
->=media-libs/libepoxy-1.5.10-r1 abi_x86_32
->=x11-libs/gdk-pixbuf-2.42.10-r1 abi_x86_32
->=x11-misc/colord-1.4.6-r1 abi_x86_32
->=x11-libs/libXdamage-1.1.6 abi_x86_32
->=media-libs/lcms-2.15 abi_x86_32
->=dev-db/sqlite-3.41.2-r1 abi_x86_32
->=dev-libs/libgusb-0.4.5 abi_x86_32
->=dev-libs/json-glib-1.6.6-r1 abi_x86_32
->=dev-lang/orc-0.4.33 abi_x86_32
->=media-sound/lame-3.100-r3 abi_x86_32
->=media-libs/xvid-1.3.7-r1 abi_x86_32
->=gnome-base/librsvg-2.56.0 abi_x86_32
 >=dev-qt/qtmultimedia-5.15.8 widgets
->=media-plugins/gst-plugins-faad-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-dts-1.20.5 abi_x86_32
->=media-libs/gst-plugins-ugly-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-a52dec-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-dvdread-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-mpeg2dec-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-resindvd-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-mpg123-1.20.5 abi_x86_32
->=media-plugins/gst-plugins-x264-1.20.5 abi_x86_32
->=media-sound/mpg123-1.31.3 abi_x86_32
->=media-libs/libdvdnav-6.1.1 abi_x86_32
->=media-libs/libdvdread-6.1.3 abi_x86_32
->=media-libs/libdvdcss-1.4.3 abi_x86_32
->=media-libs/libmpeg2-0.5.1-r3 abi_x86_32
->=media-libs/libdca-0.0.7 abi_x86_32
->=media-libs/faad2-2.10.1 abi_x86_32
->=media-libs/a52dec-0.7.4-r8 abi_x86_32
->=dev-libs/libusb-1.0.26 abi_x86_32
->=virtual/rust-1.68.2 abi_x86_32
->=dev-lang/rust-bin-1.68.2-r1 abi_x86_32
->=virtual/libusb-1-r2 abi_x86_32
->=virtual/jpeg-100-r1 abi_x86_32
+
+#RUST
+>=virtual/rust-1.66.1 abi_x86_32 rustfmt
+>=dev-lang/rust-bin-1.66.1-r1 abi_x86_32 rustfmt
 app-crypt/tpm2-tools fapi
 app-crypt/tpm2-tss fapi openssl
->=app-accessibility/at-spi2-core-2.48.0 abi_x86_32
->=x11-libs/libXtst-1.2.4 abi_x86_32
 
 #GIMP gtk flag
 >=media-gfx/gimp-2.10.34-r1:0/2::gentoo gtk
 
-#Octave (free [from freedom] Matlab)
+#Octave (free [from freedom] Matlab) && Freecad (free autocad)
 sci-mathematics/octave curl doc fftw fltk glpk gnuplot gui hdf5 imagemagick java opengl portaudio postscript qhull readline sndfile sparse ssl sundials zlib qrupdate json
+media-gfx/freecad addonmgr gui fem idf image inspection material openscad part-design points pcl raytracing show robot surface techdraw tux
+media-gfx/blender alemic bullet collada color-management cycles dds embree openpgl openvdb potrace tbb optix
 
 media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau vulkan vulkan-overlay wayland
->=sys-devel/clang-16.0.1 abi_x86_32
-
 dev-qt/qtgui jpeg vulkan wayland libinput
-games-util/mangohud abi_x86_32
->=dev-libs/libfmt-8.1.1-r1 abi_x86_32
->=dev-libs/spdlog-1.11.0 abi_x86_32
->=gui-libs/wlroots-0.16.2 x11-backend
+
 
 #librewolf
-www-client/librewolf wayland clang dbus geckodriver gmp-autoupdate hwaccel lto openh264 screencast sndio system-av1 system-jpeg system-png system-python-libs system-webp wifi
+www-client/librewolf wayland clang dbus geckodriver gmp-autoupdate hwaccel lto openh264 screencast sndio system-av1 system-jpeg system-png system-python-libs system-webp wifi graphite pgo lto
 >=media-libs/libpng-1.6.39 apng
 >=media-libs/libvpx-1.12.0-r1 postproc
 
@@ -305,19 +107,1500 @@ media-libs/vulkan-loader layers X wayland
 media-sound/spotify libnotify 
 
 #GWE
->=dev-python/pillow-9.5.0 webp
+>=dev-python/pillow-9.5.0 webp python_targets_python3_10
 >=dev-libs/libpcre2-10.42-r1 pcre32
 
-dev-lang/python tk
+dev-lang/python tk lto pgo graphite
 
 sys-firmware/lenovolegionlinux python
 
-app-misc/legion-fan-utils-linux downgrade-nvidia
-dev-python/pyside6 gles2-only
-dev-python/pyside6 widgets webengine quick webchannel qml
+app-misc/legion-fan-utils-linux ryzenadj
+dev-python/pyside6 widgets webengine quick webchannel qml gles2-only printsupport sql testlib
 
 >=gui-libs/wlroots-0.16.2 tinywl
 >=x11-base/xorg-server-21.1.8 xvfb
 app-misc/hyprland-contrib grimblast scratchpad shellevents hyprprop
 gui-apps/gtklock-extras playerctl powerbar userinfo
 net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer
+gui-apps/ReGreet gtk4 logs cage
+net-misc/networkmanager-dmenu -dmenu rofi
+app-misc/polychromatic python_targets_python3_10
+sci-libs/caffe2 opencv distributed tensorpipe 
+dev-util/nvidia-cuda-toolkit profiler
+dev-python/numpy lapack 
+>=dev-libs/libclc-15.0.7 spirv
+
+x11-libs/gtk+ colord
+x11-misc/colord scanner
+media-gfx/sane-backends sane_backends_escl
+net-dns/avahi gtk
+x11-misc/gammastep appindicator nls wayland
+
+media-libs/opencolorio -opengl
+media-libs/vulkan-loader layers
+dev-util/vulkan-tools -X wayland cube
+
+#AUTOUNMASK
+# required by app-emulation/libvirt-9.3.0::gentoo[virt-network]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=net-dns/dnsmasq-2.89 script
+# required by media-libs/mesa-9999::gentoo[wayland]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/wayland-1.22.0 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[X]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libX11-1.8.4-r1 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXrandr-1.5.3 abi_x86_32
+# required by x11-libs/libXv-1.0.12::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[X]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXext-1.3.5 abi_x86_32
+# required by x11-libs/libXrandr-1.5.3::gentoo
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXrender-0.9.11 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libxcb-1.15-r1 abi_x86_32
+# required by x11-libs/libxcb-1.15-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXau-1.0.11 abi_x86_32
+# required by x11-libs/libxcb-1.15-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXdmcp-1.1.4-r2 abi_x86_32
+# required by sys-devel/llvm-15.0.7::gentoo[libffi]
+# required by sys-devel/clang-15.0.7-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[opencl,llvm]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/libffi-3.4.4-r1 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[alsa]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/alsa-lib-1.2.8-r1 abi_x86_32
+# required by dev-libs/elfutils-0.188::gentoo[bzip2]
+# required by virtual/libelf-3-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[-video_cards_radeon,video_cards_radeonsi,llvm,-video_cards_r600]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=app-arch/bzip2-1.0.8-r4 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[dav1d]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/dav1d-1.0.0 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[mp3,encode]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-sound/lame-3.100-r3 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[x264,encode]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/x264-0.0.20220222 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[xvid,encode]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/xvid-1.3.7-r1 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[fdk]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/fdk-aac-2.0.2 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[sdl]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libsdl2-2.26.2 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=gnome-base/librsvg-2.56.0 abi_x86_32
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/cairo-1.17.8 abi_x86_32
+# required by media-libs/harfbuzz-7.2.0::gentoo[truetype]
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/freetype-2.13.0 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[vaapi]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libva-2.18.0-r1 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[vdpau]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libvdpau-1.5 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[vorbis]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libvorbis-1.3.7-r1 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[vorbis,-theora,encode]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libogg-1.3.5-r1 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[vulkan]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/vulkan-loader-1.3.243 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[X]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXv-1.0.12 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=net-libs/gnutls-3.7.8 abi_x86_32
+# required by net-libs/gnutls-3.7.8::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/libtasn1-4.19.0 abi_x86_32
+# required by net-libs/gnutls-3.7.8::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/libunistring-1.1-r1 abi_x86_32
+# required by net-libs/gnutls-3.7.8::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/nettle-3.8.1 abi_x86_32
+# required by dev-libs/nettle-3.8.1::gentoo[gmp]
+# required by net-libs/gnutls-3.7.8::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/gmp-6.2.1-r5 abi_x86_32
+# required by net-libs/gnutls-3.7.8::gentoo[pkcs11]
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=app-crypt/p11-kit-0.24.1-r1 abi_x86_32
+# required by net-libs/gnutls-3.7.8::gentoo[idn]
+# required by media-video/ffmpeg-4.4.3::gentoo[-openssl,gnutls]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=net-dns/libidn2-2.3.4 abi_x86_32
+# required by media-libs/mesa-9999::gentoo
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libdrm-2.4.115 abi_x86_32
+# required by media-libs/libva-2.18.0-r1::gentoo[X]
+# required by media-libs/mesa-9999::gentoo[vaapi]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXfixes-6.0.1 abi_x86_32
+# required by x11-libs/gdk-pixbuf-2.42.10-r1::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libpng-1.6.39 abi_x86_32
+# required by x11-libs/cairo-1.17.8::gentoo
+# required by media-libs/harfbuzz-7.2.0::gentoo[cairo]
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/lzo-2.10 abi_x86_32
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/fontconfig-2.14.2 abi_x86_32
+# required by x11-libs/cairo-1.17.8::gentoo
+# required by media-libs/harfbuzz-7.2.0::gentoo[cairo]
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/pixman-0.42.2 abi_x86_32
+# required by x11-libs/cairo-1.17.8::gentoo[glib]
+# required by media-libs/harfbuzz-7.2.0::gentoo[cairo]
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/glib-2.76.2 abi_x86_32
+# required by dev-libs/glib-2.76.2::gentoo
+# required by sys-apps/usbredir-0.13.0::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[usbredir]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/libpcre2-10.42-r1 abi_x86_32
+# required by dev-libs/glib-2.76.2::gentoo
+# required by sys-apps/usbredir-0.13.0::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[usbredir]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-apps/util-linux-2.38.1-r2 abi_x86_32
+# required by media-libs/fontconfig-2.14.2::gentoo
+# required by x11-libs/libXft-2.3.6::gentoo
+# required by x11-libs/pango-1.50.14::gentoo[X]
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/expat-2.5.0 abi_x86_32
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/gdk-pixbuf-2.42.10-r1 abi_x86_32
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/harfbuzz-7.2.0 abi_x86_32
+# required by sys-devel/clang-15.0.7-r1::gentoo[xml]
+# required by media-libs/mesa-9999::gentoo[opencl,llvm]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/libxml2-2.10.4 abi_x86_32
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/pango-1.50.14 abi_x86_32
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/fribidi-1.0.12 abi_x86_32
+# required by x11-libs/pango-1.50.14::gentoo[X]
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXft-2.3.6 abi_x86_32
+# required by media-libs/harfbuzz-7.2.0::gentoo[icu]
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/icu-72.1 abi_x86_32
+# required by media-libs/harfbuzz-7.2.0::gentoo[graphite]
+# required by x11-libs/pango-1.50.14::gentoo
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-gfx/graphite2-1.3.14_p20210810-r2 abi_x86_32
+# required by media-libs/tiff-4.5.0-r2::gentoo[jpeg]
+# required by x11-libs/gdk-pixbuf-2.42.10-r1::gentoo[tiff]
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libjpeg-turbo-2.1.4 abi_x86_32
+# required by x11-libs/gdk-pixbuf-2.42.10-r1::gentoo[tiff]
+# required by gnome-base/librsvg-2.56.0::gentoo
+# required by media-video/ffmpeg-4.4.3::gentoo[svg]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/tiff-4.5.0-r2 abi_x86_32
+# required by dev-libs/glib-2.76.2::gentoo
+# required by sys-apps/usbredir-0.13.0::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[usbredir]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/libintl-0-r2 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[iconv]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/libiconv-0-r2 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[opengl]
+# required by media-video/pipewire-0.3.70-r2::gentoo[ffmpeg]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/opengl-7.0-r2 abi_x86_32
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/mesa-9999 abi_x86_32
+# required by media-libs/mesa-9999::gentoo
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/libglvnd-1.6.0 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[lm-sensors]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-apps/lm-sensors-3.6.0-r1 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libxshmfence-1.3.2 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[X]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXxf86vm-1.1.5 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[zstd]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=app-arch/zstd-1.5.5 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[opencl,llvm]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-devel/clang-15.0.7-r1 abi_x86_32
+# required by sys-devel/clang-15.0.7-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[opencl,llvm]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-devel/llvm-15.0.7 abi_x86_32
+# required by sys-devel/llvm-15.0.7::gentoo[ncurses]
+# required by sys-devel/clang-15.0.7-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[opencl,llvm]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-libs/ncurses-6.4_p20230401 abi_x86_32 -gpm
+# required by sys-libs/ncurses-6.4_p20230401::gentoo[gpm]
+# required by sys-devel/llvm-15.0.7::gentoo[ncurses]
+# required by sys-devel/clang-15.0.7-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[opencl,llvm]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-libs/gpm-1.20.7-r5 abi_x86_32
+# required by media-libs/mesa-9999::gentoo[-video_cards_radeon,video_cards_radeonsi,llvm,-video_cards_r600]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/libelf-3-r1 abi_x86_32
+# required by virtual/libelf-3-r1::gentoo
+# required by media-libs/mesa-9999::gentoo[-video_cards_radeon,video_cards_radeonsi,llvm,-video_cards_r600]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/elfutils-0.188 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[dbus]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-apps/dbus-1.15.4-r1 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[pipewire]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-video/pipewire-0.3.70-r2 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[wayland]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libxkbcommon-1.5.0 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[X]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXcursor-1.2.1 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[X]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=x11-libs/libXi-1.8 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[udev]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/libudev-232-r7 abi_x86_32
+# required by virtual/libudev-232-r7::gentoo
+# required by media-libs/libsdl2-2.26.2::gentoo[udev]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=sys-apps/systemd-253.3-r1 abi_x86_32
+# required by sys-apps/systemd-253.3-r1::gentoo
+# required by x11-libs/vte-0.72.1::gentoo[systemd]
+# required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]
+# required by virt-manager (argument)
+>=sys-libs/libcap-2.68 abi_x86_32
+# required by sys-apps/systemd-253.3-r1::gentoo[gcrypt]
+# required by x11-libs/vte-0.72.1::gentoo[systemd]
+# required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]
+# required by virt-manager (argument)
+>=dev-libs/libgcrypt-1.10.1-r3 abi_x86_32
+# required by sys-apps/systemd-253.3-r1::gentoo[lz4]
+# required by x11-libs/vte-0.72.1::gentoo[systemd]
+# required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]
+# required by virt-manager (argument)
+>=app-arch/lz4-1.9.4 abi_x86_32
+# required by sys-libs/libcap-2.68::gentoo[pam]
+# required by sys-apps/systemd-253.3-r1::gentoo
+# required by x11-libs/vte-0.72.1::gentoo[systemd]
+# required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]
+# required by virt-manager (argument)
+>=sys-libs/pam-1.5.2-r3 abi_x86_32
+# required by dev-libs/libgcrypt-1.10.1-r3::gentoo
+# required by sys-apps/systemd-253.3-r1::gentoo[gcrypt]
+# required by x11-libs/vte-0.72.1::gentoo[systemd]
+# required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]
+# required by virt-manager (argument)
+>=dev-libs/libgpg-error-1.46-r1 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[opengl]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/glu-9.0-r2 abi_x86_32
+# required by virtual/glu-9.0-r2::gentoo
+# required by media-libs/libsdl2-2.26.2::gentoo[opengl]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-libs/libpulse-16.1-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[pulseaudio]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=media-libs/glu-9.0.2 abi_x86_32
+# required by media-libs/libsdl2-2.26.2::gentoo[wayland]
+# required by media-sound/mpg123-1.31.3::gentoo[sdl]
+# required by media-libs/libsndfile-1.2.0::gentoo[-minimal]
+# required by media-video/pipewire-0.3.70-r2::gentoo[extra]
+# required by media-video/wireplumber-0.4.14::gentoo
+=media-libs/mesa-23.0.3-r1 abi_x86_32
+# required by media-libs/mesa-23.0.3-r1::gentoo[opencl]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=virtual/opencl-3-r3 abi_x86_32
+# required by virtual/opencl-3-r3::gentoo
+# required by media-libs/mesa-23.0.3-r1::gentoo[opencl]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by app-emulation/qemu-8.0.0-r1::gentoo[opengl]
+# required by app-emulation/libvirt-9.3.0::gentoo[qemu]
+# required by app-emulation/libvirt-glib-4.0.0::gentoo
+# required by app-emulation/virt-manager-4.1.0::gentoo[-test]
+# required by virt-manager (argument)
+>=dev-libs/opencl-icd-loader-2023.02.06 abi_x86_32
+# required by kde-frameworks/qqc2-desktop-style-5.104.0::gentoo
+# required by kde-misc/kdeconnect-22.12.3::gentoo
+# required by kdeconnect (argument)
+>=kde-frameworks/sonnet-5.104.0 qml
+# required by kde-frameworks/plasma-5.104.0::gentoo
+# required by kde-misc/kdeconnect-22.12.3::gentoo
+# required by kdeconnect (argument)
+>=kde-frameworks/kconfig-5.104.0 qml
+# required by app-crypt/swtpm-0.8.0::gentoo[gnutls]
+# required by swtpm (argument)
+>=net-libs/gnutls-3.7.8 tools
+# required by gui-apps/swaync-0.8.0::guru
+# required by gui-apps/swaync (argument)
+>=gui-libs/gtk-layer-shell-0.8.0 introspection
+# required by games-util/steam-client-meta-0-r20230513::steam-overlay[video_cards_nvidia]
+# required by games-util/steam-meta-0-r20220320::steam-overlay
+# required by games-util/steam-meta (argument)
+>=x11-drivers/nvidia-drivers-525.116.04 abi_x86_32
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/olefile-0.46-r2 python_targets_python3_10
+# required by dev-python/pyparsing-3.0.9::gentoo
+# required by dev-python/packaging-23.0-r1::gentoo
+# required by dev-python/nspektr-0.4.0::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/gpep517-13 python_targets_python3_10
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/setuptools-67.6.1 python_targets_python3_10
+# required by dev-python/certifi-3021.3.16-r3::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/wheel-0.40.0 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/jaraco-text-3.11.1 python_targets_python3_10
+# required by dev-python/nspektr-0.4.0::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/more-itertools-9.1.0 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/nspektr-0.4.0 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/ordered-set-4.1.0 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/packaging-23.0-r1 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/platformdirs-3.2.0 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/tomli-2.0.1-r1 python_targets_python3_10
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/certifi-3021.3.16-r3 python_targets_python3_10
+# required by dev-python/inflect-6.0.2::gentoo
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/setuptools-scm-7.1.0 python_targets_python3_10
+# required by dev-python/pydantic-1.10.7::gentoo
+# required by dev-python/inflect-6.0.2::gentoo
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/typing-extensions-4.5.0 python_targets_python3_10
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/flit-core-3.8.0 python_targets_python3_10
+# required by dev-python/packaging-23.0-r1::gentoo
+# required by dev-python/nspektr-0.4.0::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/pyparsing-3.0.9 python_targets_python3_10
+# required by dev-python/nspektr-0.4.0::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/jaraco-context-4.3.0 python_targets_python3_10
+# required by dev-python/nspektr-0.4.0::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/jaraco-functools-3.6.0 python_targets_python3_10
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/autocommand-2.2.2 python_targets_python3_10
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/inflect-6.0.2 python_targets_python3_10
+# required by dev-python/inflect-6.0.2::gentoo
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/pydantic-1.10.7 python_targets_python3_10
+# required by dev-python/pydantic-1.10.7::gentoo[native-extensions]
+# required by dev-python/inflect-6.0.2::gentoo
+# required by dev-python/jaraco-text-3.11.1::gentoo
+# required by dev-python/setuptools-67.6.1::gentoo
+# required by dev-python/olefile-0.46-r2::gentoo
+# required by dev-python/pillow-9.5.0::pentoo
+# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+>=dev-python/cython-0.29.33 python_targets_python3_10
+# required by dev-python/gpep517-13::gentoo
+# required by dev-python/Rx-4.0.4-r1::zGentoo
+# required by dev-python/Rx (argument)
+>=dev-python/installer-0.7.0 python_targets_python3_10
+# required by app-emulation/wine-vanilla-8.0.1::gentoo[X,xcomposite]
+# required by virtual/wine-0-r10::gentoo
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=x11-libs/libXcomposite-0.4.6 abi_x86_32
+# required by x11-libs/gtk+-3.24.37::gentoo[cups]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=net-print/cups-2.4.2-r7 abi_x86_32
+# required by app-emulation/wine-proton-7.0.6::gentoo[sdl]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/libsdl2-2.26.2 haptic
+# required by media-gfx/sane-backends-1.2.1::gentoo[v4l]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=media-libs/libv4l-1.22.1 abi_x86_32
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/gst-plugins-base-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-cdparanoia-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[cdda]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/gstreamer-1.20.4 abi_x86_32
+# required by app-emulation/wine-vanilla-8.0.1::gentoo[scanner]
+# required by virtual/wine-0-r10::gentoo
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-gfx/sane-backends-1.2.1 abi_x86_32
+# required by app-emulation/wine-proton-7.0.6::gentoo[unwind,-llvm-libunwind]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=sys-libs/libunwind-1.6.2 abi_x86_32
+# required by app-emulation/wine-vanilla-8.0.1::gentoo[usb]
+# required by virtual/wine-0-r10::gentoo
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=dev-libs/libusb-1.0.26 abi_x86_32
+# required by app-emulation/wine-vanilla-8.0.1::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-meta-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-mpg123-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[mp3]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/gst-plugins-good-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[aac]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-faad-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dts]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-dts-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-mpeg2dec-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd,-vcd,mpeg]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/gst-plugins-ugly-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd,-a52]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-a52dec-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-dvdread-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd,-vcd,mpeg]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-mpeg2dec-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-resindvd-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[ffmpeg]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-libav-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[flac]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-flac-1.20.4-r1 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[mp3]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-mpg123-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[v4l]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-v4l2-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[vaapi]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-vaapi-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[x264]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-x264-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-vaapi-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[vaapi]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/gst-plugins-bad-1.20.4-r1 abi_x86_32
+# required by media-libs/gst-plugins-base-1.20.4::gentoo[orc]
+# required by media-plugins/gst-plugins-cdparanoia-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[cdda]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+#sci-libs/cholmod required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=dev-lang/orc-0.4.33 abi_x86_32
+# required by media-plugins/gst-plugins-v4l2-1.20.4::gentoo[udev]
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[v4l]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by apsci-libs/cholmodp-emulation/protontricks (argument)
+>=dev-libs/libgudev-237-r1 abi_x86_32
+# required by media-plugins/gst-plugins-mpg123-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[mp3]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-sound/mpg123-1.31.3 abi_x86_32
+# required by media-plugins/gst-plugins-flac-1.20.4-r1::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[flac]
+# required by app-emulation/winesci-libs/cholmod-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/flac-1.4.2-r1 abi_x86_32
+# required by media-plugins/gst-plugins-resindvd-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/libdvdnav-6.1.1 abi_x86_32
+# required by media-libs/libdvdnav-6.1.1::gentoo
+# required by media-plugins/gst-plugins-resindvd-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/libdvdread-6.1.3 abi_x86_32
+# required by media-libs/libdvdread-6.1.3::gentoo[css]
+# required by media-plugins/gst-plugins-dvdread-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/libdvdcss-1.4.3 abi_x86_32
+# required by media-plugins/gst-plugins-mpeg2dec-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd,-vcd,mpeg]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/libmpeg2-0.5.1-r3 abi_x86_32
+# required by media-plugins/gst-plugins-a52dec-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dvd,-a52]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/a52dec-0.7.4-r8 abi_x86_32
+# required by media-plugins/gst-plugins-dts-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[dts]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/libdca-0.0.7 abi_x86_32
+# required by media-plugins/gst-plugins-faad-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[aac]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212:sci-libs/cholmod:gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/faad2-2.10.1 abi_x86_32
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=net-dns/avahi-0.8-r7 abi_x86_32
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=net-misc/curl-8.0.1 abi_x86_32
+# required by net-misc/curl-8.0.1::gentoo[adns]
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=net-dns/c-ares-1.19.0 abi_x86_32
+# required by net-misc/curl-8.0.1::gentoo[http2]
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=net-libs/nghttp2-1.51.0 abi_x86_32
+# required by dev-libs/libevent-2.1.12-r1::gentoo[ssl]
+# required by net-dns/avahi-0.8-r7::gentoo
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=dev-libs/openssl-1.1.1t-r3 abi_x86_32
+# required by net-dns/avahi-0.8-r7::gentoo
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=dev-libs/libevent-2.1.12-r1 abi_x86_32
+# required by net-dns/avahi-0.8-r7::gentoo[gdbm]
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=sys-libs/gdbm-1.23 abi_x86_32
+# required by net-dns/avahi-0.8-r7::gentoo[gtk]
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by app-emulation/wine-staging-8.8::gentoo[scanner]
+# required by app-emulation/wine-staging (argument)
+>=x11-libs/gtk+-3.24.37 abi_x86_32
+# required by x11-libs/gtk+-3.24.37::gentoo
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=app-accessibility/at-spi2-core-2.48.0 abi_x86_32
+# required by x11-libs/gtk+-3.24.37::gentoo
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libepoxy-1.5.10-r1 abi_x86_32
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=x11-misc/colord-1.4.6-r1 abi_x86_32
+# required by x11-libs/gtk+-3.24.37::gentoo[X]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libXdamage-1.1.6 abi_x86_32
+# required by x11-misc/colord-1.4.6-r1::gentoo
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=media-libs/lcms-2.14-r4 abi_x86_32
+# required by x11-misc/colord-1.4.6-r1::gentoo
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=dev-db/sqlite-3.41.2-r1 abi_x86_32
+# required by x11-misc/colord-1.4.6-r1::gentoo
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libgusb-0.4.5 abi_x86_32
+# required by dev-libs/libgusb-0.4.5::gentoo
+# required by x11-misc/colord-1.4.6-r1::gentoo
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/json-glib-1.6.6-r1 abi_x86_32
+# required by dev-db/sqlite-3.41.2-r1::gentoo[readline]
+# required by x11-misc/colord-1.4.6-r1::gentoo
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]sci-libs/cholmod
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=sys-libs/readline-8.1_p2-r1 abi_x86_32
+# required by media-libs/gst-plugins-base-1.20.4::gentoo[-gles2,opengl]
+# required by media-plugins/gst-plugins-cdparanoia-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[cdda]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-libs/graphene-1.10.8 abi_x86_32
+# required by app-emulation/wine-staging-8.8::gentoo[xinerama,X]
+# required by app-emulation/wine-staging (argument)
+>=x11-libs/libXinerama-1.1.5 abi_x86_32
+# required by app-containers/lxc-5.0.2::gentoo[caps,tools]
+# required by app-containers/lxc (argument)
+>=sys-libs/libcap-2.68 static-libs
+# required by app-accessibility/at-spi2-core-2.48.0::gentoo[X]
+# required by net-im/whatsapp-desktop-bin-0.5.2-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libXtst-1.2.4 abi_x86_32
+# required by media-libs/libv4l-1.22.1::gentoo[jpeg]
+# required by app-emulation/wine-proton-7.0.6::gentoo[v4l]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=virtual/jpeg-100-r1 abi_x86_32
+# required by dev-libs/libgusb-0.4.5::gentoo
+# required by x11-misc/colord-1.4.6-r1::gentoo
+# required by x11-libs/gtk+-3.24.37::gentoo[colord]
+# required by sys-boot/plymouth-22.02.122-r1::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=virtual/libusb-1-r2 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[cdda]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-plugins/gst-plugins-cdparanoia-1.20.4 abi_x86_32
+# required by media-plugins/gst-plugins-cdparanoia-1.20.4::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.4::gentoo[cdda]
+# required by app-emulation/wine-proton-7.0.6::gentoo[gstreamer]
+# required by virtual/wine-0-r10::gentoo[proton]
+# required by app-emulation/winetricks-20230212::gentoo
+# required by app-emulation/protontricks-1.10.2::gentoo[gui]
+# required by app-emulation/protontricks (argument)
+>=media-sound/cdparanoia-3.10.2-r7 abi_x86_32
+# required by media-gfx/simple-scan-44.0::gentoo[colord]
+# required by simple-scan (argument)
+>=x11-misc/colord-1.4.6-r1 vala
+# required by x11-libs/libXdmcp-1.1.4-r2::gentoo
+# required by www-client/w3m-0.5.3_p20230121::gentoo[X]
+# required by virtual/w3m-1::gentoo
+# required by app-text/xmlto-0.0.28-r10::gentoo[text]
+# required by x11-misc/xdg-utils-1.1.3_p20210805-r1::gentoo
+# required by app-office/libreoffice-bin-7.4.6.2-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libbsd-0.11.7-r2 abi_x86_32
+# required by dev-libs/libbsd-0.11.7-r2::gentoo
+# required by x11-base/xwayland-23.1.1::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-crypt/libmd-1.0.4 abi_x86_32
+dev-python/pyside2 positioning quick qml
+# required by media-gfx/blender-3.3.5::gentoo
+# required by blender (argument)
+>=media-libs/freetype-2.13.0 brotli
+# required by media-gfx/blender-3.3.5::gentoo[ffmpeg]sci-libs/cholmod
+# required by blender (argument)
+>=media-video/ffmpeg-4.4.3 opus vpx theora
+# required by media-video/ffmpeg-4.4.3::gentoo[theora,encode]
+# required by sci-libs/opencascade-7.6.3-r1::gentoo[ffmpeg]
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+>=media-libs/libtheora-1.1.1-r2 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[opus]
+# required by sci-libs/opencascade-7.6.3-r1::gentoo[ffmpeg]
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+>=media-libs/opus-1.3.1-r4 abi_x86_32
+# required by media-video/ffmpeg-4.4.3::gentoo[vpx]
+# required by sci-libs/opencascade-7.6.3-r1::gentoo[ffmpeg]
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+>=media-libs/libvpx-1.12.0-r1 abi_x86_32
+# required by media-libs/freetype-2.13.0::gentoo[brotli]
+# required by media-libs/ftgl-2.1.3_rc5-r1::gentoo
+# required by sci-libs/opencascade-7.6.3-r1::gentoo
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+>=app-arch/brotli-1.0.9-r5 abi_x86_32
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+=sci-libs/opencascade-7.6.3-r1 json vtk
+# required by media-gfx/freecad-0.20.2-r1::gentoo[python_single_target_python3_11,gui]
+# required by freecad (argument)
+>=dev-python/pyside2-5.15.8-r1 webchannel webengine
+# required by media-gfx/freecad-0.20.2-r1::gentoo[pcl]
+# required by freecad (argument)
+>=sci-libs/pcl-1.12.1-r2 openni2 vtk
+# required by sci-libs/pcl-1.12.1-r2::gentoo[vtk]
+# required by media-gfx/freecad-0.20.2-r1::gentoo[pcl]
+# required by freecad (argument)
+>=sci-libs/vtk-9.2.5 views imaging 
+# required by dev-python/pyside2-5.15.8-r1::gentoo[quick]
+# required by media-gfx/freecad-0.20.2-r1::gentoo[python_single_target_python3_11,gui]
+# required by freecad (argument)
+>=dev-qt/qtquickcontrols2-5.15.9 widgets
+# required by media-libs/simage-1.8.1-r3::gentoo[tiff]
+# required by media-libs/coin-4.0.0::gentoo
+# required by media-libs/quarter-1.1.0-r1::gentoo
+# required by dev-python/pivy-0.6.8::gentoo[-test,quarter]
+# required by media-gfx/freecad-0.20.2-r1::gentoo[python_single_target_python3_11,gui]
+# required by freecad (argument)
+>=media-libs/tiff-4.5.0-r2 lzma zstd
+# required by media-libs/tiff-4.5.0-r2::gentoo[lzma]sci-libs/cholmod
+# required by sci-libs/proj-9.1.1-r1::gentoo[tiff]
+# required by sci-libs/vtk-9.2.5::gentoo
+# required by sci-libs/opencascade-7.6.3-r1::gentoo[vtk]
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+>=app-arch/xz-utils-5.4.2 abi_x86_32
+# required by sci-libs/vtk-9.2.5::gentoo
+# required by sci-libs/opencascade-7.6.3-r1::gentoo[vtk]
+# required by media-gfx/freecad-0.20.2-r1::gentoo
+# required by freecad (argument)
+>=sci-libs/cgnslib-4.3.0-r2 hdf5
+# required by x11-libs/pango-1.50.14::gentoo[sysprof]
+# required by gui-apps/hyprpaper-0.3.0::guru
+# required by @selected
+# required by @world (argument)
+>=dev-util/sysprof-capture-3.48.0 abi_x86_32
+# required by x11-libs/gtk+-3.24.38::mv[sysprof]
+# required by app-text/xournalpp-1.1.1-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-util/sysprof-capture-3.36.0-r1:3 abi_x86_32
+>=media-libs/libcanberra-0.30-r7 pulseaudio
+>=dev-qt/qtscript-5.15.9 scripttools
+sci-libs/vtk -cuda
+sci-libs/cholmod -cuda

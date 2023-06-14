@@ -148,6 +148,24 @@ sync-type = git
 sync-uri = https://github.com/simonvanderveldt/simonvanderveldt-overlay.git
 auto-sync = yes
 
-
 [mrduarte-ebuilds]
 location = /var/db/repos/mrduarte-ebuilds
+sync-type = git
+sync-uri = https://github.com/MrDuartePT/mrduarte-ebuilds.git
+priority = 50
+auto-sync = Yes
+
+[brave-overlay]
+location = /var/db/repos/brave-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/brave-overlay.git
+
+[woomy-overlay]
+location = /var/db/repos/woomy-overlay
+sync-type = git
+sync-uri = https://github.com/woomymy/woomy-overlay.git
+
+[science]
+location = /var/db/repos/science
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/science.git

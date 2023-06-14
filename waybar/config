@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "sway/mode", "custom/waybar-mpris"],
+    "modules-left": ["wlr/workspaces", "custom/waybar-mpris"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "wireplumber", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "clock", "tray"],
     // Modules configuration
@@ -141,7 +141,7 @@
         "format-linked": "{ifname} (No IP) 󰈂",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "$HOME/.local/bin/networkmanager_dmenu"
+        "on-click-right": "networkmanager_dmenu"
     },
     "bluetooth": {
         "format": "{device_alias}: ",
@@ -172,7 +172,7 @@
     "wireplumber": {
         "format": "{volume}% {icon}",
         "format-muted": "{volume}% ",
-        "on-click": "~/.config/rofi/applets/volume.sh",
+        "on-click": "$HOME/.config/rofi/applets/volume.sh",
         "signal": 8,
         "interval": "once",
         "on-click-right": "pavucontrol",
@@ -192,7 +192,7 @@
     },
     "custom/waybar-mpris": {
         "return-type": "json",
-        "exec": "waybar-mpris --position --autofocus",
+        "exec": "waybar-mpris --autofocus",
         "on-click": "waybar-mpris --send toggle",
         // This option will switch between players on right click.
             "on-click-right": "waybar-mpris --send player-next",

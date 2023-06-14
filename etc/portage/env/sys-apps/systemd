@@ -1,0 +1,4 @@
+if [ "${EBUILD_PHASE}" == "postinst" ];
+then
+	bootctl --no-variables --graceful update
+fi

@@ -1,8 +1,9 @@
+=app-containers/distrobox-9999 **
 gui-libs/xdg-desktop-portal-hyprland **
-=dev-qt/qtbase-6.4.0
-=dev-qt/qtwayland-6.4.0
-=dev-qt/qtdeclarative-6.4.0
-=dev-qt/qtshadertools-6.4.0
+dev-qt/qtbase **
+dev-qt/qtwayland **
+dev-qt/qtdeclarative **
+dev-qt/qtshadertools **
 =gui-apps/cliphist-9999 **
 =games-util/mangohud-9999-r6 **
 >=dev-qt/qtwebengine-5.15.8_p20230112::gentoo
@@ -10,13 +11,177 @@ gui-libs/xdg-desktop-portal-hyprland **
 =sys-power/auto-cpufreq-1.9.6::guru
 =gui-apps/waybar-9999::gentoo
 =gui-wm/cage-9999 **
-=app-emulation/looking-glass-9999 **
+#=app-emulation/looking-glass-9999 **
+=app-emulation/looking-glass-1_beta6-r1::thegreatmcpain ~amd64
 =gui-apps/waybar-9999 **
 =sys-firmware/lenovolegionlinux-9999 **
 =app-misc/legion-fan-utils-linux-9999 **
-=gui-wm/hyprland-9999-r4 **
+gui-wm/hyprland ~amd64
 =app-misc/onedrivegui-9999 **
 =app-misc/hyprland-contrib-9999 **
 =gui-apps/gtklock-extras-9999 **
 =app-misc/onedrivegui-9999 **
 =app-misc/polychromatic-9999 **
+=gui-apps/ReGreet-9999 **
+=games-action/prismlauncher-9999 **
+media-video/obs-studio ~amd64
+app-emulation/qemu ~amd64
+#=media-libs/mesa-9999 **
+sys-kernel/zenpower3 ~amd64
+media-video/v4l2loopback ~amd64
+sci-libs/pytorch ~amd64
+sci-libs/caffe2 ~amd64
+dev-libs/cpuinfo ~amd64
+
+
+=dev-libs/cudnn-8.8.0.121 ~amd64
+=dev-libs/FP16-2021.03.20-r3 ~amd64
+=dev-libs/pthreadpool-2022.05.09-r1 ~amd64
+=dev-libs/cudnn-frontend-0.7.3 ~amd64
+=dev-libs/psimd-2020.05.17 ~amd64
+=dev-libs/pocketfft-2021.11.23 ~amd64
+=sci-libs/kineto-0.4.0 ~amd64
+=dev-util/nvidia-cuda-toolkit-11.8.0-r3 ~amd64
+=dev-python/PeachPy-2022.11.13 ~amd64
+=dev-libs/cutlass-2.10.0-r1 ~amd64
+=dev-libs/FXdiv-2020.12.09-r1 ~amd64
+=sci-libs/foxi-2021.05.27 ~amd64
+=sci-libs/onnx-1.13.1 ~amd64
+=dev-python/Opcodes-0.3.14 ~amd64
+dev-util/nvidia-cuda-toolkit ~amd64
+dev-libs/cudnn ~amd64
+sys-kernel/gentoo-kernel-bin ~amd64
+sys-kernel/gentoo-sources ~amd64
+app-emulation/virtiofsd ~amd64
+media-fonts/fontawesome ~amd64
+media-gfx/realesrgan-ncnn-vulkan ~amd64
+=dev-python/numpy-1.24.3 ~amd64
+sys-apps/openrazer ~amd64
+dev-python/scipy ~amd64
+dev-python/contourpy ~amd64
+dev-python/matplotlib ~amd64
+app-emulation/wine-staging ~amd64
+app-emulation/qemu ~amd64
+app-emulation/libvirt ~amd64
+dev-python/libvirt-python ~amd64
+net-misc/onedrive ~amd64
+app-emulation/libvirt-glib ~amd64
+gui-apps/wdisplays ~amd64
+app-misc/yq ~amd64
+media-libs/noise-suppression-for-voice ~amd64
+
+
+=x11-drivers/nvidia-drivers-535.43.02-r2 ~amd64
+
+#fix emerge errors
+=dev-util/mingw64-toolchain-11.0.0 ~amd64
+
+sci-libs/torchvision ~amd64
+sci-libs/tensorpipe ~amd64
+dev-libs/libnop ~amd64
+virtual/dist-kernel ~amd64
+app-crypt/tpm2-tss ~amd64
+dev-python/requests ~amd64
+dev-util/bindgen  ~amd64
+sys-apps/locale-gen ~amd64
+dev-libs/libunistring ~amd64
+app-crypt/tpm2-pkcs11 ~amd64
+dev-python/tpm2-pytss ~amd64
+gui-apps/gtklock ~amd64
+dev-libs/date ~amd64
+app-admin/bitwarden-desktop-bin ~amd64
+app-misc/ani-cli ~amd64
+app-editors/vscodium ~amd64
+net-im/whatsapp-desktop-bin ~amd64
+mail-client/mailspring-bin ~amd64
+x11-drivers/OpenTabletDriver-bin ~amd64
+dev-dotnet/dotnet-sdk-bin ~amd64
+media-libs/libdisplay-info ~amd64
+gui-apps/hyprpaper ~amd64
+app-shells/direnv ~amd64
+app-crypt/clevis ~amd64
+app-misc/brightnessctl ~amd64
+dev-libs/rocm-opencl-runtime ~amd64
+dev-python/Rx ~amd64
+games-emulation/xemu ~amd64
+games-util/gamemode ~amd64
+games-util/goverlay-bin ~amd64
+games-util/lutris ~amd64
+games-util/steam-launcher ~amd64
+games-util/steam-meta ~amd64
+games-util/xboxdrv ~amd64
+gui-apps/swaync ~amd64
+gui-apps/wlr-randr ~amd64
+media-fonts/material-design-icons ~amd64
+media-libs/noise-suppression-for-voice ~amd64
+media-libs/nvidia-vaapi-driver ~amd64
+sys-apps/direnv ~amd64
+sys-config/ltoize ~amd64
+sys-process/nvtop ~amd64
+x11-misc/pcmanfm ~amd64
+x11-libs/libfm ~amd64
+dev-libs/ncnn ~amd64
+games-util/steam-client-meta ~amd64
+games-util/game-device-udev-rules ~amd64
+dev-libs/qt5pas ~amd64
+dev-libs/rocr-runtime ~amd64
+dev-python/pypresence ~amd64
+dev-python/moddb ~amd64
+app-containers/nvidia-container-toolkit ~amd64
+sys-libs/libnvidia-container ~amd64
+sys-apps/polychromatic ~amd64
+
+
+# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
+# required by dev-libs/rocm-opencl-runtime (argument)
+=dev-libs/rocm-comgr-5.4.3-r1 ~amd64
+# required by dev-python/moddb-0.8.1::gentoo
+# required by games-util/lutris-0.5.13::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+=dev-python/pyrate-limiter-2.10.0 ~amd64
+# required by dev-libs/rocr-runtime-5.4.3-r1::gentoo
+# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
+# required by dev-libs/rocm-opencl-runtime (argument)
+=dev-libs/roct-thunk-interface-5.4.3 ~amd64
+# required by app-crypt/clevis-19-r1::guru[luks]
+# required by app-crypt/clevis (argument)
+=dev-libs/luksmeta-9 ~amd64
+# required by dev-libs/rocm-comgr-5.4.3-r1::gentoo
+# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
+# required by dev-libs/rocm-opencl-runtime (argument)
+=dev-libs/rocm-device-libs-5.4.3 ~amd64
+# required by app-crypt/clevis-19-r1::guru
+# required by app-crypt/clevis (argument)
+=dev-libs/jose-11-r1 ~amd64
+# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
+# required by dev-libs/rocm-opencl-runtime (argument)
+=dev-util/rocm-cmake-5.4.3 ~amd64
+# required by app-emulation/wine-staging-8.8::gentoo[gecko]
+# required by app-emulation/wine-staging (argument)
+=app-emulation/wine-gecko-2.47.4 ~amd64
+gui-apps/hyprland-plugins ~amd64
+dev-libs/hyprland-protocols ~amd64
+dev-libs/libliftoff ~amd64
+www-client/librewolf ~amd64
+dev-libs/nss ~amd64
+=net-im/zoom-5.14.7.2928 ~amd64
+=sys-libs/glibc-2.37-r3 ~amd64
+=x11-drivers/nvidia-drivers-535.43.02-r2::gentoo **
+app-admin/gwe ~amd64
+dev-python/injector ~amd64
+dev-python/py3nvml ~amd64
+gui-wm/gamescope ~amd64
+media-libs/vkroots ~amd64
+
+media-gfx/ueberzugpp ~amd64
+media-libs/vips ~amd64
+dev-cpp/cli11 ~amd64
+=app-emulation/vendor-reset-9999 **
+dev-ruby/pry ~amd64
+dev-ruby/colorize ~amd64
+=gui-apps/onedrivegui-9999::mrduarte-ebuilds **
+=dev-python/pyside6-6.5.0::gentoo ~amd64
+=dev-python/shiboken6-6.5.0::gentoo ~amd64
+=dev-qt/qtsvg-6.5.1::gentoo ~amd64
+=dev-qt/qtwebchannel-6.5.1::gentoo ~amd64
+=dev-qt/qtwebsockets-6.5.1::gentoo ~amd64

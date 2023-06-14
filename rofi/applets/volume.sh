@@ -17,11 +17,11 @@ urgent=""
 amixer get Master | grep '\[on\]' &>/dev/null
 if [[ "$?" == 0 ]]; then
 	active="-a 1"
-	stext='Unmute'
+	stext='Mute'
 	sicon=''
 else
 	urgent="-u 1"
-	stext='Mute'
+	stext='Unmute'
 	sicon=''
 fi
 
@@ -29,12 +29,12 @@ fi
 amixer get Capture | grep '\[on\]' &>/dev/null
 if [[ "$?" == 0 ]]; then
     [ -n "$active" ] && active+=",3" || active="-a 3"
-	mtext='Unmute'
-	micon='󰍭'
-else
-    [ -n "$urgent" ] && urgent+=",3" || urgent="-u 3"
 	mtext='Mute'
 	micon='󰍬'
+else
+    [ -n "$urgent" ] && urgent+=",3" || urgent="-u 3"
+	mtext='Unmute'
+	micon='󰍭'
 fi
 
 # Theme Elements
