@@ -1,13 +1,24 @@
 =app-containers/distrobox-9999 **
 gui-libs/xdg-desktop-portal-hyprland **
 
-=dev-qt/qtbase-6.5.1-r1::gentoo ~amd64
-=dev-qt/qtwayland-6.5.1::gentoo ~amd64
-<=dev-qt/qtdeclarative-6.5.1::gentoo ~amd64
-=dev-qt/qtshadertools-6.5.1::gentoo ~amd64
-<=dev-qt/qtcore-6.5.1::gentoo ~amd64
-<=dev-qt/qtgui-6.5.1::gentoo ~amd64
-<=dev-qt/qtwebengine-6.5.1::gentoo ~amd64
+#<=dev-qt/qtbase-6.5.1-r1::gentoo ~amd64
+#<=dev-qt/qtwayland-6.5.1::gentoo ~amd64
+#<=dev-qt/qtdeclarative-6.5.1::gentoo ~amd64
+#=dev-qt/qtshadertools-6.5.1::gentoo ~amd64
+#<=dev-qt/qtcore-6.5.1::gentoo ~amd64
+#<=dev-qt/qtgui-6.5.1::gentoo ~amd64
+#<=dev-qt/qtwebengine-6.5.1::gentoo ~amd64
+#<=dev-qt/qtbus-6.5.1::gentoo ~amd64
+
+=dev-qt/qtbase-5.15.10::gentoo ~amd64
+=dev-qt/qtwayland-5.15.10::gentoo ~amd64
+=dev-qt/qtdeclarative-5.15.10::gentoo ~amd64
+=dev-qt/qtshadertools-5.15.10::gentoo ~amd64
+=dev-qt/qtcore--5.15.10::gentoo ~amd64
+=dev-qt/qtgui-5.15.10::gentoo ~amd64
+=dev-qt/qtwebengine-5.15.10::gentoo ~amd64
+=dev-qt/qtbus-5.15.10::gentoo ~amd64
+=dev-qt/qtdbus-5.15.10::gentoo ~amd64
 
 =gui-apps/cliphist-9999 **
 =games-util/mangohud-9999-r6 **
