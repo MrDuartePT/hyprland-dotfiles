@@ -1,3 +1,0 @@
-# Fn + PrtSc, on Windows: Snipping tool 00000080 00000000 K
-event=button/prog2
-action=/etc/acpi/actions/snipping-tool.sh
