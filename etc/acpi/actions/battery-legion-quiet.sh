@@ -9,3 +9,4 @@ else
 fi
 
 /bin/systemctl restart lenovo-fancurve.service #systemd restart on profile change
+

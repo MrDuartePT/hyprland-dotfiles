@@ -1,6 +1,8 @@
 =app-containers/distrobox-9999 **
 gui-libs/xdg-desktop-portal-hyprland **
 
+=net-im/discord-canary-bin-0.0.154::guru ~amd64
+
 #<=dev-qt/qtbase-6.5.1-r1::gentoo ~amd64
 #<=dev-qt/qtwayland-6.5.1::gentoo ~amd64
 #<=dev-qt/qtdeclarative-6.5.1::gentoo ~amd64
