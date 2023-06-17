@@ -127,3 +127,4 @@ neofetch
 #alias
 alias hybrid_mode="supergfxctl -m hybrid && systemctl start nvidia-persistenced.service"
 alias integrated_mode="systemctl stop nvidia-persistenced.service && supergfxctl -m integrated"
+alias sudoo="doas"

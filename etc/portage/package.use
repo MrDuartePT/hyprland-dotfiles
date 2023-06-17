@@ -112,7 +112,7 @@ media-sound/spotify libnotify
 
 dev-lang/python tk lto pgo graphite
 
-sys-firmware/lenovolegionlinux python
+sys-firmware/lenovolegionlinux python acpi systemd ryzenadj
 
 app-misc/legion-fan-utils-linux ryzenadj
 dev-python/pyside6 widgets webengine quick webchannel qml gles2-only printsupport sql testlib
