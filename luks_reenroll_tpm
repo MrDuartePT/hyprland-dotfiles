@@ -1,0 +1,11 @@
+# Old Setup Arch
+#doas systemd-cryptenroll --wipe-slot=tpm2 /dev/disk/by-uuid/a00bc72b-4433-4ca2-8989-d63e268091bd
+#doas systemd-cryptenroll --wipe-slot=tpm2 /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 
+#doas systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+1+2+3+4+5+6+7+8 /dev/disk/by-uuid/a00bc72b-4433-4ca2-8989-d63e268091bd
+#doas systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+1+2+3+4+5+6+7+8 /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8
+
+# Gentoo Recommended way (dont work well with plymouth)
+clevis luks unbind -d /dev/nvme0n1p2 -s 1
+clevis luks unbind -d /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 -s 1
+clevis luks bind -d /dev/nvme0n1p2 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
+clevis luks bind -d /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'

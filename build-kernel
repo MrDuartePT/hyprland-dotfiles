@@ -1,0 +1,75 @@
+#!/bin/bash
+
+echo "Building Kernel Script"
+
+#Force run with root
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+#Verify and select kernel
+eselect kernel list
+read -p "Select the kernel you whant to use: " input
+
+while [[ $input != +([0-9]) ]]
+do
+   echo "Pls select and integer" && echo
+   eselect kernel list
+   read -p "Select the kernel you whant to use:" input
+   echo
+done
+
+eselect kernel set $REPLY
+
+#Copy config
+echo
+read -p "Do you whant to copy the old config? [Yy]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  OLD_KERNEL=$(echo "$(uname -r)" | cut -c -12)
+  echo
+  cp /usr/src/linux-$OLD_KERNEL/.config /usr/src/linux/.config
+fi
+
+echo
+read -p "Do you whant to build the kernel? [Yy]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  #Need pre-requisites
+  source /etc/profile
+  env-update
+  cd /usr/src/linux
+
+  #Start building Kernel
+  echo "Customize Kernel - Menuconfig"
+  make LLVM=1 IAS=1 menuconfig
+
+  echo "Building Kernel"
+  make LLVM=1 IAS=1
+
+  echo "Install Modules"
+  make LLVM=1 IAS=1 modules_install
+
+  echo "Install Kernel"
+
+  make LLVM=1 IAS=1
+fi
+
+#Rebuild modules and initramfs && Luks to TPM
+echo
+read -p "Do you what to rebuild modules and initramfs? [Yy]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin
+  dracut -f
+fi
+
+read -p "Do you what add keys to TPM? [Yy]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  clevis luks unbind -d /dev/nvme0n1p2 -s 1
+  clevis luks unbind -d /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 -s 1
+  clevis luks bind -d /dev/nvme0n1p2 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
+  clevis luks bind -d /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
+fi

@@ -5,7 +5,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 #Path to ~/.local/bin
 export PATH="PATH="$HOME/.local/bin:$PATH""
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -128,3 +127,5 @@ neofetch
 alias hybrid_mode="supergfxctl -m hybrid && systemctl start nvidia-persistenced.service"
 alias integrated_mode="systemctl stop nvidia-persistenced.service && supergfxctl -m integrated"
 alias sudoo="doas"
+alias emerge_@modules="doas su -c 'LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin'"
+alias rebuild_iniramfs="doas su -c 'LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin' && doas dracut -f && luks_reenroll_tpm"

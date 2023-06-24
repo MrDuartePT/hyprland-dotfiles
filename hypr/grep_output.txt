@@ -1,27 +1,5 @@
 [{
     "id": 0,
-    "name": "HDMI-A-1",
-    "description": "Samsung Electric Company SAMSUNG (HDMI-A-1)",
-    "make": "Samsung Electric Company",
-    "model": "SAMSUNG",
-    "serial": "",
-    "width": 1360,
-    "height": 768,
-    "refreshRate": 60.014999,
-    "x": 0,
-    "y": 0,
-    "activeWorkspace": {
-        "id": 11,
-        "name": "11"
-    },
-    "reserved": [0, 0, 0, 0],
-    "scale": 1.00,
-    "transform": 0,
-    "focused": true,
-    "dpmsStatus": true,
-    "vrr": false
-},{
-    "id": 1,
     "name": "eDP-1",
     "description": "AU Optronics 0xB69B (eDP-1)",
     "make": "AU Optronics",
@@ -30,16 +8,16 @@
     "width": 1920,
     "height": 1080,
     "refreshRate": 165.009995,
-    "x": 1360,
+    "x": 0,
     "y": 0,
     "activeWorkspace": {
-        "id": 1,
-        "name": "1"
+        "id": 4,
+        "name": "4"
     },
     "reserved": [0, 0, 0, 0],
     "scale": 1.50,
     "transform": 0,
-    "focused": false,
+    "focused": true,
     "dpmsStatus": true,
     "vrr": true
 }]

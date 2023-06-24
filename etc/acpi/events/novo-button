@@ -1,4 +1,4 @@
 # need to be implemented in the driver
 # Fn+F9 button/prog1 PROG1 00000080 00000000 K
-event=1E3391A1-2C89- 000000e8 00000000
+#event=1E3391A1-2C89- 000000e8 00000000
 action=/etc/acpi/actions/novo-button.sh
