@@ -1,6 +1,13 @@
 #!/bin/bash
 
-echo "Building Kernel Script"
+#Env variable
+BOOT_KERNEL=$(echo "$(uname -r)" | cut -c -12)
+verify_printk_true=$(zcat /proc/config.gz | grep 'CONFIG_PRINTK_TIME=y')
+NVME_1=/dev/disk/by-uuid/a00bc72b-4433-4ca2-8989-d63e268091bd
+#$NVME_2=
+EXTERNAL_HDD=/dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8
+#Disable TPM LUKS ENROLL for people that dosent use LUKS encrypted drives
+LUKS_DISABLE=0
 
 #Force run with root
 if [ "$EUID" -ne 0 ]
@@ -8,34 +15,63 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-#Verify and select kernel
-eselect kernel list
-read -p "Select the kernel you whant to use: " input
+#Funtions
+set_kernel () {
+  eselect kernel list
+  read -p "Select the kernel you whant to use: " input
 
-while [[ $input != +([0-9]) ]]
-do
-   echo "Pls select and integer" && echo
-   eselect kernel list
-   read -p "Select the kernel you whant to use:" input
-   echo
-done
+  while [[ $input != +([0-9]) ]]
+  do
+    echo "Pls select and integer" && echo
+    eselect kernel list
+    read -p "Select the kernel you whant to use:" input
+    echo
+  done
 
-eselect kernel set $REPLY
+  eselect kernel set $input
+  eselect kernel list
+  echo Done!
+  read -n 1 -s -r -p "Press any key to continue..."
+}
 
-#Copy config
-echo
-read -p "Do you whant to copy the old config? [Yy]: " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-  OLD_KERNEL=$(echo "$(uname -r)" | cut -c -12)
-  echo
-  cp /usr/src/linux-$OLD_KERNEL/.config /usr/src/linux/.config
-fi
+copy_kernel_config () {
+  echo "You what to copy the kernel config from:"
+  echo "1 - Copy from /proc/config.gz"
+  echo "2 - Copy from running kernel folder"
+  echo "3 - Copy from Path"
+  read -p "Choose your option (any other key + Enter to cancel): " option
 
-echo
-read -p "Do you whant to build the kernel? [Yy]: " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+case $option in
+  1)
+    echo "Reading /proc/config.gz and copy to /usr/src/linux/.config..."
+    zcat /proc/config.gz > /usr/src/linux/.config
+    echo Done!
+    read -n 1 -s -r -p "Press any key to continue..." && echo
+    ;;
+
+  2)
+    echo "Copy From /usr/src/${BOOT_KERNEL}/.config to /usr/src/linux/.config"
+    cp /usr/src/linux-${BOOT_KERNEL}/.config /usr/src/linux/.config
+    echo Done!
+    read -n 1 -s -r -p "Press any key to continue..." && echo
+    ;;
+
+  3)
+    read -p "$(tput bold) Type the full path$(tput sgr0): " path
+    cp $path /usr/src/linux/.config
+    echo Done!
+    read -n 1 -s -r -p "Press any key to continue..." && echo
+    ;;
+  
+  *)
+    echo Cancel!
+    read -n 1 -s -r -p "Press any key to continue..." && echo
+    ;;
+esac
+
+}
+
+compile_kernel () {
   #Need pre-requisites
   source /etc/profile
   env-update
@@ -43,33 +79,96 @@ then
 
   #Start building Kernel
   echo "Customize Kernel - Menuconfig"
-  make LLVM=1 IAS=1 menuconfig
+  sleep 2
+  make LLVM=1 LLVM_IAS=1 menuconfig
 
   echo "Building Kernel"
-  make LLVM=1 IAS=1
+  sleep 2
+  make LLVM=1 LLVM_IAS=1 --jobs=16
+
 
   echo "Install Modules"
-  make LLVM=1 IAS=1 modules_install
+  sleep 2
+  make LLVM=1 LLVM_IAS=1 modules_install
 
   echo "Install Kernel"
+  sleep 2
+  make LLVM=1 LLVM_IAS=1
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
 
-  make LLVM=1 IAS=1
-fi
-
-#Rebuild modules and initramfs && Luks to TPM
-echo
-read -p "Do you what to rebuild modules and initramfs? [Yy]: " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+rebuild_modules () {
+  echo "Rebulding Modules and Reload initramfs"
   LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin
   dracut -f
-fi
+  echo Done!
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
 
-read -p "Do you what add keys to TPM? [Yy]: " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-  clevis luks unbind -d /dev/nvme0n1p2 -s 1
-  clevis luks unbind -d /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 -s 1
-  clevis luks bind -d /dev/nvme0n1p2 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
-  clevis luks bind -d /dev/disk/by-uuid/9299af67-f63a-4d1c-bd63-082fc90d55a8 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
-fi
+tpm_enroll_luks () {
+  #Fix when running the 6 option
+  if [[ $LUKS_DISABLE -eq 0 ]]; then
+    clevis luks unbind -d $NVME_1 -s 1
+    clevis luks unbind -d $EXTERNAL_HDD -s 1
+    clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
+    clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
+  else
+      echo && echo "$(tput bold)This option is disable set LUKS_DISABLE to 0$(tput sgr0)" && echo
+  fi
+  echo Done!
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
+start_menu () {
+clear
+echo "Configure an Bulding Kernel - Start Menu" &&
+echo
+echo "1 - Select the kernel"
+echo "2 - Copy kernel config"
+echo "3 - Compile the kernel"
+echo "4 - Rebuil initramfs"
+echo "5 - Enroll Disks Luks key in TPM"
+echo "6 - Run All"
+echo
+read -p "Choose your option (any other key + Enter to cancel): " option
+
+case $option in
+  1)
+    set_kernel
+    start_menu
+    ;;
+
+  2)
+    copy_kernel_config
+    start_menu
+    ;;
+
+  3)
+    compile_kernel
+    start_menu
+    ;;
+
+  4)
+    rebuild_modules
+    start_menu
+    ;;
+  5)
+    tpm_enroll_luks
+    start_menu
+    ;;
+  6)
+    set_kernel
+    copy_kernel_config
+    compile_kernel
+    rebuild_modules
+    tpm_enroll_luks
+    echo "Done!!! - Reboot the system"
+    ;;
+  
+  *)
+    ;;
+esac
+}
+
+#Start of the script
+start_menu
