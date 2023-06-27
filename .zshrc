@@ -106,7 +106,7 @@ alias integrated_mode="systemctl start nvidia-persistenced.service && supergfxct
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias emacs="emacsclient -c -a 'emacs'"
+#alias emacs="emacsclient -c -a 'emacs'"
 #alias mpi='mpv --config-dir=$HOME/.config/mvi'
 alias freerdp='wlfreerdp'
 

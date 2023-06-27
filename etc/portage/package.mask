@@ -13,3 +13,4 @@ gui-wm/hyprland::useless-overlay
 >sys-libs/glibc-2.37-r3
 gui-wm/hyprland::thegreatmcpain
 =gui-apps/waybar-9999::useless-overlay
+=media-libs/gegl-9999::cg

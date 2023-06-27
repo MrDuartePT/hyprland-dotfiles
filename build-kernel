@@ -93,7 +93,7 @@ compile_kernel () {
 
   echo "Install Kernel"
   sleep 2
-  make LLVM=1 LLVM_IAS=1
+  make LLVM=1 LLVM_IAS=1 install
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 

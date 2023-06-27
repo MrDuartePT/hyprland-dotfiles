@@ -20,6 +20,7 @@ media-libs/libsdl2 gles2 pipewire
 >=app-text/poppler-23.03.0 qt5 nss
 >=media-video/vlc-3.0.18 ogg
 media-video/pipewire ffmpeg echo-cancel v4l
+sys-boot/refind btrfs ntfs custom-cflags ext4 doc
 
 #Hyprland
 dev-qt/qtbase opengl egl eglfs gles2-only
@@ -139,6 +140,7 @@ x11-misc/gammastep appindicator nls wayland
 media-libs/opencolorio -opengl
 media-libs/vulkan-loader layers
 dev-util/vulkan-tools -X wayland cube
+app-editors/emacs gui xft
 
 #AUTOUNMASK
 # required by app-emulation/libvirt-9.3.0::gentoo[virt-network]
