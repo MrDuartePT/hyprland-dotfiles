@@ -94,6 +94,12 @@ compile_kernel () {
   echo "Install Kernel"
   sleep 2
   make LLVM=1 LLVM_IAS=1 install
+
+  echo "Refind config"
+  mkrlconf
+
+  echo "Move Kernel to /boot/efi/gentoo folder"
+  mv /boot/{System.map.*,initramfs-*,vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
@@ -110,8 +116,8 @@ tpm_enroll_luks () {
   if [[ $LUKS_DISABLE -eq 0 ]]; then
     clevis luks unbind -d $NVME_1 -s 1
     clevis luks unbind -d $EXTERNAL_HDD -s 1
-    clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
-    clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,8"}'
+    clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,2,3,5,6,7"}'
+    clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,2,3,5,6,7"}'
   else
       echo && echo "$(tput bold)This option is disable set LUKS_DISABLE to 0$(tput sgr0)" && echo
   fi
