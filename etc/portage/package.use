@@ -59,7 +59,7 @@ app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs o
 >=sys-fs/lvm2-2.03.20 lvm
 >=net-firewall/nftables-1.0.7-r1 xtables json python
 >=media-libs/freetype-2.13.0 harfbuzz
-sys-apps/systemd gnuefi
+sys-apps/systemd
 #tpm2-tss
 app-crypt/tpm2-tss fapi openssl
 
