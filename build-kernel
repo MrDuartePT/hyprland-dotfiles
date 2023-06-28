@@ -99,15 +99,15 @@ compile_kernel () {
   mkrlconf
 
   echo "Move Kernel to /boot/efi/gentoo folder"
-  mv /boot/{vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo
+  mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
 rebuild_modules () {
   echo "Rebulding Modules and Reload initramfs"
   LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin
-  dracut -f
-  mv /boot/{System.map.*,initramfs-*} /boot/EFI/gentoo
+  dracut -f --regenerate-all
+  mv /boot/initramfs-* /boot/EFI/gentoo
   echo Done!
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
