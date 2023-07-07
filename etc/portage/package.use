@@ -10,7 +10,7 @@ media-libs/libsdl2 gles2 pipewire
 >=dev-python/PyQt5-5.15.9 svg network webchannel printsupport
 >=dev-qt/qtwebengine-5.15.8_p20230313 widgets jumbo-build jumbo-frames
 >=dev-qt/qtwebchannel-5.15.8 qml
->=media-video/ffmpeg-4.4.3 x264 fdk abi_x86_32 sdl
+>=media-video/ffmpeg-4.4.3 x264 fdk abi_x86_32 sdl openssl
 >=dev-libs/boost-1.81.0-r1 icu
 >=media-libs/gegl-0.4.42-r1 cairo
 >=dev-qt/qtmultimedia-5.15.8 qml
@@ -21,6 +21,10 @@ media-libs/libsdl2 gles2 pipewire
 >=media-video/vlc-3.0.18 ogg
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs custom-cflags ext4 doc
+
+net-p2p/transmission -qt5
+
+media-tv/kodi airplay bluray gbm optical udf -vdpau
 
 #Hyprland
 dev-qt/qtbase opengl egl eglfs gles2-only
@@ -54,7 +58,7 @@ media-video/pipewire echo-cancel jack-client system-service bluetooth ffmpeg gst
 #libvirt and qemu
 app-emulation/libvirt firewalld lvm lxc numa qemu virt-network virtualbox python_single_target_python3_10
 app-emulation/virt-manager gui policykit 
-app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs opengl jack
+app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs opengl jack vnc virgl 
 >=net-misc/spice-gtk-0.42 usbredir
 >=sys-fs/lvm2-2.03.20 lvm
 >=net-firewall/nftables-1.0.7-r1 xtables json python
@@ -113,7 +117,7 @@ media-sound/spotify libnotify
 
 dev-lang/python tk lto pgo graphite
 
-sys-firmware/lenovolegionlinux python acpi systemd ryzenadj
+sys-firmware/lenovolegionlinux legion-acpi systemd ryzenadj legion-tools
 
 app-misc/legion-fan-utils-linux ryzenadj
 dev-python/pyside6 widgets webengine quick webchannel qml gles2-only printsupport sql testlib
@@ -134,7 +138,7 @@ dev-python/numpy lapack
 x11-libs/gtk+ colord
 x11-misc/colord scanner
 media-gfx/sane-backends sane_backends_escl
-net-dns/avahi gtk
+net-dns/avahi gtk mdnsresponder-compat
 x11-misc/gammastep appindicator nls wayland
 
 media-libs/opencolorio -opengl

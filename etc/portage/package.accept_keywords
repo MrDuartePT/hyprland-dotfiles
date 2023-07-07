@@ -4,12 +4,20 @@ gui-libs/xdg-desktop-portal-hyprland **
 =net-im/discord-canary-bin-0.0.154::guru ~amd64
 =app-misc/ddcutil-1.3.0::gentoo ~amd64
 
+sys-kernel/linux-firmware ~amd64
+
+dev-util/rocm-smi ~amd64
+dev-util/rocminfo ~amd64
+
 app-emulation/wine-staging ~amd64
 app-emulation/wine-mono ~amd64
+sys-fs/dmg2img ~amd64
+
+dev-vcs/git ~amd64
 
 =gui-apps/cliphist-9999 **
 =games-util/mangohud-9999-r6 **
-#>=dev-qt/qtwebengine-5.15.8_p20230112::gentoo
+=dev-qt/qtwebengine-6.5.1::gentoo ~amd64
 =games-util/gamescope-9999 **
 =sys-power/auto-cpufreq-1.9.6::guru
 =gui-apps/waybar-9999::gentoo
@@ -27,7 +35,7 @@ gui-wm/hyprland ~amd64
 =app-misc/polychromatic-9999 **
 =gui-apps/ReGreet-9999 **
 =games-action/prismlauncher-9999 **
-media-video/obs-studio ~amd64
+=media-video/obs-studio-9999 **
 app-emulation/qemu ~amd64
 #=media-libs/mesa-9999 **
 sys-kernel/zenpower3 ~amd64
@@ -35,7 +43,6 @@ media-video/v4l2loopback ~amd64
 sci-libs/pytorch ~amd64
 sci-libs/caffe2 ~amd64
 dev-libs/cpuinfo ~amd64
-
 
 =dev-libs/cudnn-8.8.0.121 ~amd64
 =dev-libs/FP16-2021.03.20-r3 ~amd64
@@ -72,7 +79,6 @@ app-emulation/libvirt-glib ~amd64
 gui-apps/wdisplays ~amd64
 app-misc/yq ~amd64
 media-libs/noise-suppression-for-voice ~amd64
-
 
 =x11-drivers/nvidia-drivers-535.54.03 ~amd64
 
@@ -182,8 +188,8 @@ dev-cpp/cli11 ~amd64
 dev-ruby/pry ~amd64
 dev-ruby/colorize ~amd64
 =gui-apps/onedrivegui-9999::mrduarte-ebuilds **
-=dev-python/pyside6-6.5.0::gentoo ~amd64
-=dev-python/shiboken6-6.5.0::gentoo ~amd64
+=dev-python/pyside6-6.5.1.1::gentoo ~amd64
+=dev-python/shiboken6-6.5.1.1::gentoo ~amd64
 =dev-qt/qtsvg-6.5.1::gentoo ~amd64
 =dev-qt/qtwebchannel-6.5.1::gentoo ~amd64
 =dev-qt/qtwebsockets-6.5.1::gentoo ~amd64

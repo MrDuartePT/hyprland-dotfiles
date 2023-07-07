@@ -1,2 +1,3 @@
 virtual/wine -staging
 media-gfx/blender -cuda
+media-video/ffmpeg -cuda -amf
