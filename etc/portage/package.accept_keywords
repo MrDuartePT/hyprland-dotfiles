@@ -1,48 +1,40 @@
-=app-containers/distrobox-9999 **
-gui-libs/xdg-desktop-portal-hyprland **
-
-=net-im/discord-canary-bin-0.0.154::guru ~amd64
-=app-misc/ddcutil-1.3.0::gentoo ~amd64
-
+Wgui-libs/xdg-desktop-portal-hyprland **
 sys-kernel/linux-firmware ~amd64
+sys-kernel/gentoo-sources ~amd64
 
-dev-util/rocm-smi ~amd64
-dev-util/rocminfo ~amd64
+app-emulation/wine-proton ~amd64
 
-app-emulation/wine-staging ~amd64
-app-emulation/wine-mono ~amd64
-sys-fs/dmg2img ~amd64
-
-dev-vcs/git ~amd64
+=app-emulation/LookingGlass-1_beta6 **
+sys-power/envycontrol ~amd64
+games-util/HeroicGamesLauncher-bin ~amd64
+dev-python/steam ~amd64 
+games-util/ProtonUp-Qt ~amd64
+games-util/protonup ~amd64
+sys-power/supergfxctl ~amd64
+media-sound/spotify-tray ~amd64
+app-text/Lorien-bin ~amd64
+sys-apps/fwts ~amd64
+=media-gfx/gimp-9999::gentoo **
 
 =gui-apps/cliphist-9999 **
-=games-util/mangohud-9999-r6 **
+games-util/mangohud ~amd64
+media-libs/imgui ~amd64
 =dev-qt/qtwebengine-6.5.1::gentoo ~amd64
-=games-util/gamescope-9999 **
+gui-wm/gamescope ~amd64
 =sys-power/auto-cpufreq-1.9.6::guru
 =gui-apps/waybar-9999::gentoo
 =gui-wm/cage-9999 **
-#=app-emulation/looking-glass-9999 **
-=app-emulation/looking-glass-1_beta6-r1::thegreatmcpain ~amd64
 =gui-apps/waybar-9999 **
-=sys-firmware/lenovolegionlinux-9999 **
-=app-misc/legion-fan-utils-linux-9999 **
+=sys-firmware/LenovoLegionLinux-9999 **
 gui-wm/hyprland ~amd64
-=app-misc/onedrivegui-9999 **
 =app-misc/hyprland-contrib-9999 **
 =gui-apps/gtklock-extras-9999 **
-=app-misc/onedrivegui-9999 **
 =app-misc/polychromatic-9999 **
-=gui-apps/ReGreet-9999 **
+gui-apps/ReGreet **
 =games-action/prismlauncher-9999 **
 =media-video/obs-studio-9999 **
-app-emulation/qemu ~amd64
-#=media-libs/mesa-9999 **
 sys-kernel/zenpower3 ~amd64
 media-video/v4l2loopback ~amd64
-sci-libs/pytorch ~amd64
-sci-libs/caffe2 ~amd64
-dev-libs/cpuinfo ~amd64
 
 =dev-libs/cudnn-8.8.0.121 ~amd64
 =dev-libs/FP16-2021.03.20-r3 ~amd64
@@ -60,22 +52,13 @@ dev-libs/cpuinfo ~amd64
 =dev-python/Opcodes-0.3.14 ~amd64
 dev-util/nvidia-cuda-toolkit ~amd64
 dev-libs/cudnn ~amd64
-sys-kernel/gentoo-kernel-bin ~amd64
-sys-kernel/gentoo-sources ~amd64
 app-emulation/virtiofsd ~amd64
-media-fonts/fontawesome ~amd64
 media-gfx/realesrgan-ncnn-vulkan ~amd64
 =dev-python/numpy-1.24.3 ~amd64
-sys-apps/openrazer ~amd64
 dev-python/scipy ~amd64
 dev-python/contourpy ~amd64
 dev-python/matplotlib ~amd64
-app-emulation/wine-staging ~amd64
-app-emulation/qemu ~amd64
-app-emulation/libvirt ~amd64
-dev-python/libvirt-python ~amd64
 net-misc/onedrive ~amd64
-app-emulation/libvirt-glib ~amd64
 gui-apps/wdisplays ~amd64
 app-misc/yq ~amd64
 media-libs/noise-suppression-for-voice ~amd64
@@ -111,7 +94,6 @@ app-shells/direnv ~amd64
 app-crypt/clevis ~amd64
 app-misc/brightnessctl ~amd64
 dev-libs/rocm-opencl-runtime ~amd64
-dev-python/Rx ~amd64
 games-emulation/xemu ~amd64
 games-util/gamemode ~amd64
 games-util/goverlay-bin ~amd64
@@ -141,55 +123,38 @@ sys-libs/libnvidia-container ~amd64
 sys-apps/polychromatic ~amd64
 
 
-# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
-# required by dev-libs/rocm-opencl-runtime (argument)
-=dev-libs/rocm-comgr-5.4.3-r1 ~amd64
 # required by dev-python/moddb-0.8.1::gentoo
 # required by games-util/lutris-0.5.13::gentoo[python_single_target_python3_11]
 # required by games-util/lutris (argument)
 =dev-python/pyrate-limiter-2.10.0 ~amd64
-# required by dev-libs/rocr-runtime-5.4.3-r1::gentoo
-# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
-# required by dev-libs/rocm-opencl-runtime (argument)
-=dev-libs/roct-thunk-interface-5.4.3 ~amd64
 # required by app-crypt/clevis-19-r1::guru[luks]
 # required by app-crypt/clevis (argument)
 =dev-libs/luksmeta-9 ~amd64
-# required by dev-libs/rocm-comgr-5.4.3-r1::gentoo
-# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
-# required by dev-libs/rocm-opencl-runtime (argument)
 =dev-libs/rocm-device-libs-5.4.3 ~amd64
 # required by app-crypt/clevis-19-r1::guru
 # required by app-crypt/clevis (argument)
 =dev-libs/jose-11-r1 ~amd64
-# required by dev-libs/rocm-opencl-runtime-5.4.3::gentoo
-# required by dev-libs/rocm-opencl-runtime (argument)
-=dev-util/rocm-cmake-5.4.3 ~amd64
-# required by app-emulation/wine-staging-8.8::gentoo[gecko]
-# required by app-emulation/wine-staging (argument)
-=app-emulation/wine-gecko-2.47.4 ~amd64
+
 gui-apps/hyprland-plugins ~amd64
 dev-libs/hyprland-protocols ~amd64
 dev-libs/libliftoff ~amd64
-www-client/librewolf ~amd64
-dev-libs/nss ~amd64
 =net-im/zoom-5.14.7.2928 ~amd64
-=sys-libs/glibc-2.37-r3 ~amd64
-app-admin/gwe ~amd64
 dev-python/injector ~amd64
 dev-python/py3nvml ~amd64
-gui-wm/gamescope ~amd64
 media-libs/vkroots ~amd64
 
-media-gfx/ueberzugpp ~amd64
 media-libs/vips ~amd64
 dev-cpp/cli11 ~amd64
-=app-emulation/vendor-reset-9999 **
 dev-ruby/pry ~amd64
 dev-ruby/colorize ~amd64
-=gui-apps/onedrivegui-9999::mrduarte-ebuilds **
+gui-apps/OneDriveGUI ~amd64
 =dev-python/pyside6-6.5.1.1::gentoo ~amd64
 =dev-python/shiboken6-6.5.1.1::gentoo ~amd64
 =dev-qt/qtsvg-6.5.1::gentoo ~amd64
 =dev-qt/qtwebchannel-6.5.1::gentoo ~amd64
 =dev-qt/qtwebsockets-6.5.1::gentoo ~amd64
+dev-python/PyQt6 ~amd64
+dev-qt/qttools ~amd64
+dev-qt/qtbase ~amd64
+dev-python/PyQt6-sip ~amd64
+app-text/sioyek **

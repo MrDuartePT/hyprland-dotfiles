@@ -14,3 +14,4 @@ gui-wm/hyprland::useless-overlay
 gui-wm/hyprland::thegreatmcpain
 =gui-apps/waybar-9999::useless-overlay
 =media-libs/gegl-9999::cg
+#>=gui-libs/egl-wayland-1.1.11_p20230202-r1::gentoo
