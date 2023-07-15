@@ -2,8 +2,7 @@ games-util/HeroicGamesLauncher-bin gamescope
 sys-devel/gcc lto pgo graphite
 >=app-text/poppler-23.03.0 caizro
 >=x11-libs/libdrm-2.4.115 video_cards_radeon video_cards_amdgpu
->=app-cdr/cdrtools-99999999 schily-tools
-media-fonts/nerd-fonts X 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono cascadiacode codenewroman cousine daddytimemono dejavusansmono droidsansmono fantasquesansmono firacode firamono go-mono gohu hack hasklig heavydata hermit ia-writer ibmplexmono inconsolata inconsolatago inconsolatalgc iosevka jetbrainsmono lekton liberationmono lilex meslo monofur monoid mononoki mplus noto opendyslexic overpass profont proggyclean robotomono sharetechmono sourcecodepro spacemono symbols terminus tinos ubuntu ubuntumono victormono
+media-fonts/nerd-fonts X 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono cascadiacode codenewroman cousine daddytimemono dejavusansmono droidsansmono fantasquesansmono firacode firamono go-mono gohu hack hasklig heavydata hermit ia-writer ibmplexmono inconsolata inconsolatago inconsolatalgc iosevka jetbrainsmono lekton liberationmono lilex meslo monofur monoid mononoki mplus noto opendyslexic overpass profont proggyclean robotomono sharetechmono sourcecodepro spacemono terminus tinos ubuntu ubuntumono victormono
 dev-python/PyQt5 gui widgets sql
 app-emulation/LookingGlass binutils X wayland pipewire
 media-libs/libsdl2 gles2 pipewire
@@ -34,22 +33,27 @@ dev-python/PyQt6 gles2-only designer
 dev-qt/qtbase opengl egl eglfs gles2-only
 dev-qt/qtdeclarative opengl
 gui-wm/hyprland X systemd
-gui-libs/xdg-desktop-portal-hyprland select-window select-region
 sys-apps/xdg-desktop-portal screencast
-gui-libs/wlroots X hwdata seatd udev vulkan x11-backend tinywl
+gui-libs/wlroots X vulkan x11-backend tinywl
+app-misc/hyprland-contrib grimblast scratchpad shellevents hyprprop
+gui-apps/gtklock-extras playerctl powerbar userinfo
+net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer
+gui-apps/ReGreet gtk4 logs cage
+net-misc/networkmanager-dmenu -dmenu rofi
+dev-qt/qtgui jpeg vulkan wayland libinput
 
 #Webkit-gtk
 net-libs/webkit-gtk jumbo-build
 
 #For onedrive client
-net-misc/onedrive debug libnotify dmd-2_099 ldc2-1_3
+net-misc/onedrive debug libnotify dmd-2_099
 dev-lang/ldc2 dmd-2_099
 
 >=x11-libs/libfm-1.3.2 gtk
 
 #wine
 virtual/wine proton
-app-emulation/wine-proton X wayland fontconfig -llvm-libunwind gecko alsa gstreamer onmesa sdl v4l vulkan xinerama abi_x86_32
+app-emulation/wine-proton fontconfig -llvm-libunwind gecko alsa gstreamer sdl v4l xinerama abi_x86_32
 app-emulation/vkd3d abi_x86_32
 games-util/gamemode systemd
 gui-wm/gamescope wsi-layer
@@ -60,13 +64,13 @@ media-video/obs-studio browser pipewire pulseaudio python vlc websocket alsa nve
 media-video/pipewire echo-cancel jack-client system-service bluetooth ffmpeg gstreamer v4l sound-server extra
 #libvirt and qemu
 app-emulation/libvirt firewalld lvm lxc numa qemu virt-network virtualbox python_single_target_python3_10
-app-emulation/virt-manager gui policykit 
-app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs opengl jack vnc virgl 
+app-emulation/virt-manager gui policykit
+app-emulation/qemu alsa ncurses pulseaudio spice usb usbredir vhost-net virtfs opengl jack vnc virgl
 >=net-misc/spice-gtk-0.42 usbredir
 >=sys-fs/lvm2-2.03.20 lvm
 >=net-firewall/nftables-1.0.7-r1 xtables json python
 >=media-libs/freetype-2.13.0 harfbuzz
-sys-apps/systemd
+
 #tpm2-tss
 app-crypt/tpm2-tss fapi openssl
 
@@ -74,11 +78,12 @@ app-crypt/tpm2-tss fapi openssl
 x11-terms/alacritty wayland debug X
 x11-misc/rofi drun windowmode
 app-admin/doas persist
-gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network sndio tray wifi -libcxx jack libinput
+gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network sndio tray wifi jack libinput
 >=dev-libs/libdbusmenu-16.04.0-r2 gtk3
-app-crypt/pinentry gnome-keyring gtk 
+app-crypt/pinentry gtk
 >=app-misc/openrazer-3.3.0 client daemon
 >=dev-qt/qtmultimedia-5.15.8 widgets
+media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau vulkan vulkan-overlay wayland
 
 #RUST
 >=virtual/rust-1.66.1 abi_x86_32 rustfmt
@@ -89,53 +94,22 @@ app-crypt/tpm2-tss fapi openssl
 #GIMP gtk flag
 >=media-gfx/gimp-2.10.34-r1:0/2::gentoo gtk
 
-#Octave (free [from freedom] Matlab) && Freecad (free autocad)
-sci-mathematics/octave curl doc fftw fltk glpk gnuplot gui hdf5 imagemagick java opengl portaudio postscript qhull readline sndfile sparse ssl sundials zlib qrupdate json
-media-gfx/freecad addonmgr gui fem idf image inspection material openscad part-design points pcl raytracing show robot surface techdraw tux
-media-gfx/blender alemic bullet collada color-management cycles dds embree openpgl openvdb potrace tbb optix
-
-media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau vulkan vulkan-overlay wayland
-dev-qt/qtgui jpeg vulkan wayland libinput
-
-
-#librewolf
-www-client/librewolf wayland clang dbus geckodriver gmp-autoupdate hwaccel lto openh264 screencast sndio system-av1 system-jpeg system-png system-python-libs system-webp wifi graphite pgo lto
->=media-libs/libpng-1.6.39 apng
->=media-libs/libvpx-1.12.0-r1 postproc
-
-#Firefox
-www-client/firefox wayland clang dbus geckodriver gmp-autoupdate hwaccel lto openh264 screencast sndio system-av1 system-jpeg system-png system-python-libs system-webp wifi
-
 #vulkan
 media-libs/vulkan-loader layers X wayland
 >=media-libs/vulkan-layers-1.3.243 abi_x86_32
 >=dev-util/spirv-tools-1.3.243 abi_x86_32
 >=dev-util/glslang-1.3.243 abi_x86_32
 
-media-sound/spotify libnotify 
+media-sound/spotify libnotify
 
-#GWE
->=dev-python/pillow-9.5.0 webp python_targets_python3_10
->=dev-libs/libpcre2-10.42-r1 pcre32
-
-dev-lang/python tk lto pgo graphite
+dev-lang/python tk lto pgo
 
 sys-firmware/LenovoLegionLinux legion-acpi systemd ryzenadj legion-tools
 
-app-misc/legion-fan-utils-linux ryzenadj
 dev-python/pyside6 widgets webengine webchannel quick qml gles2-only printsupport sql designer
 
->=gui-libs/wlroots-0.16.2 tinywl
->=x11-base/xorg-server-21.1.8 xvfb
-app-misc/hyprland-contrib grimblast scratchpad shellevents hyprprop
-gui-apps/gtklock-extras playerctl powerbar userinfo
-net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer
-gui-apps/ReGreet gtk4 logs cage
-net-misc/networkmanager-dmenu -dmenu rofi
-app-misc/polychromatic python_targets_python3_10
-sci-libs/caffe2 opencv distributed tensorpipe 
 dev-util/nvidia-cuda-toolkit profiler
-dev-python/numpy lapack 
+dev-python/numpy lapack
 >=dev-libs/libclc-15.0.7 spirv
 
 x11-libs/gtk+ colord
@@ -144,10 +118,11 @@ media-gfx/sane-backends sane_backends_escl
 net-dns/avahi gtk mdnsresponder-compat
 x11-misc/gammastep appindicator nls wayland
 
-media-libs/opencolorio -opengl
 dev-util/vulkan-tools -X wayland cube
-app-editors/emacs gui xft
 
+#sci-mathematics/octave curl doc fftw fltk gnuplot hdf5 imagemagick java json portaudio postscript sndfile sundials
+
+## AUTOUNMAKS
 #AUTOUNMASK
 # required by app-emulation/libvirt-9.3.0::gentoo[virt-network]
 # required by app-emulation/libvirt-glib-4.0.0::gentoo
@@ -965,160 +940,6 @@ app-editors/emacs gui xft
 # required by games-util/steam-meta-0-r20220320::steam-overlay
 # required by games-util/steam-meta (argument)
 >=x11-drivers/nvidia-drivers-525.116.04 abi_x86_32
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/olefile-0.46-r2 python_targets_python3_10
-# required by dev-python/pyparsing-3.0.9::gentoo
-# required by dev-python/packaging-23.0-r1::gentoo
-# required by dev-python/nspektr-0.4.0::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/gpep517-13 python_targets_python3_10
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/setuptools-67.6.1 python_targets_python3_10
-# required by dev-python/certifi-3021.3.16-r3::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/wheel-0.40.0 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/jaraco-text-3.11.1 python_targets_python3_10
-# required by dev-python/nspektr-0.4.0::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/more-itertools-9.1.0 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/nspektr-0.4.0 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/ordered-set-4.1.0 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/packaging-23.0-r1 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/platformdirs-3.2.0 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/tomli-2.0.1-r1 python_targets_python3_10
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/certifi-3021.3.16-r3 python_targets_python3_10
-# required by dev-python/inflect-6.0.2::gentoo
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/setuptools-scm-7.1.0 python_targets_python3_10
-# required by dev-python/pydantic-1.10.7::gentoo
-# required by dev-python/inflect-6.0.2::gentoo
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/typing-extensions-4.5.0 python_targets_python3_10
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/flit-core-3.8.0 python_targets_python3_10
-# required by dev-python/packaging-23.0-r1::gentoo
-# required by dev-python/nspektr-0.4.0::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/pyparsing-3.0.9 python_targets_python3_10
-# required by dev-python/nspektr-0.4.0::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/jaraco-context-4.3.0 python_targets_python3_10
-# required by dev-python/nspektr-0.4.0::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/jaraco-functools-3.6.0 python_targets_python3_10
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/autocommand-2.2.2 python_targets_python3_10
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/inflect-6.0.2 python_targets_python3_10
-# required by dev-python/inflect-6.0.2::gentoo
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/pydantic-1.10.7 python_targets_python3_10
-# required by dev-python/pydantic-1.10.7::gentoo[native-extensions]
-# required by dev-python/inflect-6.0.2::gentoo
-# required by dev-python/jaraco-text-3.11.1::gentoo
-# required by dev-python/setuptools-67.6.1::gentoo
-# required by dev-python/olefile-0.46-r2::gentoo
-# required by dev-python/pillow-9.5.0::pentoo
-# required by games-util/lutris-0.5.12::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
->=dev-python/cython-0.29.33 python_targets_python3_10
-# required by dev-python/gpep517-13::gentoo
-# required by dev-python/Rx-4.0.4-r1::zGentoo
-# required by dev-python/Rx (argument)
->=dev-python/installer-0.7.0 python_targets_python3_10
 # required by app-emulation/wine-vanilla-8.0.1::gentoo[X,xcomposite]
 # required by virtual/wine-0-r10::gentoo
 # required by app-emulation/winetricks-20230212::gentoo

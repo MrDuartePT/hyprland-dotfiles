@@ -1,144 +1,104 @@
-Wgui-libs/xdg-desktop-portal-hyprland **
-sys-kernel/linux-firmware ~amd64
+##Kernel, Firmware && Tools
 sys-kernel/gentoo-sources ~amd64
-
-app-emulation/wine-proton ~amd64
-
-=app-emulation/LookingGlass-1_beta6 **
-sys-power/envycontrol ~amd64
-games-util/HeroicGamesLauncher-bin ~amd64
-dev-python/steam ~amd64 
-games-util/ProtonUp-Qt ~amd64
-games-util/protonup ~amd64
-sys-power/supergfxctl ~amd64
-media-sound/spotify-tray ~amd64
-app-text/Lorien-bin ~amd64
-sys-apps/fwts ~amd64
-=media-gfx/gimp-9999::gentoo **
-
-=gui-apps/cliphist-9999 **
-games-util/mangohud ~amd64
-media-libs/imgui ~amd64
-=dev-qt/qtwebengine-6.5.1::gentoo ~amd64
-gui-wm/gamescope ~amd64
-=sys-power/auto-cpufreq-1.9.6::guru
-=gui-apps/waybar-9999::gentoo
-=gui-wm/cage-9999 **
-=gui-apps/waybar-9999 **
 =sys-firmware/LenovoLegionLinux-9999 **
-gui-wm/hyprland ~amd64
-=app-misc/hyprland-contrib-9999 **
-=gui-apps/gtklock-extras-9999 **
-=app-misc/polychromatic-9999 **
-gui-apps/ReGreet **
-=games-action/prismlauncher-9999 **
-=media-video/obs-studio-9999 **
 sys-kernel/zenpower3 ~amd64
 media-video/v4l2loopback ~amd64
+##
 
-=dev-libs/cudnn-8.8.0.121 ~amd64
-=dev-libs/FP16-2021.03.20-r3 ~amd64
-=dev-libs/pthreadpool-2022.05.09-r1 ~amd64
-=dev-libs/cudnn-frontend-0.7.3 ~amd64
-=dev-libs/psimd-2020.05.17 ~amd64
-=dev-libs/pocketfft-2021.11.23 ~amd64
-=sci-libs/kineto-0.4.0 ~amd64
-=dev-util/nvidia-cuda-toolkit-11.8.0-r3 ~amd64
-=dev-python/PeachPy-2022.11.13 ~amd64
-=dev-libs/cutlass-2.10.0-r1 ~amd64
-=dev-libs/FXdiv-2020.12.09-r1 ~amd64
-=sci-libs/foxi-2021.05.27 ~amd64
-=sci-libs/onnx-1.13.1 ~amd64
-=dev-python/Opcodes-0.3.14 ~amd64
-dev-util/nvidia-cuda-toolkit ~amd64
-dev-libs/cudnn ~amd64
-app-emulation/virtiofsd ~amd64
-media-gfx/realesrgan-ncnn-vulkan ~amd64
-=dev-python/numpy-1.24.3 ~amd64
-dev-python/scipy ~amd64
-dev-python/contourpy ~amd64
-dev-python/matplotlib ~amd64
-net-misc/onedrive ~amd64
+##Desktop
+=app-emulation/LookingGlass-1_beta6 **
+media-sound/spotify-tray ~amd64
+=gui-apps/waybar-9999::gentoo
+=gui-wm/cage-9999 **
+gui-wm/hyprland ~amd64
+gui-apps/hyprpaper ~amd64
+gui-libs/xdg-desktop-portal-hyprland **
+=app-misc/hyprland-contrib-9999 **
+gui-apps/hyprland-plugins ~amd64
+dev-libs/hyprland-protocols ~amd64
+=gui-apps/gtklock-2.1.0::guru ~amd64
+=gui-apps/gtklock-extras-9999 **
+gui-apps/ReGreet **
+app-misc/brightnessctl ~amd64
 gui-apps/wdisplays ~amd64
-app-misc/yq ~amd64
-media-libs/noise-suppression-for-voice ~amd64
-
-=x11-drivers/nvidia-drivers-535.54.03 ~amd64
-
-#fix emerge errors
-=dev-util/mingw64-toolchain-11.0.0 ~amd64
-
-sci-libs/torchvision ~amd64
-sci-libs/tensorpipe ~amd64
-dev-libs/libnop ~amd64
-virtual/dist-kernel ~amd64
-app-crypt/tpm2-tss ~amd64
-dev-python/requests ~amd64
-dev-util/bindgen  ~amd64
-sys-apps/locale-gen ~amd64
-dev-libs/libunistring ~amd64
-app-crypt/tpm2-pkcs11 ~amd64
-dev-python/tpm2-pytss ~amd64
-gui-apps/gtklock ~amd64
-dev-libs/date ~amd64
 app-admin/bitwarden-desktop-bin ~amd64
 app-misc/ani-cli ~amd64
 app-editors/vscodium ~amd64
 net-im/whatsapp-desktop-bin ~amd64
 mail-client/mailspring-bin ~amd64
+=gui-apps/cliphist-9999 **
+gui-apps/swaync ~amd64
+gui-apps/wlr-randr ~amd64
+x11-misc/pcmanfm ~amd64
+##
+
+##PDF and Tablet
+app-text/Lorien-bin ~amd64
+app-text/sioyek **
 x11-drivers/OpenTabletDriver-bin ~amd64
 dev-dotnet/dotnet-sdk-bin ~amd64
+##
+
+## Onedrive
+net-misc/onedrive ~amd64
+gui-apps/OneDriveGUI ~amd64
+##
+
+## Video && Image && Sound
+=media-gfx/gimp-9999::gentoo **
+=media-video/obs-studio-9999 **
+media-libs/noise-suppression-for-voice ~amd64
 media-libs/libdisplay-info ~amd64
-gui-apps/hyprpaper ~amd64
-app-shells/direnv ~amd64
+##
+
+##TPM
+app-crypt/tpm2-tss ~amd64
+app-crypt/tpm2-pkcs11 ~amd64
+dev-python/tpm2-pytss ~amd64
 app-crypt/clevis ~amd64
-app-misc/brightnessctl ~amd64
-dev-libs/rocm-opencl-runtime ~amd64
+##
+
+##Nvidia
+=x11-drivers/nvidia-drivers-535.54.03 ~amd64
+dev-util/nvidia-cuda-toolkit ~amd64
+dev-libs/cudnn ~amd64
+media-libs/nvidia-vaapi-driver ~amd64
+##
+
+##Gaming
 games-emulation/xemu ~amd64
 games-util/gamemode ~amd64
-games-util/goverlay-bin ~amd64
 games-util/lutris ~amd64
 games-util/steam-launcher ~amd64
 games-util/steam-meta ~amd64
 games-util/xboxdrv ~amd64
-gui-apps/swaync ~amd64
-gui-apps/wlr-randr ~amd64
-media-fonts/material-design-icons ~amd64
-media-libs/noise-suppression-for-voice ~amd64
-media-libs/nvidia-vaapi-driver ~amd64
-sys-apps/direnv ~amd64
-sys-config/ltoize ~amd64
+games-util/HeroicGamesLauncher-bin ~amd64
+dev-python/steam ~amd64
+games-util/ProtonUp-Qt ~amd64
+games-util/protonup ~amd64
+sys-power/supergfxctl ~amd64
+gui-wm/gamescope ~amd64
+sys-apps/polychromatic ~amd64
+app-emulation/wine-proton ~amd64
+app-emulation/wine-mono ~amd64
+=games-util/mangohud-9999-r6::thegreatmcpain **
 sys-process/nvtop ~amd64
-x11-misc/pcmanfm ~amd64
+##
+
+## Misc Packages
+dev-python/requests ~amd64
+sys-apps/locale-gen ~amd64
+dev-libs/date ~amd64
+app-shells/direnv ~amd64
+=app-emulation/virtiofsd-1.6.1::gentoo ~amd64
+
+media-fonts/material-design-icons ~amd64
 x11-libs/libfm ~amd64
-dev-libs/ncnn ~amd64
-games-util/steam-client-meta ~amd64
 games-util/game-device-udev-rules ~amd64
-dev-libs/qt5pas ~amd64
-dev-libs/rocr-runtime ~amd64
 dev-python/pypresence ~amd64
 dev-python/moddb ~amd64
-app-containers/nvidia-container-toolkit ~amd64
-sys-libs/libnvidia-container ~amd64
-sys-apps/polychromatic ~amd64
 
-
-# required by dev-python/moddb-0.8.1::gentoo
-# required by games-util/lutris-0.5.13::gentoo[python_single_target_python3_11]
-# required by games-util/lutris (argument)
-=dev-python/pyrate-limiter-2.10.0 ~amd64
-# required by app-crypt/clevis-19-r1::guru[luks]
-# required by app-crypt/clevis (argument)
-=dev-libs/luksmeta-9 ~amd64
-=dev-libs/rocm-device-libs-5.4.3 ~amd64
-# required by app-crypt/clevis-19-r1::guru
-# required by app-crypt/clevis (argument)
-=dev-libs/jose-11-r1 ~amd64
-
-gui-apps/hyprland-plugins ~amd64
-dev-libs/hyprland-protocols ~amd64
 dev-libs/libliftoff ~amd64
-=net-im/zoom-5.14.7.2928 ~amd64
 dev-python/injector ~amd64
 dev-python/py3nvml ~amd64
 media-libs/vkroots ~amd64
@@ -147,14 +107,16 @@ media-libs/vips ~amd64
 dev-cpp/cli11 ~amd64
 dev-ruby/pry ~amd64
 dev-ruby/colorize ~amd64
-gui-apps/OneDriveGUI ~amd64
+##
+
+#QT stuff
 =dev-python/pyside6-6.5.1.1::gentoo ~amd64
 =dev-python/shiboken6-6.5.1.1::gentoo ~amd64
 =dev-qt/qtsvg-6.5.1::gentoo ~amd64
 =dev-qt/qtwebchannel-6.5.1::gentoo ~amd64
 =dev-qt/qtwebsockets-6.5.1::gentoo ~amd64
-dev-python/PyQt6 ~amd64
-dev-qt/qttools ~amd64
-dev-qt/qtbase ~amd64
-dev-python/PyQt6-sip ~amd64
-app-text/sioyek **
+=dev-qt/qtwebengine-6.5.1::gentoo ~amd64
+=dev-python/PyQt6-6.5.1::gentoo ~amd64
+=dev-qt/qttools-6.5.1::gentoo  ~amd64
+=dev-qt/qtbase-6.5.1-r1::gentoo ~amd64
+=dev-python/PyQt6-sip-13.5.1::gentoo ~amd64
