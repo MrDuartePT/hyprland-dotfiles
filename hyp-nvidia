@@ -1,5 +1,0 @@
-#!/bin/sh
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export GBM_BACKEND=nvidia-drm
-
-exec Hyprland

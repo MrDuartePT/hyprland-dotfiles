@@ -5,8 +5,8 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "custom/waybar-mpris"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["wlr/workspaces", "hyprland/window"],
+    "modules-center": ["mpris"],
     "modules-right": ["idle_inhibitor", "wireplumber", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "clock", "tray"],
     // Modules configuration
     "wlr/workspaces": {
@@ -128,7 +128,6 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "on-click-right": "doas battery_consertive_mode"
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -194,7 +193,7 @@
     },
     "custom/waybar-mpris": {
         "return-type": "json",
-        "exec": "waybar-mpris --autofocus",
+        "exec": "waybar-mpris -F",
         "on-click": "waybar-mpris --send toggle",
         // This option will switch between players on right click.
             "on-click-right": "waybar-mpris --send player-next",
@@ -238,6 +237,19 @@
     "tray": {
         "show-passive-items": true
     },
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+             "default": "▶",
+             "mpv": "🎵"
+        },
+        "status-icons": {
+             "paused": "⏸"
+        },
+        "ignored-players": ["librewolf-bin"]
+   },
 
     "custom/gfx": {
         "format": "{}",

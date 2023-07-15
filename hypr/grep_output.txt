@@ -11,8 +11,8 @@
     "x": 0,
     "y": 0,
     "activeWorkspace": {
-        "id": 1,
-        "name": "1"
+        "id": 9,
+        "name": "9"
     },
     "reserved": [0, 0, 0, 0],
     "scale": 1.50,
@@ -20,4 +20,26 @@
     "focused": true,
     "dpmsStatus": true,
     "vrr": true
+},{
+    "id": 1,
+    "name": "HDMI-A-1",
+    "description": "Samsung Electric Company SAMSUNG (HDMI-A-1)",
+    "make": "Samsung Electric Company",
+    "model": "SAMSUNG",
+    "serial": "",
+    "width": 1360,
+    "height": 768,
+    "refreshRate": 60.014999,
+    "x": 1920,
+    "y": 0,
+    "activeWorkspace": {
+        "id": 11,
+        "name": "11"
+    },
+    "reserved": [0, 0, 0, 0],
+    "scale": 1.00,
+    "transform": 0,
+    "focused": false,
+    "dpmsStatus": true,
+    "vrr": false
 }]
