@@ -85,6 +85,10 @@ app-emulation/wine-mono ~amd64
 sys-process/nvtop ~amd64
 ##
 
+## Mouse 
+=dev-libs/libratbag-0.17::gentoo ~amd64
+=app-misc/piper-0.7::gentoo ~amd64
+
 ## Misc Packages
 dev-python/requests ~amd64
 sys-apps/locale-gen ~amd64
