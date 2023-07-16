@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Env variable
+kernel_selected=$(eselect kernel list | cat | grep "*" | cut -b 15-17)
 BOOT_KERNEL=$(echo "$(uname -r)" | cut -c -12)
 verify_printk_true=$(zcat /proc/config.gz | grep 'CONFIG_PRINTK_TIME=y')
 NVME_1=/dev/disk/by-uuid/a00bc72b-4433-4ca2-8989-d63e268091bd
@@ -32,6 +33,41 @@ set_kernel () {
   eselect kernel list
   echo Done!
   read -n 1 -s -r -p "Press any key to continue..."
+}
+
+patch_kernel () {
+  echo "Chose the kernel patch:"
+  echo
+  echo "1 - CachyOS Kernel Patch"
+  echo "2 - From file/link"
+  echo
+  echo "Choose your option (any other key + Enter to cancel)"
+  read -p "Note: Dont run the same patch twices: " option
+
+  case $option in
+  1)
+    cd /usr/src/linux
+    curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/all/0001-cachyos-base-all.patch -o patch-cachyos.patch
+    patch -p1 < patch-cachyos.patch
+    read -n 1 -s -r -p "Press any key to continue..." && echo
+    ;;
+  2)
+    cd /usr/src/linux
+    read -p "$(tput bold) Type the full path or web address of the file$(tput sgr0): " input
+    check_is_link=$(echo ${input} | grep http)
+    if [[ $check_is_link ]]; then
+      curl ${input} -o patch.patch
+    else
+      echo $input
+      cp $input ./patch.patch
+    fi
+    patch -p1 < patch.patch
+    read -n 1 -s -r -p "Press any key to continue..." && echo
+    ;;
+
+  *)
+    ;;
+  esac
 }
 
 copy_kernel_config () {
@@ -79,7 +115,6 @@ compile_kernel () {
 
   #Start building Kernel
   echo "Customize Kernel - Menuconfig"
-  sleep 2
   make LLVM=1 LLVM_IAS=1 menuconfig
 
   echo "Building Kernel"
@@ -104,8 +139,12 @@ compile_kernel () {
 }
 
 rebuild_modules () {
-  echo "Rebulding Modules and Reload initramfs"
+  echo "Rebulding Modules"
   LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin
+}
+
+build_initramfs () {
+  echo "Rebulding Initramfs (dracut)" && sleep 2
   dracut -f --regenerate-all
   mv /boot/initramfs-* /boot/EFI/gentoo
   echo Done!
@@ -128,14 +167,16 @@ tpm_enroll_luks () {
 
 start_menu () {
 clear
-echo "Configure an Bulding Kernel - Start Menu" &&
+echo "Configure an Bulding Kernel - Start Menu"
 echo
 echo "1 - Select the kernel"
-echo "2 - Copy kernel config"
-echo "3 - Compile the kernel"
-echo "4 - Rebuil initramfs"
-echo "5 - Enroll Disks Luks key in TPM"
-echo "6 - Run All"
+echo "2 - Patch Kernel"
+echo "3 - Copy kernel config"
+echo "4 - Compile the kernel"
+echo "5 - Rebuil out of tree kernel modules"
+echo "6 - Rebuil initramfs"
+echo "7 - Enroll Disks Luks key in TPM"
+echo "8 - Run All"
 echo
 read -p "Choose your option (any other key + Enter to cancel): " option
 
@@ -146,28 +187,39 @@ case $option in
     ;;
 
   2)
-    copy_kernel_config
+    patch_kernel
     start_menu
     ;;
 
   3)
-    compile_kernel
+    copy_kernel_config
     start_menu
     ;;
 
   4)
-    rebuild_modules
+    compile_kernel
     start_menu
     ;;
+
   5)
-    tpm_enroll_luks
+    rebuild_modules
     start_menu
     ;;
   6)
+    build_initramfs
+    start_menu
+    ;;
+  7)
+    tpm_enroll_luks
+    start_menu
+    ;;
+  8)
     set_kernel
+    patch_kernel
     copy_kernel_config
     compile_kernel
     rebuild_modules
+    build_initramfs
     tpm_enroll_luks
     echo "Done!!! - Reboot the system"
     ;;

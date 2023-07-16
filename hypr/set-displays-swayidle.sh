@@ -13,7 +13,7 @@ if [[ $swayidle_running -gt 1 && $hyprpaper_running -gt 1 ]]; then
 fi
 
 #Set Refresh Rate & Time Values
-if [ $POWER_ADAPTER ]; then; refresh_rate="165hz" && time_1=300 && time_2=305 && time_3=600 ; else refresh_rate="60hz" && time_1=300 && time_2=310 && time_3=450; fi
+if [ $POWER_ADAPTER ]; then; refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 ; else refresh_rate="60hz" && time_1=300 && time_2=310 && time_3=450; fi
 
 #Set Internal Display Variable
 laptop=eDP-1
@@ -27,9 +27,9 @@ hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
 
 ## GTKLock command
 swayidle -w \
-  timeout $time_1 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
-  timeout $time_2 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
-  timeout $time_3 'systemctl suspend' \
+  timeout $time_1 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
+  timeout $time_2 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
+  timeout $time_3 'systemctl suspend && hyprctl dispatch dpms on' \
   before-sleep 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' &
 
 ## Swaylock command
