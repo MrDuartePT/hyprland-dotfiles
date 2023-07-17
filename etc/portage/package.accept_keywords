@@ -66,6 +66,9 @@ media-libs/nvidia-vaapi-driver ~amd64
 ##
 
 ##Gaming
+=media-libs/rtmidi-5.0.0::gentoo ~amd64
+=media-libs/munt-mt32emu-2.7.0::gentoo ~amd64
+=app-emulation/86Box-3.11::gentoo ~amd64
 games-emulation/xemu ~amd64
 games-util/gamemode ~amd64
 games-util/lutris ~amd64

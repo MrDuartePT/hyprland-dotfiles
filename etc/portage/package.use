@@ -23,6 +23,8 @@ media-libs/libsdl2 gles2 pipewire
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs custom-cflags ext4 doc
 
+app-emulation/86Box experimental fluidsynth munt new-dynarecunt 
+
 net-p2p/transmission -qt5
 
 media-tv/kodi airplay bluray gbm optical udf -vdpau
