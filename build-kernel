@@ -151,6 +151,13 @@ build_initramfs () {
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
+sign_kernel() {
+  sbctl sign /boot/EFI/gentoo/vmlinuz-*
+  sbctl sign-all
+  echo Done!
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
 tpm_enroll_luks () {
   #Fix when running the 6 option
   if [[ $LUKS_DISABLE -eq 0 ]]; then
@@ -175,8 +182,9 @@ echo "3 - Copy kernel config"
 echo "4 - Compile the kernel"
 echo "5 - Rebuil out of tree kernel modules"
 echo "6 - Rebuil initramfs"
-echo "7 - Enroll Disks Luks key in TPM"
-echo "8 - Run All"
+echo "7 - Sign Kernel Secure Boot"
+echo "8 - Enroll Disks Luks key in TPM"
+echo "9 - Run All"
 echo
 read -p "Choose your option (any other key + Enter to cancel): " option
 
@@ -210,16 +218,21 @@ case $option in
     start_menu
     ;;
   7)
-    tpm_enroll_luks
+    sign_kernel
     start_menu
     ;;
   8)
+    tpm_enroll_luks
+    start_menu
+    ;;
+  9)
     set_kernel
     patch_kernel
     copy_kernel_config
     compile_kernel
     rebuild_modules
     build_initramfs
+    sign_kernel
     tpm_enroll_luks
     echo "Done!!! - Reboot the system"
     ;;

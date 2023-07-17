@@ -177,7 +177,7 @@
         "signal": 8,
         "interval": "once",
         "on-click-right": "pavucontrol",
-        "format-icons": ["󰕿", "󰖀", "󰕾"]
+        "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
     "custom/media": {
         "format": "{icon} {}",
