@@ -35,23 +35,58 @@ set_kernel () {
   read -n 1 -s -r -p "Press any key to continue..."
 }
 
-patch_kernel () {
-  echo "Chose the kernel patch:"
-  echo
-  echo "1 - CachyOS Kernel Patch"
-  echo "2 - From file/link"
-  echo
-  echo "Choose your option (any other key + Enter to cancel)"
-  read -p "Note: Dont run the same patch twices: " option
-
-  case $option in
-  1)
+## Patch Functions
+patch_cachyos() {
     cd /usr/src/linux
-    curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/all/0001-cachyos-base-all.patch -o patch-cachyos.patch
-    patch -p1 < patch-cachyos.patch
+    curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/all/0001-cachyos-base-all.patch -o 0001-cachyos-base-all.patch
+    patch -p1 < 0001-cachyos-base-all.patch
     read -n 1 -s -r -p "Press any key to continue..." && echo
-    ;;
-  2)
+}
+
+patch_tsc () {
+  cd /usr/src/linux
+  #Dowload tsc patches
+  curl https://git.uplinklabs.net/steven/ec2-packages/raw/branch/master/linux-hsw/0026-x86-implement-tsc-directsync-for-systems-without-IA3.patch -o 0026-x86-implement-tsc-directsync-for-systems-without-IA3.patch
+  curl https://git.uplinklabs.net/steven/ec2-packages/raw/branch/master/linux-hsw/0028-x86-save-restore-TSC-counter-value-during-sleep-wake.patch -o 0028-x86-save-restore-TSC-counter-value-during-sleep-wake.patch
+  curl https://git.uplinklabs.net/steven/ec2-packages/raw/branch/master/linux-hsw/0029-x86-only-restore-TSC-if-we-have-IA32_TSC_ADJUST-or-d.patch -o 0029-x86-only-restore-TSC-if-we-have-IA32_TSC_ADJUST-or-d.patch
+  curl https://raw.githubusercontent.com/MrDuartePT/hyprland-dotfiles/master/kernel-patches-config/0031-tsc.patch -o 0031-tsc.patch
+
+  #Apply Patches
+  patch -p1 < 0026-x86-implement-tsc-directsync-for-systems-without-IA3.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+
+  patch -p1 < 0028-x86-save-restore-TSC-counter-value-during-sleep-wake.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+
+  patch -p1 < 0029-x86-only-restore-TSC-if-we-have-IA32_TSC_ADJUST-or-d.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+
+  patch -p1 < 0031-tsc.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
+patch_EEVDF () {
+  cd /usr/src/linux
+  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/sched/0001-EEVDF.patch -o 0001-EEVDF.patch
+  patch -p1 < 0001-EEVDF.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
+patch_bore_eevdf () {
+  cd /usr/src/linux
+  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/sched/0001-bore-eevdf.patch -o 0001-bore-eevdf.patch
+  patch -p1 < 0001-bore-eevdf.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
+patch_bore_cachyos () {
+  cd /usr/src/linux
+  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/sched/0001-bore-cachy.patch -o 0001-bore-cachy.patch
+  patch -p1 < 0001-bore-cachy.patch
+  read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
+patch_file() {
     cd /usr/src/linux
     read -p "$(tput bold) Type the full path or web address of the file$(tput sgr0): " input
     check_is_link=$(echo ${input} | grep http)
@@ -63,6 +98,46 @@ patch_kernel () {
     fi
     patch -p1 < patch.patch
     read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+##END
+
+patch_kernel () {
+  echo "Chose the kernel patch:"
+  echo
+  echo "1 - CachyOS Kernel Patch"
+  echo "2 - TSC Kernel Patch (requires tsc=directsync kernel cmd)"
+  echo "3 - EEVDF Kernel Patch (dont apply 4 & 5 patch)"
+  echo "4 - BORE EEVDF Kernel Patch (dont apply 3 & 5 patch)"
+  echo "5 - BORE CachyOS Kernel Patch (dont apply 3 & 4 patch)"
+  echo "6 - From file/link"
+  echo
+  echo "Choose your option (Press Enter when done patching)"
+  read -p "Note: Dont run the same patch twices: " option
+
+  case $option in
+  1)
+    patch_cachyos
+    patch_kernel
+    ;;
+  2)
+    patch_tsc
+    patch_kernel
+    ;;
+  3)
+    patch_EEVDF
+    patch_kernel
+    ;;
+  4)
+    patch_bore_eevdf
+    patch_kernel
+    ;;
+  5)
+    patch_bore_cachyos
+    patch_kernel
+    ;;
+  6)
+    patch_file
+    patch_kernel
     ;;
 
   *)
@@ -134,7 +209,7 @@ compile_kernel () {
   mkrlconf
 
   echo "Move Kernel to /boot/efi/gentoo folder"
-  mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo
+  mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf,linux-*.efi} /boot/EFI/gentoo
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
@@ -145,8 +220,8 @@ rebuild_modules () {
 
 build_initramfs () {
   echo "Rebulding Initramfs (dracut)" && sleep 2
-  dracut -f --regenerate-all
-  mv /boot/initramfs-* /boot/EFI/gentoo
+  cd /usr/src/linux && make install
+  mv /boot/{System.map-*,config-*,vmlinuz-*,linux-*.efi} /boot/EFI/gentoo
   echo Done!
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
@@ -231,7 +306,6 @@ case $option in
     copy_kernel_config
     compile_kernel
     rebuild_modules
-    build_initramfs
     sign_kernel
     tpm_enroll_luks
     echo "Done!!! - Reboot the system"
