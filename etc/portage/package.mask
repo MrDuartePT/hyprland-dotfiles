@@ -1,5 +1,5 @@
 >=dev-libs/openssl-3.0.0
-dev-lang/rust
+dev-lang/rust-bin
 =net-libs/webkit-gtk-2.40.0-r410::fictitiousexistence
 =x11-libs/gtk+-3.24.37::mv
 =gui-apps/waybar-9999::useless-overlay
@@ -10,3 +10,5 @@ gui-wm/hyprland::useless-overlay
 gui-wm/hyprland::thegreatmcpain
 =gui-apps/waybar-9999::useless-overlay
 =media-libs/gegl-9999::cg
+=dev-dotnet/dotnet-sdk-bin-7.0.200::gentoo
+=sys-kernel/gentoo-sources-6.4.1::gentoo

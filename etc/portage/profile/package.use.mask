@@ -1,3 +1,4 @@
 virtual/wine -staging
 media-gfx/blender -cuda
 media-video/ffmpeg -cuda -amf
+dev-lang/rust-bin -nightly -system-bootstrap -system-llvm

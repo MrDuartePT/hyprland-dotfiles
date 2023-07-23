@@ -3,12 +3,18 @@ sys-kernel/gentoo-sources ~amd64
 =sys-firmware/LenovoLegionLinux-9999 **
 sys-kernel/zenpower3 ~amd64
 media-video/v4l2loopback ~amd64
+=dev-lang/rust-1.70.0::gentoo ~amd64
+=virtual/rust-1.70.0::gentoo ~amd64
+=sys-process/btop-1.2.13-r2 ~amd64
 ##
 
+=media-video/pipewire-0.3.74 ~amd64
+
 ##Desktop
+=gui-apps/eww-9999::guru **
 =app-emulation/LookingGlass-1_beta6 **
 media-sound/spotify-tray ~amd64
-=gui-apps/waybar-9999::gentoo
+=gui-apps/waybar-9999::gentoo **
 =gui-wm/cage-9999 **
 gui-wm/hyprland ~amd64
 gui-apps/hyprpaper ~amd64
@@ -46,7 +52,7 @@ gui-apps/OneDriveGUI ~amd64
 
 ## Video && Image && Sound
 =media-gfx/gimp-9999::gentoo **
-=media-video/obs-studio-9999 **
+media-video/obs-studio ~amd64
 media-libs/noise-suppression-for-voice ~amd64
 media-libs/libdisplay-info ~amd64
 ##
@@ -66,6 +72,8 @@ media-libs/nvidia-vaapi-driver ~amd64
 ##
 
 ##Gaming
+=sys-fs/genimage-16::gentoo ~amd64
+app-emulation/86BoxManagerX ** 
 =media-libs/rtmidi-5.0.0::gentoo ~amd64
 =media-libs/munt-mt32emu-2.7.0::gentoo ~amd64
 =app-emulation/86Box-3.11::gentoo ~amd64
@@ -74,6 +82,7 @@ games-util/gamemode ~amd64
 games-util/lutris ~amd64
 games-util/steam-launcher ~amd64
 games-util/steam-meta ~amd64
+games-util/steam-client-meta ~amd64
 games-util/xboxdrv ~amd64
 games-util/HeroicGamesLauncher-bin ~amd64
 dev-python/steam ~amd64
@@ -99,7 +108,7 @@ dev-libs/date ~amd64
 app-shells/direnv ~amd64
 =app-emulation/virtiofsd-1.6.1::gentoo ~amd64
 
-media-fonts/material-design-icons ~amd64
+media-fonts/material-design-icons **
 x11-libs/libfm ~amd64
 games-util/game-device-udev-rules ~amd64
 dev-python/pypresence ~amd64
@@ -127,3 +136,4 @@ dev-ruby/colorize ~amd64
 =dev-qt/qttools-6.5.1::gentoo  ~amd64
 =dev-qt/qtbase-6.5.1-r1::gentoo ~amd64
 =dev-python/PyQt6-sip-13.5.1::gentoo ~amd64
+=dev-qt/qtwayland-6.5.1-r1::gentoo ~amd64
