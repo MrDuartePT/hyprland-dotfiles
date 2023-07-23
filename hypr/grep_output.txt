@@ -11,10 +11,14 @@
     "x": 0,
     "y": 0,
     "activeWorkspace": {
-        "id": 3,
-        "name": "3"
+        "id": 1,
+        "name": "1"
     },
-    "reserved": [0, 30, 0, 0],
+    "specialWorkspace": {
+        "id": 0,
+        "name": ""
+    },
+    "reserved": [0, 0, 0, 0],
     "scale": 1.50,
     "transform": 0,
     "focused": true,
