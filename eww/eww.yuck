@@ -1,0 +1,18 @@
+(defwindow dummy
+   :monitor 0
+  (box :orientation "vertical" :class "bx"
+  (label :text "This is a label.")
+  (button :class "btn"
+    (label
+      :text "This is a label nested inside of a button."))
+  "This is also a label."
+  ;; no orientation means horizontal
+  (box :class "nst-bx"
+    ;; NOTE: You have to write more when you use an explicit label.
+    ;;       So, in this case, I would follow a discipline to only
+    ;;       use it when I need to apply another option to it like,
+    ;;       limit-width.
+    (label :text "Hello" :limit-width 4)
+    (button :onclick "notify-send Left"
+      :onrighclick "notify-send Middle"
+      "Hello"))))
