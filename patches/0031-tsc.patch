@@ -1,0 +1,16 @@
+diff --git a/arch/x86/kernel/tsc.c b/arch/x86/kernel/tsc.c
+--- a/arch/x86/kernel/tsc.c
++++ b/arch/x86/kernel/tsc.c
+@@ -311,8 +311,10 @@
+ 				 __func__);
+ 		tsc_as_watchdog = 0;
+ 	}
+-	if (!strcmp(str, "directsync"))
+-		tsc_allow_direct_sync = 1;
++    if (!strcmp(str, "directsync")) {
++        tsc_allow_direct_sync = 1;
++        no_tsc_watchdog = 1;
++    }
+ 	if (!strcmp(str, "recalibrate"))
+ 		tsc_force_recalibrate = 1;
+ 	if (!strcmp(str, "watchdog")) {
