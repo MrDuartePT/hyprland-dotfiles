@@ -220,7 +220,7 @@ rebuild_modules () {
 
 build_initramfs () {
   echo "Rebulding Initramfs (dracut)" && sleep 2
-  cd /usr/src/linux && make install
+  dracut -f --regenerate-all
   mv /boot/{System.map-*,config-*,vmlinuz-*,linux-*.efi} /boot/EFI/gentoo
   echo Done!
   read -n 1 -s -r -p "Press any key to continue..." && echo
@@ -306,6 +306,7 @@ case $option in
     copy_kernel_config
     compile_kernel
     rebuild_modules
+    build_initramfs
     sign_kernel
     tpm_enroll_luks
     echo "Done!!! - Reboot the system"

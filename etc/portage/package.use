@@ -22,6 +22,7 @@ media-libs/libsdl2 gles2 pipewire
 >=media-video/vlc-3.0.18 ogg
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs custom-cflags ext4 doc
+sys-apps/systemd-utils boot
 
 app-emulation/86Box experimental fluidsynth munt new-dynarecunt 
 dev-lang/mono minimal
@@ -854,7 +855,7 @@ dev-util/vulkan-tools -X wayland cube
 # required by app-emulation/libvirt-glib-4.0.0::gentoo
 # required by app-emulation/virt-manager-4.1.0::gentoo[-test]
 # required by virt-manager (argument)
->=sys-apps/systemd-253.3-r1 abi_x86_32
+>=sys-apps/systemd-253.3-r1 abi_x86_32 boot
 # required by sys-apps/systemd-253.3-r1::gentoo
 # required by x11-libs/vte-0.72.1::gentoo[systemd]
 # required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]

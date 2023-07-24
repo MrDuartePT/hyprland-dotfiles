@@ -6,6 +6,7 @@ media-video/v4l2loopback ~amd64
 =dev-lang/rust-1.70.0::gentoo ~amd64
 =virtual/rust-1.70.0::gentoo ~amd64
 =sys-process/btop-1.2.13-r2 ~amd64
+#=sys-apps/systemd-254_rc2 **
 ##
 
 =media-video/pipewire-0.3.74 ~amd64
@@ -47,7 +48,7 @@ dev-dotnet/dotnet-sdk-bin ~amd64
 
 ## Onedrive
 net-misc/onedrive ~amd64
-gui-apps/OneDriveGUI ~amd64
+net-misc/onedrivegui ~amd64
 ##
 
 ## Video && Image && Sound
