@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #Env variable
-kernel_selected=$(eselect kernel list | cat | grep "*" | cut -b 15-17)
+kernel_ver=$(eselect kernel list | cat | grep "*" | cut -b 15-17)
+kernel_selected=$(eselect kernel list | cat | grep "*" | cut -b 15-19)
 BOOT_KERNEL=$(echo "$(uname -r)" | cut -c -12)
 verify_printk_true=$(zcat /proc/config.gz | grep 'CONFIG_PRINTK_TIME=y')
 NVME_1=/dev/disk/by-uuid/a00bc72b-4433-4ca2-8989-d63e268091bd
@@ -38,7 +39,7 @@ set_kernel () {
 ## Patch Functions
 patch_cachyos() {
     cd /usr/src/linux
-    curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/all/0001-cachyos-base-all.patch -o 0001-cachyos-base-all.patch
+    curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_ver/all/0001-cachyos-base-all.patch -o 0001-cachyos-base-all.patch
     patch -p1 < 0001-cachyos-base-all.patch
     read -n 1 -s -r -p "Press any key to continue..." && echo
 }
@@ -67,21 +68,21 @@ patch_tsc () {
 
 patch_EEVDF () {
   cd /usr/src/linux
-  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/sched/0001-EEVDF.patch -o 0001-EEVDF.patch
+  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_ver/sched/0001-EEVDF.patch -o 0001-EEVDF.patch
   patch -p1 < 0001-EEVDF.patch
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
 patch_bore_eevdf () {
   cd /usr/src/linux
-  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/sched/0001-bore-eevdf.patch -o 0001-bore-eevdf.patch
+  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_ver/sched/0001-bore-eevdf.patch -o 0001-bore-eevdf.patch
   patch -p1 < 0001-bore-eevdf.patch
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
 patch_bore_cachyos () {
   cd /usr/src/linux
-  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_selected/sched/0001-bore-cachy.patch -o 0001-bore-cachy.patch
+  curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_ver/sched/0001-bore-cachy.patch -o 0001-bore-cachy.patch
   patch -p1 < 0001-bore-cachy.patch
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
@@ -215,7 +216,7 @@ compile_kernel () {
 
 rebuild_modules () {
   echo "Rebulding Modules"
-  LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin
+  LLVM=1 emerge @module-rebuild --jobs=16 --exclude=sys-kernel/gentoo-kernel-bin
 }
 
 build_initramfs () {
@@ -227,7 +228,7 @@ build_initramfs () {
 }
 
 sign_kernel() {
-  sbctl sign /boot/EFI/gentoo/vmlinuz-*
+  sbctl sign /boot/EFI/gentoo/vmlinuz-$kernel_selected-*
   sbctl sign-all
   echo Done!
   read -n 1 -s -r -p "Press any key to continue..." && echo
@@ -238,8 +239,8 @@ tpm_enroll_luks () {
   if [[ $LUKS_DISABLE -eq 0 ]]; then
     clevis luks unbind -d $NVME_1 -s 1
     clevis luks unbind -d $EXTERNAL_HDD -s 1
-    clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,2,3,5,6,7"}'
-    clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,2,3,5,6,7"}'
+    clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7"}'
+    clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7"}'
   else
       echo && echo "$(tput bold)This option is disable set LUKS_DISABLE to 0$(tput sgr0)" && echo
   fi
