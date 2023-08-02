@@ -10,7 +10,8 @@
 ## Applets : Power Menu
 
 #Command to lock the device
-lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/.config/hypr/screenlockbg.png'
+lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg'
+#lock='swaylock --clock --indicator --indicator-idle-visible --grace-no-mouse --effect-blur 10x2 -i /home/mrduarte/Pictures/wallpapers/DSC_01.jpg -s fill'
 
 # Applet Elements
 prompt:"Power Menu"

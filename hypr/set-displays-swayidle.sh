@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+#lock command
+lock='gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg && hyprctl dispatch dpms off'
+#lock='swaylock --clock --indicator --indicator-idle-visible --grace-no-mouse --effect-blur 10x2 -i /home/mrduarte/Pictures/wallpapers/DSC_01.jpg -s fill'
+
+#Verify if any app is playing music
+
+#playerctl_suspend=$( if [[ $(playerctl -l -s) == "" ]] ; then; systemctl suspend; else hyprctl dispatch dpms off; fi )
+
 #ADD TO HYPERLAND CONFIG: exec = $HOME/.config/hypr/set-displays-swayidle.sh
 hyprctl -j monitors > $HOME/.config/hypr/grep_output.txt
 EXT_MONITOR=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'HDMI-A-1')
@@ -23,18 +31,20 @@ hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,0x0,1 #,bitdepth,10 #bug in 10 bits
 hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
 
+
 #Set Swayidle For Suspend
 
 ## GTKLock command
 swayidle -w \
-  timeout $time_1 'grim -s 0.05 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' \
-  timeout $time_2 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
-  timeout $time_3 'systemctl suspend && hyprctl dispatch dpms on' \
-  before-sleep 'gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b $HOME/.config/hypr/screenlockbg.png' &
+  timeout $time_1 'hyprctl dispatch dpms off' \
+  resume 'hyprctl dispatch dpms on' \
+  timeout $time_2 ${lock} \
+  timeout $time_3 $playerctl_suspend \
+  before-sleep $lock &
 
 ## Swaylock command
 #swayidle -w \
-  #timeout $time_1 'grim -s 0.1 -g "0,0 1920x1080" $HOME/.config/hypr/screenlockbg.png && hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
+  #timeout $time_1 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
   #timeout $time_2 'swaylock -f --clock --indicator  -i $HOME/.config/hypr/screenlockbg.png -s fill' \
   #timeout $time_3 'systemctl suspend' \
   #before-sleep 'swaylock -f --clock  --grace 5 --indicator  -i $HOME/.config/hypr/screenlockbg.png -s fill' &

@@ -16,35 +16,40 @@ get_distro_name=$(cat /etc/lsb-release | sed "s/DISTRIB_ID=//")
 #Set your teminal and aur helper if you are on arch
 term="alacritty -e"
 aur_helper="paru"
-	
 
-if [ $start_mux ]; then
-	if [ $status_superglfx ]; then
-		list_col='1'
-		list_row='5'
-		mesg="Mode: Hybrid Mode  Supergfxd:active"
-		option_1="Supergfx - Integrated Mode"
-		option_2="Supergfx - Hybrid Mode"
-		option_3="Supergfx - VFIO Mode"
-		option_4="LLL - Change to DGPU Mode"
-	fi
-
-	list_col='1'
-	list_row='3'
-	mesg="Mode: Hybrid Mode  Supergfxd:active"
-	option_1="LLL - Change to DGPU Mode"
-	option_2="Install superglfxctl for more option"
-
-else
-	list_col='1'
-	list_row='3'
-	mesg="Mode: DGPU Mode"
-	option_1="LLL - Change to Hybrid Mode"
-	option_2="LLL - Install and enable superglfxctl and Change to Hybrid Mode"
-fi
+back=' back'
+next=' next'
 
 yes=' Yes'
 no=' No'
+	
+control_dgpu () {
+	if [ $start_mux ]; then
+		if [ $status_superglfx ]; then
+			mesg="Mode: Hybrid Mode  Supergfxd:active"
+			option_1="Supergfx - Integrated Mode"
+			option_2="Supergfx - Hybrid Mode"
+			option_3="Supergfx - VFIO Mode"
+			option_4="LLL - Change to DGPU Mode"
+		fi
+
+		list_col='1'
+		list_row='3'
+		mesg="Mode: Hybrid Mode  Supergfxd:active"
+		option_1="LLL - Change to DGPU Mode"
+		option_2="Install superglfxctl for more option"
+
+	else
+		list_col='1'
+		list_row='3'
+		mesg="Mode: DGPU Mode"
+		option_1="LLL - Change to Hybrid Mode"
+		option_2="LLL - Install and enable superglfxctl and Change to Hybrid Mode"
+	fi
+
+	list_col='1'
+	list_row='5'
+}
 
 # Rofi CMD
 rofi_cmd() {
@@ -64,7 +69,7 @@ run_rofi() {
 install_superglfx () {
 	if [ $get_distro_name="Gentoo" ]; then
 		$term su -c "emerge supergfxctl"
-	elif [ $get_distro_name="Ubuntu" || NAME="POP-OS" || NAME="Debian" ]; then
+	elif [ $get_distro_name="Ubuntu" || $get_distro_name="POP-OS" || $get_distro_name="Debian" ]; then
 		$term su -c "apt-get install supergfxctl"
 	elif [ $get_distro_name="Fedora" ]; then
 		$term su -c "dnf install supergfxctl"
