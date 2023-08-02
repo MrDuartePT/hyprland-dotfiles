@@ -20,8 +20,8 @@ entries:
   ic_upper_temp: 60
   acceleration: 2
   deceleration: 2
-- fan1_speed: 0
-  fan2_speed: 0
+- fan1_speed: 500
+  fan2_speed: 500
   cpu_lower_temp: 127
   cpu_upper_temp: 127
   gpu_lower_temp: 52
@@ -30,9 +30,9 @@ entries:
   ic_upper_temp: 70
   acceleration: 2
   deceleration: 2
-- fan1_speed: 500
-  fan2_speed: 500
-  cpu_lower_temp: 60
+- fan1_speed: 1000
+  fan2_speed: 1000
+  cpu_lower_temp: 127
   cpu_upper_temp: 127
   gpu_lower_temp: 58
   gpu_upper_temp: 66
@@ -40,8 +40,8 @@ entries:
   ic_upper_temp: 127
   acceleration: 2
   deceleration: 2
-- fan1_speed: 1000
-  fan2_speed: 1000
+- fan1_speed: 1200
+  fan2_speed: 1200
   cpu_lower_temp: 127
   cpu_upper_temp: 127
   gpu_lower_temp: 66
@@ -50,8 +50,8 @@ entries:
   ic_upper_temp: 127
   acceleration: 2
   deceleration: 2
-- fan1_speed: 1200
-  fan2_speed: 1200
+- fan1_speed: 2000
+  fan2_speed: 2000
   cpu_lower_temp: 127
   cpu_upper_temp: 127
   gpu_lower_temp: 70
@@ -60,8 +60,8 @@ entries:
   ic_upper_temp: 127
   acceleration: 2
   deceleration: 2
-- fan1_speed: 2000
-  fan2_speed: 2000
+- fan1_speed: 2200
+  fan2_speed: 2200
   cpu_lower_temp: 127
   cpu_upper_temp: 127
   gpu_lower_temp: 75
