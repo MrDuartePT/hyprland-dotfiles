@@ -6,7 +6,8 @@ media-video/v4l2loopback ~amd64
 =dev-lang/rust-1.70.0::gentoo ~amd64
 =virtual/rust-1.70.0::gentoo ~amd64
 =sys-process/btop-1.2.13-r2 ~amd64
-#=sys-apps/systemd-254_rc2 **
+=app-pda/netmuxd-9999::mrduarte-ebuilds **
+=sys-kernel/dkms-3.0.10::guru ~amd64
 ##
 
 =media-video/pipewire-0.3.74 ~amd64
@@ -25,6 +26,7 @@ gui-apps/hyprland-plugins ~amd64
 dev-libs/hyprland-protocols ~amd64
 =gui-apps/gtklock-2.1.0::guru ~amd64
 =gui-apps/gtklock-extras-9999 **
+=gui-apps/swaylock-effects-9999::guru **
 gui-apps/ReGreet **
 app-misc/brightnessctl ~amd64
 gui-apps/wdisplays ~amd64
@@ -32,11 +34,13 @@ app-admin/bitwarden-desktop-bin ~amd64
 app-misc/ani-cli ~amd64
 app-editors/vscodium ~amd64
 net-im/whatsapp-desktop-bin ~amd64
+net-im/whatsapp-for-linux ~amd64
 mail-client/mailspring-bin ~amd64
 =gui-apps/cliphist-9999 **
 gui-apps/swaync ~amd64
 gui-apps/wlr-randr ~amd64
 x11-misc/pcmanfm ~amd64
+=mail-client/thunderbird-bin-115.0.1::gentoo ~amd64
 ##
 
 ##PDF and Tablet
@@ -66,7 +70,7 @@ app-crypt/clevis ~amd64
 ##
 
 ##Nvidia
-=x11-drivers/nvidia-drivers-535.54.03 ~amd64
+x11-drivers/nvidia-drivers ~amd64
 dev-util/nvidia-cuda-toolkit ~amd64
 dev-libs/cudnn ~amd64
 media-libs/nvidia-vaapi-driver ~amd64
@@ -74,7 +78,7 @@ media-libs/nvidia-vaapi-driver ~amd64
 
 ##Gaming
 =sys-fs/genimage-16::gentoo ~amd64
-app-emulation/86BoxManagerX ** 
+app-emulation/86BoxManagerX ~amd64 
 =media-libs/rtmidi-5.0.0::gentoo ~amd64
 =media-libs/munt-mt32emu-2.7.0::gentoo ~amd64
 =app-emulation/86Box-3.11::gentoo ~amd64

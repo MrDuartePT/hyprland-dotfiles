@@ -12,3 +12,4 @@ gui-wm/hyprland::thegreatmcpain
 =media-libs/gegl-9999::cg
 =dev-dotnet/dotnet-sdk-bin-7.0.200::gentoo
 =sys-kernel/gentoo-sources-6.4.1::gentoo
+<mail-client/thunderbird-bin-115.0.1::gentoo
