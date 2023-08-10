@@ -13,3 +13,4 @@ gui-wm/hyprland::thegreatmcpain
 =dev-dotnet/dotnet-sdk-bin-7.0.200::gentoo
 =sys-kernel/gentoo-sources-6.4.1::gentoo
 <mail-client/thunderbird-bin-115.0.1::gentoo
+#=games-util/mangohud-9999-r6::thegreatmcpain

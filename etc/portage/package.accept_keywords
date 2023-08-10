@@ -8,6 +8,7 @@ media-video/v4l2loopback ~amd64
 =sys-process/btop-1.2.13-r2 ~amd64
 =app-pda/netmuxd-9999::mrduarte-ebuilds **
 =sys-kernel/dkms-3.0.10::guru ~amd64
+sys-kernel/git-sources ~amd64
 ##
 
 =media-video/pipewire-0.3.74 ~amd64
@@ -41,6 +42,10 @@ gui-apps/swaync ~amd64
 gui-apps/wlr-randr ~amd64
 x11-misc/pcmanfm ~amd64
 =mail-client/thunderbird-bin-115.0.1::gentoo ~amd64
+media-libs/imgui ~amd64
+=dev-libs/wayland-protocols-1.32::gentoo
+=games-util/gamescope-session-hyprland-9999::mrduarte-ebuilds **
+media-sound/qpwgraph ~amd64
 ##
 
 ##PDF and Tablet
@@ -48,6 +53,9 @@ app-text/Lorien-bin ~amd64
 app-text/sioyek **
 x11-drivers/OpenTabletDriver-bin ~amd64
 dev-dotnet/dotnet-sdk-bin ~amd64
+=dev-lang/julia-bin-1.9.0::gentoo **
+=sci-mathematics/dsfmt-2.2.4::gentoo ~amd64
+=sci-libs/openlibm-0.8.0::gentoo ~amd64
 ##
 
 ## Onedrive
@@ -84,17 +92,19 @@ app-emulation/86BoxManagerX ~amd64
 =app-emulation/86Box-3.11::gentoo ~amd64
 games-emulation/xemu ~amd64
 games-util/gamemode ~amd64
-games-util/lutris ~amd64
+=games-util/lutris-0.5.12::gentoo ~amd64
+=dev-python/pyrate-limiter-2.10.0::gentoo ~amd64
 games-util/steam-launcher ~amd64
 games-util/steam-meta ~amd64
 games-util/steam-client-meta ~amd64
 games-util/xboxdrv ~amd64
 games-util/HeroicGamesLauncher-bin ~amd64
+games-util/gamehub ~amd64
 dev-python/steam ~amd64
 games-util/ProtonUp-Qt ~amd64
 games-util/protonup ~amd64
 sys-power/supergfxctl ~amd64
-gui-wm/gamescope ~amd64
+=gui-wm/gamescope-3.11.51 ~amd64
 sys-apps/polychromatic ~amd64
 app-emulation/wine-proton ~amd64
 app-emulation/wine-mono ~amd64

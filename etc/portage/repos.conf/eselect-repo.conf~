@@ -87,13 +87,21 @@ sync-uri = https://github.com/woomymy/woomy-overlay.git
 
 
 
-[mrduarte-ebuilds]
-location = /var/db/repos/mrduarte-ebuilds
-sync-type = git
-sync-uri = https://github.com/MrDuartePT/mrduarte-ebuilds.git
+
+
 
 [thegreatmcpain]
 location = /var/db/repos/thegreatmcpain
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/thegreatmcpain.git
 
+[mrduarte-ebuilds]
+location = /var/db/repos/mrduarte-ebuilds
+sync-type = git
+sync-uri = https://github.com/MrDuartePT/mrduarte-ebuilds.git
+
+
+[pentoo]
+location = /var/db/repos/pentoo
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/pentoo.git

@@ -9,7 +9,7 @@ media-libs/libsdl2 gles2 pipewire
 >=dev-libs/libxml2-2.10.3-r1 icu
 >=sys-libs/zlib-1.2.13-r1 minizip abi_x86_32
 >=dev-python/PyQt5-5.15.9 svg network webchannel printsupport
->=dev-qt/qtwebengine-5.15.8_p20230313 widgets jumbo-build jumbo-frames
+>=dev-qt/qtwebengine-5.15.8_p20230313 widgets jumbo-build jumbo-frames -pulseaudio
 >=dev-qt/qtwebchannel-5.15.8 qml
 >=media-video/ffmpeg-4.4.3 x264 x265 fdk abi_x86_32 sdl openssl openh264 dav1d rav1e svt-av1 bluray kvazaar libaom
 >=dev-libs/boost-1.81.0-r1 icu
@@ -23,6 +23,10 @@ media-libs/libsdl2 gles2 pipewire
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs
 
+games-util/mangohud tools abi_x86_32 abi_x86_64 
+media-libs/glew abi_x86_32 abi_x86_64
+games-util/gamemode abi_x86_32
+
 gnome-base/gvfs fuse
 
 app-emulation/86Box experimental fluidsynth munt new-dynarecunt 
@@ -33,7 +37,7 @@ net-p2p/transmission -qt5
 media-tv/kodi airplay bluray gbm optical udf -vdpau
 
 #Hyprland
-gui-apps/hyprland-plugins csgo-vulkan-fix split-monitor-workspaces
+gui-apps/hyprland-plugins -csgo-vulkan-fix split-monitor-workspaces hyprbars -borders-plus-plus
 dev-qt/qttools designer
 dev-python/PyQt6 gles2-only designer
 dev-qt/qtbase opengl egl eglfs gles2-only
@@ -1514,3 +1518,43 @@ sci-libs/cholmod -cuda
 # required by mail-client/thunderbird-115.0.1::gentoo[system-libvpx]
 # required by =mail-client/thunderbird-115.0.1::gentoo (argument)
 >=media-libs/libvpx-1.12.0-r1 postproc
+# required by media-libs/glew-2.2.0::gentoo
+# required by media-libs/imgui-1.81::guru
+# required by games-util/mangohud-9999::guru
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libXmu-1.1.4 abi_x86_32
+# required by x11-libs/libXmu-1.1.4::gentoo
+# required by media-libs/glew-2.2.0::gentoo
+# required by media-libs/imgui-1.81::guru
+# required by games-util/mangohud-9999::guru
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libXt-1.3.0 abi_x86_32
+# required by x11-libs/libSM-1.2.4::gentoo
+# required by x11-libs/libXt-1.3.0::gentoo
+# required by x11-libs/libXmu-1.1.4::gentoo
+# required by media-libs/glew-2.2.0::gentoo
+# required by media-libs/imgui-1.81::guru
+# required by games-util/mangohud-9999::guru
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libICE-1.1.1-r1 abi_x86_32
+# required by x11-libs/libXt-1.3.0::gentoo
+# required by x11-libs/libXmu-1.1.4::gentoo
+# required by media-libs/glew-2.2.0::gentoo
+# required by media-libs/imgui-1.81::guru
+# required by games-util/mangohud-9999::guru
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libSM-1.2.4 abi_x86_32
+# required by dev-lang/julia-1.9.0::gentoo
+# required by julia (argument)
+>=net-misc/curl-8.0.1 ssh
+# required by dev-lang/julia-1.9.0::gentoo
+# required by julia (argument)
+>=sci-libs/fftw-3.3.10 threads
+# required by net-misc/curl-8.0.1::gentoo[ssh]
+# required by dev-lang/julia-1.9.0::gentoo
+# required by julia (argument)
+>=net-libs/libssh2-1.11.0-r1 abi_x86_32
