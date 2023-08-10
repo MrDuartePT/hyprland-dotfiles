@@ -2,7 +2,7 @@
 
 #Env variable
 kernel_ver=$(eselect kernel list | cat | grep "*" | cut -b 15-17)
-kernel_selected=$(eselect kernel list | cat | grep "*" | cut -b 15-19)
+kernel_selected=$(eselect kernel list | cat | grep "*" | cut -d '-' -f2)
 BOOT_KERNEL=$(echo "$(uname -r)" | cut -c -12)
 verify_printk_true=$(zcat /proc/config.gz | grep 'CONFIG_PRINTK_TIME=y')
 NVME_1=/dev/disk/by-uuid/a00bc72b-4433-4ca2-8989-d63e268091bd
