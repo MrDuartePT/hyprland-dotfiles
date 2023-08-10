@@ -1,18 +1,60 @@
-(defwindow dummy
-   :monitor 0
-  (box :orientation "vertical" :class "bx"
-  (label :text "This is a label.")
-  (button :class "btn"
-    (label
-      :text "This is a label nested inside of a button."))
-  "This is also a label."
-  ;; no orientation means horizontal
-  (box :class "nst-bx"
-    ;; NOTE: You have to write more when you use an explicit label.
-    ;;       So, in this case, I would follow a discipline to only
-    ;;       use it when I need to apply another option to it like,
-    ;;       limit-width.
-    (label :text "Hello" :limit-width 4)
-    (button :onclick "notify-send Left"
-      :onrighclick "notify-send Middle"
-      "Hello"))))
+(defwidget bar []
+  (centerbox :orientation "h"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(deflisten workspace "scripts/workspace")
+(defwidget workspaces []
+(literal :content workspace))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "🎵${music}" : ""}))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🔊"
+      :value volume
+      :onchange "amixer -D pulse sset Master {}%")
+    (metric :label ""
+        :value {EWW_RAM.used_mem_perc}
+        :onchange "")
+    (metric :label "💾"
+        :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+        :onchange "")
+  time))
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "90%"
+                      :height "10px"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "4%")
+  (bar))

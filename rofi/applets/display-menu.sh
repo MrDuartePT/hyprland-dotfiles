@@ -19,8 +19,7 @@ else
 	refresh_rate="60hz"
 fi
 
-# Theme Elements
-# Theme Elements
+# Prompt Elements
 prompt="Change Display Order"
 if [[ $LAPTOP_MONITOR ]] && [[ $EXT_MONITOR ]]; then
 	mesg="Displays Connected:  eDP-1 󰍹 HDMI-A-1"
@@ -64,21 +63,9 @@ run_rofi() {
 	echo -e "$option_1\n$option_2\n$option_3\n$option_4" | rofi_cmd
 }
 
-# Rofi CMD Display Optiopm
-ort_cmd() {
-	rofi -theme-str "window {width: $win_width;}" \
-		-theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
-		-dmenu \
-		-p "$prompt" \
-		-mesg "$mesg" \
-		${active} ${urgent} \
-		-markup-rows
-}
-
 # Pass variables to rofi dmenu
 ort_exit() {
-	echo -e "$option_up\n$option_left\n$option_right\n$option_down" | ort_cmd
+	echo -e "$option_up\n$option_left\n$option_right\n$option_down" | rofi_cmd
 }
 
 # Execute Command
@@ -110,24 +97,24 @@ run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
 		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,0x0,1
 		hyprctl keyword monitor HDMI-A-1,disable
-		killall hyprpaper && sleep 0.5
-		hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+		#killall hyprpaper && sleep 0.5
+		#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	elif [[ "$1" == '--opt2' ]]; then
 		hyprctl keyword monitor HDMI-A-1,1920x1080,0x0,1
 		hyprctl keyword monitor eDP-1,disable
-		killall hyprpaper && sleep 0.5
-		hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+		#killall hyprpaper && sleep 0.5
+		#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	elif [[ "$1" == '--opt3' ]]; then
 		ort_run
 		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10 #bug in 10 bits
 		hyprctl keyword monitor HDMI-A-1,1920x1080,$HDMI_A_1_ori,1
-		killall hyprpaper && sleep 0.5
-		hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+		#killall hyprpaper && sleep 0.5
+		#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	elif [[ "$1" == '--opt4' ]]; then
 		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,0x0,1,bitdepth,10 #bug in 10 bits
 		hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1,mirror,eDP-1
-		killall hyprpaper && sleep 0.5
-		hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+		#killall hyprpaper && sleep 0.5
+		#Thyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	fi
 }
 

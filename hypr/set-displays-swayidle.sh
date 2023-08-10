@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 #lock command
-lock='gtklock -d -m /usr/local/lib/gtklock/playerctl-module.so -m /usr/local/lib/gtklock/powerbar-module.so -m /usr/local/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg && hyprctl dispatch dpms off'
+lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg && hyprctl dispatch dpms off'
 #lock='swaylock --clock --indicator --indicator-idle-visible --grace-no-mouse --effect-blur 10x2 -i /home/mrduarte/Pictures/wallpapers/DSC_01.jpg -s fill'
 
 #Verify if any app is playing music
@@ -25,11 +25,12 @@ if [ $POWER_ADAPTER ]; then; refresh_rate="165hz" && time_1=300 && time_2=310 &&
 
 #Set Internal Display Variable
 laptop=eDP-1
-hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 
 #Set Displays Resolutions
 hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,0x0,1 #,bitdepth,10 #bug in 10 bits
-hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
+hyprctl keyword monitor HDMI-A-1,highrr,1920x0,1
+#hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
 
 
 #Set Swayidle For Suspend
@@ -38,8 +39,8 @@ hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1
 swayidle -w \
   timeout $time_1 'hyprctl dispatch dpms off' \
   resume 'hyprctl dispatch dpms on' \
-  timeout $time_2 ${lock} \
-  timeout $time_3 $playerctl_suspend \
+  timeout $time_2 '${lock} && hyprctl dispatch dpms off' \
+  timeout $time_3 '$HOME/.config/hypr/playerctl_suspend.sh' \
   before-sleep $lock &
 
 ## Swaylock command
