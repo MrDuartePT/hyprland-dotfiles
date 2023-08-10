@@ -197,7 +197,6 @@ compile_kernel () {
   sleep 2
   make LLVM=1 LLVM_IAS=1 --jobs=16
 
-
   echo "Install Modules"
   sleep 2
   make LLVM=1 LLVM_IAS=1 modules_install
