@@ -50,7 +50,7 @@ gui-apps/gtklock-extras playerctl powerbar userinfo
 net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer
 gui-apps/ReGreet gtk4 logs cage
 net-misc/networkmanager-dmenu -dmenu rofi
-dev-qt/qtgui jpeg vulkan wayland libinput
+dev-qt/qtgui jpeg vulkan wayland
 
 #Webkit-gtk
 net-libs/webkit-gtk jumbo-build
@@ -73,9 +73,9 @@ x11-drivers/nvidia-drivers abi_x86_32 persistenced -kernel-open
 media-video/obs-studio pulseaudio browser pipewire python vlc websocket alsa nvenc truetype v4l wayland
 media-video/pipewire echo-cancel jack-client system-service bluetooth ffmpeg gstreamer v4l sound-server extra
 #libvirt and qemu
-app-emulation/libvirt firewalld lvm lxc numa qemu virt-network virtualbox
+app-emulation/libvirt -firewalld lvm qemu virt-network
 app-emulation/virt-manager gui policykit
-app-emulation/qemu alsa ncurses spice usb usbredir vhost-net virtfs opengl jack vnc virgl
+app-emulation/qemu alsa spice usb usbredir vhost-net virtfs opengl jack virgl
 >=net-misc/spice-gtk-0.42 usbredir
 >=sys-fs/lvm2-2.03.20 lvm
 >=net-firewall/nftables-1.0.7-r1 xtables json python
@@ -101,6 +101,7 @@ media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau
 dev-lang/rust clippy dist doc lto system-llvm llvm-libunwind nightly rust-analyzer rust-src rustfmt system-bootstrap parallel-compiler abi_x86_32
 app-crypt/tpm2-tools fapi
 app-crypt/tpm2-tss fapi openssl
+net-wireless/wpa_supplicant tkip
 
 #GIMP gtk flag
 >=media-gfx/gimp-2.10.34-r1:0/2::gentoo gtk
@@ -1558,3 +1559,8 @@ sci-libs/cholmod -cuda
 # required by dev-lang/julia-1.9.0::gentoo
 # required by julia (argument)
 >=net-libs/libssh2-1.11.0-r1 abi_x86_32
+# required by games-util/steam-client-meta-0-r20230807::steam-overlay
+# required by games-util/gamescope-session-hyprland-9999::mrduarte-ebuilds
+# required by @selected
+# required by @world (argument)
+>=sys-libs/libudev-compat-186-r1 abi_x86_32

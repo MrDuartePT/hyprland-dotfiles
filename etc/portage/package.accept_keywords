@@ -46,6 +46,9 @@ media-libs/imgui ~amd64
 =dev-libs/wayland-protocols-1.32::gentoo
 =games-util/gamescope-session-hyprland-9999::mrduarte-ebuilds **
 media-sound/qpwgraph ~amd64
+app-emacs/rg ~amd64
+dev-vcs/lazygit ~amd64
+app-emacs/wgrep ~amd64
 ##
 
 ##PDF and Tablet
@@ -104,12 +107,13 @@ dev-python/steam ~amd64
 games-util/ProtonUp-Qt ~amd64
 games-util/protonup ~amd64
 sys-power/supergfxctl ~amd64
-=gui-wm/gamescope-3.11.51 ~amd64
+gui-wm/gamescope ~amd64
 sys-apps/polychromatic ~amd64
 app-emulation/wine-proton ~amd64
 app-emulation/wine-mono ~amd64
 =games-util/mangohud-9999-r6::thegreatmcpain **
 sys-process/nvtop ~amd64
+=sys-libs/libudev-compat-186-r1::gentoo ~amd64
 ##
 
 ## Mouse 

@@ -221,7 +221,7 @@ rebuild_modules () {
 build_initramfs () {
   echo "Rebulding Initramfs (dracut)" && sleep 2
   dracut -f --regenerate-all
-  mv /boot/{System.map-*,config-*,vmlinuz-*,linux-*.efi} /boot/EFI/gentoo
+  mv /boot/initramfs-* /boot/EFI/gentoo
   echo Done!
   read -n 1 -s -r -p "Press any key to continue..." && echo
 }
