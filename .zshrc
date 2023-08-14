@@ -5,6 +5,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 #Path to ~/.local/bin
 export PATH="PATH="$HOME/.local/bin:$PATH""
+
+#set editor to nvim
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
