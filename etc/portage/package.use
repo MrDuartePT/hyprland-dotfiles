@@ -4,7 +4,7 @@ sys-devel/gcc lto pgo graphite
 >=x11-libs/libdrm-2.4.115 video_cards_radeon video_cards_amdgpu
 media-fonts/nerd-fonts X 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono cascadiacode codenewroman cousine daddytimemono dejavusansmono droidsansmono fantasquesansmono firacode firamono go-mono gohu hack hasklig heavydata hermit ia-writer ibmplexmono inconsolata inconsolatago inconsolatalgc iosevka jetbrainsmono lekton liberationmono lilex meslo monofur monoid mononoki mplus noto opendyslexic overpass profont proggyclean robotomono sharetechmono sourcecodepro spacemono terminus tinos ubuntu ubuntumono victormono
 dev-python/PyQt5 gui widgets sql
-app-emulation/LookingGlass binutils -pulseaudio
+app-emulation/looking-glass -X binutils -pulseaudio
 media-libs/libsdl2 gles2 pipewire
 >=dev-libs/libxml2-2.10.3-r1 icu
 >=sys-libs/zlib-1.2.13-r1 minizip abi_x86_32
@@ -17,11 +17,15 @@ media-libs/libsdl2 gles2 pipewire
 >=dev-qt/qtmultimedia-5.15.8 qml
 >=kde-frameworks/sonnet-5.105.0 qml
 >=kde-frameworks/kconfig-5.105.0 qml
->=dev-qt/qtcore-5.15.8-r4 icu
+>=dev-qt/qtcore-6.15.8-r4 icu
 >=app-text/poppler-23.03.0 qt5 nss
 >=media-video/vlc-3.0.18 ogg
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs
+
+x11-libs/cairo X aqua
+dev-cpp/cairomm X
+media-libs/imlib2 -shm
 
 games-util/mangohud tools abi_x86_32 abi_x86_64 
 media-libs/glew abi_x86_32 abi_x86_64
@@ -35,6 +39,9 @@ dev-lang/mono minimal
 net-p2p/transmission -qt5
 
 media-tv/kodi airplay bluray gbm optical udf -vdpau
+
+media-video/mpv vaapi X opengl
+media-video/vlc -vaapi -gui
 
 #Hyprland
 gui-apps/hyprland-plugins -csgo-vulkan-fix split-monitor-workspaces hyprbars -borders-plus-plus
@@ -50,7 +57,7 @@ gui-apps/gtklock-extras playerctl powerbar userinfo
 net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer
 gui-apps/ReGreet gtk4 logs cage
 net-misc/networkmanager-dmenu -dmenu rofi
-dev-qt/qtgui jpeg vulkan wayland
+dev-qt/qtgui jpeg vulkan eglfs egl X
 
 #Webkit-gtk
 net-libs/webkit-gtk jumbo-build
@@ -67,7 +74,7 @@ app-emulation/wine-proton fontconfig -llvm-libunwind gecko alsa gstreamer sdl v4
 app-emulation/vkd3d abi_x86_32
 games-util/gamemode systemd
 gui-wm/gamescope wsi-layer
-x11-drivers/nvidia-drivers abi_x86_32 persistenced -kernel-open
+x11-drivers/nvidia-drivers abi_x86_32 persistenced -kernel-open X
 
 #obs
 media-video/obs-studio pulseaudio browser pipewire python vlc websocket alsa nvenc truetype v4l wayland
@@ -81,11 +88,19 @@ app-emulation/qemu alsa spice usb usbredir vhost-net virtfs opengl jack virgl
 >=net-firewall/nftables-1.0.7-r1 xtables json python
 >=media-libs/freetype-2.13.0 harfbuzz
 
+dev-cpp/gtkmm X
+x11-libs/pango X
+x11-libs/libxkbcommon X
+media-libs/harfbuzz icu
+media-libs/libva X
+
+app-arch/createrepo_c zstd
+
 #tpm2-tss
 app-crypt/tpm2-tss fapi openssl
 
 #desktop
-x11-terms/alacritty wayland debug X
+x11-terms/alacritty wayland debug
 x11-misc/rofi drun windowmode
 app-admin/doas persist
 gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network sndio tray wifi jack libinput
@@ -93,7 +108,7 @@ gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network
 app-crypt/pinentry gtk
 >=app-misc/openrazer-3.3.0 client daemon
 >=dev-qt/qtmultimedia-5.15.8 widgets
-media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau vulkan vulkan-overlay wayland
+media-libs/mesa X vaapi d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vulkan vulkan-overlay wayland
 
 #RUST
 >=virtual/rust-1.66.1 rustfmt abi_x86_32
@@ -101,7 +116,7 @@ media-libs/mesa d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vdpau
 dev-lang/rust clippy dist doc lto system-llvm llvm-libunwind nightly rust-analyzer rust-src rustfmt system-bootstrap parallel-compiler abi_x86_32
 app-crypt/tpm2-tools fapi
 app-crypt/tpm2-tss fapi openssl
-net-wireless/wpa_supplicant tkip
+net-wireless/wpa_supplicant -tkip -qt5
 
 #GIMP gtk flag
 >=media-gfx/gimp-2.10.34-r1:0/2::gentoo gtk
@@ -116,7 +131,7 @@ media-sound/spotify libnotify
 
 dev-lang/python tk lto pgo
 
-sys-firmware/LenovoLegionLinux legion-acpi systemd ryzenadj legion-tools
+sys-firmware/lenovolegionlinux legion-acpi systemd ryzenadj legion-tools
 
 dev-python/pyside6 widgets webengine webchannel quick qml gles2-only printsupport sql designer
 
@@ -124,18 +139,21 @@ dev-util/nvidia-cuda-toolkit profiler
 dev-python/numpy lapack
 >=dev-libs/libclc-15.0.7 spirv
 
-x11-libs/gtk+ colord
+x11-libs/gtk+ colord X
 x11-misc/colord scanner
 media-gfx/sane-backends sane_backends_escl
 net-dns/avahi gtk mdnsresponder-compat
 x11-misc/gammastep appindicator nls wayland
 
-dev-util/vulkan-tools -X wayland cube
+dev-util/vulkan-tools X -wayland cube
 
 #sci-mathematics/octave curl doc fftw fltk gnuplot hdf5 imagemagick java json portaudio postscript sndfile sundials
 
 ## AUTOUNMAKS
-#AUTOUNMASK
+# required by dev-util/rpmdevtools-9.5::gentoo
+# required by rpmdevtools (argument)
+>=app-arch/rpm-4.18.0 python
+# required by net-libs/webkit-gtk-2.40.4-r410::gentoo[gstreamer]
 # required by app-emulation/libvirt-9.3.0::gentoo[virt-network]
 # required by app-emulation/libvirt-glib-4.0.0::gentoo
 # required by app-emulation/virt-manager-4.1.0::gentoo[-test]
@@ -801,7 +819,7 @@ dev-util/vulkan-tools -X wayland cube
 # required by app-emulation/libvirt-glib-4.0.0::gentoo
 # required by app-emulation/virt-manager-4.1.0::gentoo[-test]
 # required by virt-manager (argument)
->=sys-apps/dbus-1.15.4-r1 abi_x86_32
+>=sys-apps/dbus-1.15.4-r1 abi_x86_32 X
 # required by media-libs/libsdl2-2.26.2::gentoo[pipewire]
 # required by media-sound/mpg123-1.31.3::gentoo[sdl]
 # required by media-libs/libsndfile-1.2.0::gentoo[-minimal]

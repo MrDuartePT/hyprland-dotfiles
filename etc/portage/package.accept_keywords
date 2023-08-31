@@ -1,6 +1,7 @@
 ##Kernel, Firmware && Tools
 sys-kernel/gentoo-sources ~amd64
-=sys-firmware/LenovoLegionLinux-9999 **
+=sys-firmware/lenovolegionlinux-9999 **
+=dev-util/rpmlint-2.4.0::nest ~amd64
 sys-kernel/zenpower3 ~amd64
 media-video/v4l2loopback ~amd64
 =dev-lang/rust-1.70.0::gentoo ~amd64
@@ -9,13 +10,19 @@ media-video/v4l2loopback ~amd64
 =app-pda/netmuxd-9999::mrduarte-ebuilds **
 =sys-kernel/dkms-3.0.10::guru ~amd64
 sys-kernel/git-sources ~amd64
+=app-arch/createrepo_c-1.0.0::gentoo ~amd64
+=app-arch/drpm-0.5.2::gentoo ~amd64
+=app-arch/zchunk-1.3.1::gentoo ~amd64
+=sys-libs/libmodulemd-2.15.0::gentoo ~amd64
+=dev-python/pybeam-0.7::nest ~amd64
+=sys-power/tlp-1.5.0-r2::gentoo ~amd64
 ##
 
 =media-video/pipewire-0.3.74 ~amd64
 
 ##Desktop
 =gui-apps/eww-9999::guru **
-=app-emulation/LookingGlass-1_beta6 **
+=app-emulation/looking-glass-1_beta6::guru **
 media-sound/spotify-tray ~amd64
 =gui-apps/waybar-9999::gentoo **
 =gui-wm/cage-9999 **
@@ -49,10 +56,12 @@ media-sound/qpwgraph ~amd64
 app-emacs/rg ~amd64
 dev-vcs/lazygit ~amd64
 app-emacs/wgrep ~amd64
+=gui-apps/hyprpicker-0.1.1::guru ~amd64
+=app-emulation/86BoxManagerX-9999::guru **
 ##
 
 ##PDF and Tablet
-app-text/Lorien-bin ~amd64
+app-text/lorien-bin::guru ~amd64
 app-text/sioyek **
 x11-drivers/OpenTabletDriver-bin ~amd64
 dev-dotnet/dotnet-sdk-bin ~amd64
@@ -67,7 +76,7 @@ net-misc/onedrivegui ~amd64
 ##
 
 ## Video && Image && Sound
-=media-gfx/gimp-9999::gentoo **
+#=media-gfx/gimp-9999::gentoo **
 media-video/obs-studio ~amd64
 media-libs/noise-suppression-for-voice ~amd64
 media-libs/libdisplay-info ~amd64
@@ -95,7 +104,7 @@ app-emulation/86BoxManagerX ~amd64
 =app-emulation/86Box-3.11::gentoo ~amd64
 games-emulation/xemu ~amd64
 games-util/gamemode ~amd64
-=games-util/lutris-0.5.12::gentoo ~amd64
+=games-util/lutris-0.5.13-r2::gentoo ~amd64
 =dev-python/pyrate-limiter-2.10.0::gentoo ~amd64
 games-util/steam-launcher ~amd64
 games-util/steam-meta ~amd64
@@ -114,12 +123,13 @@ app-emulation/wine-mono ~amd64
 =games-util/mangohud-9999-r6::thegreatmcpain **
 sys-process/nvtop ~amd64
 =sys-libs/libudev-compat-186-r1::gentoo ~amd64
+=games-action/prismlauncher-9999::gentoo **
 ##
 
 ## Mouse 
 =dev-libs/libratbag-0.17::gentoo ~amd64
 =app-misc/piper-0.7::gentoo ~amd64
-
+dev-python/darkdetect ~amd64
 ## Misc Packages
 dev-python/requests ~amd64
 sys-apps/locale-gen ~amd64
