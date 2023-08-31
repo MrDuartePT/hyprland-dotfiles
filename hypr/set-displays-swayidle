@@ -1,0 +1,53 @@
+#!/bin/zsh
+#ADD TO HYPERLAND CONFIG: exec = $HOME/.config/hypr/set-displays-swayidle set_res
+
+set -ex
+
+##Starter Commands
+lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg'
+lock_suspend='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg && hyprctl dispatch dpms on'
+laptop=eDP-1
+
+[ $EUID = 0 ] || hyprctl -j monitors > /tmp/grep_output.txt
+grep -F -q -e 'HDMI-A-1' /tmp/grep_output.txt && EXT_MONITOR=1 || EXT_MONITOR=0
+POWER_ADAPTER=$(cat /sys/class/power_supply/ADP0/online | grep '1')
+
+#Verify if swayidle and hyprpaper is running
+swayidle_running="$(ps -fC 'grep' -N | grep 'swayidle' | wc -l)"
+hyprpaper_running="$(ps -fC 'grep' -N | grep 'hyprpaper' | wc -l)"
+if [[ $swayidle_running -gt 1 && $hyprpaper_running -gt 1 ]]; then
+	pkill -f --older 1 'swayidle'
+fi
+
+#Set Refresh Rate & Time Values
+[ $POWER_ADAPTER ] && refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 || refresh_rate="60hz" && time_1=270 && time_2=280 && time_3=300
+
+case "$1" in
+lid_close)
+	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor "eDP-1, disable" || systemctl suspend
+	;;
+lid_open)
+	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
+	;;
+verify_player)
+	[[ $(playerctl -l -s) == "" || $(playerctl status) == "Paused" ]] && systemctl suspend || hyprctl dispatch dpms off
+	;;
+set_res)
+	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1 || hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
+	#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+	;;
+*)
+	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
+	hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1
+	#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+	;;
+esac
+
+#Set Swayidle For Suspend
+## GTKLock command
+swayidle -w \
+	timeout $time_1 'hyprctl dispatch dpms off' \
+	resume 'hyprctl dispatch dpms on' \
+	timeout $time_2 $lock \
+	timeout $time_3 '$HOME/.config/hypr/set-displays-swayidle verify_player' \
+	before-sleep $lock_suspend &
