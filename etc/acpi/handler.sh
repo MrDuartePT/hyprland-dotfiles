@@ -60,12 +60,12 @@ case "$1" in
         case "$3" in
             close)
                 logger 'LID closed'
-		/home/mrduarte/.config/hypr/lid-close.sh
+		#sh -c "/home/mrduarte/.config/hypr/set-displays-swayidle lid_close" 
                 ;;
             open)
                 logger 'LID opened'
 		sleep 1
-		/home/mrduarte/.config/hypr/lid-open.sh
+		#sh -c "/home/mrduarte/.config/hypr/set-displays-swayidle lid_open"
                 ;;
             *)
                 logger "ACPI action undefined: $3"
