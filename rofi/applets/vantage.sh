@@ -22,8 +22,8 @@ next=' next'
 
 yes=' Yes'
 no=' No'
-	
-control_dgpu () {
+
+control_dgpu() {
 	if [ $start_mux ]; then
 		if [ $status_superglfx ]; then
 			mesg="Mode: Hybrid Mode  Supergfxd:active"
@@ -55,6 +55,7 @@ control_dgpu () {
 rofi_cmd() {
 	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
 		-theme-str 'textbox-prompt-colon {str: "";}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p $prompt \
 		-mesg "$mesg" \
@@ -66,7 +67,7 @@ run_rofi() {
 	echo -e "$option_1\n$option_2\n$option_3\n$option_4" | rofi_cmd
 }
 
-install_superglfx () {
+install_superglfx() {
 	if [ $get_distro_name="Gentoo" ]; then
 		$term su -c "emerge supergfxctl"
 	elif [ $get_distro_name="Ubuntu" || $get_distro_name="POP-OS" || $get_distro_name="Debian" ]; then
@@ -85,6 +86,7 @@ confirm_cmd() {
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?'
@@ -96,13 +98,13 @@ confirm_exit() {
 }
 
 # Confirm and execute
-confirm_run () {	
+confirm_run() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
-        ${1} && ${2} && ${3}
-    else
-        exit
-    fi	
+		${1} && ${2} && ${3}
+	else
+		exit
+	fi
 }
 
 run_cmd() {
@@ -118,7 +120,7 @@ run_cmd() {
 				confirm_run "pkexec legion_cli hybrid-mode-disable"
 			fi
 		fi
-		
+
 		if [[ "$1" == '--opt1' ]]; then
 			confirm_run "pkexec legion_cli hybrid-mode-disable"
 		elif [[ "$1" == '--opt2' ]]; then
@@ -128,9 +130,9 @@ run_cmd() {
 
 	else
 		if [[ "$1" == '--opt1' ]]; then
-		confirm_run "pkexec legion_cli hybrid-mode-enable"
+			confirm_run "pkexec legion_cli hybrid-mode-enable"
 		elif [[ "$1" == '--opt2' ]]; then
-		confirm_run "install_superglfx"
+			confirm_run "install_superglfx"
 		fi
 	fi
 }
@@ -138,16 +140,16 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $option_1)
-		run_cmd --opt1
-        ;;
-    $option_2)
-		run_cmd --opt2
-        ;;
-    $option_3)
-		run_cmd --opt3
-        ;;
-    $option_4)
-		run_cmd --opt4
-        ;;
+$option_1)
+	run_cmd --opt1
+	;;
+$option_2)
+	run_cmd --opt2
+	;;
+$option_3)
+	run_cmd --opt3
+	;;
+$option_4)
+	run_cmd --opt4
+	;;
 esac

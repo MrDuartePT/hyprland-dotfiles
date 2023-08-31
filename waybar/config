@@ -143,10 +143,10 @@
         "on-click-right": "networkmanager_dmenu"
     },
     "bluetooth": {
-        "format": "{device_alias}: ",
-        "format-off": "Disconnected 󰂲",
+        "format": "{device_alias}:  ",
+        "format-off": "Disconnected 󰂲 ",
         "format-connected": "{device_alias}  ",
-        "format-connected-battery": "{device_alias} {device_battery_percentage}% ",
+        "format-connected-battery": "{device_alias} {device_battery_percentage}%  ",
         "on-click": "$HOME/.local/bin/rofi-bluetooth",
         "tooltip-format": "{status}"
     },

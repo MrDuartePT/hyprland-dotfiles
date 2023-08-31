@@ -12,13 +12,6 @@ EXT_MONITOR=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'HDMI-A-1')
 LAPTOP_MONITOR=$(grep -rnw $HOME/.config/hypr/grep_output.txt -e 'eDP-1')
 POWER_ADAPTER=$(cat /sys/class/power_supply/ADP0/online | grep '1')
 
-#Set Refresh Rate
-if [ $POWER_ADAPTER ]; then
-	refresh_rate="165hz" 
-else 
-	refresh_rate="60hz"
-fi
-
 # Prompt Elements
 prompt="Change Display Order"
 if [[ $LAPTOP_MONITOR ]] && [[ $EXT_MONITOR ]]; then
@@ -51,6 +44,7 @@ rofi_cmd() {
 	rofi -theme-str "window {width: $win_width;}" \
 		-theme-str "listview {columns: $list_col; lines: $list_row;}" \
 		-theme-str 'textbox-prompt-colon {str: "";}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p "$prompt" \
 		-mesg "$mesg" \
@@ -73,20 +67,20 @@ ort_exit() {
 ort_run() {
 	selected_ort="$(ort_exit)"
 	if [[ "$selected_ort" == "$option_up" ]]; then
-		e_DP1_ori=0x1080
+		e_DP1_ori=0x768
 		HDMI_A_1_ori=0x0
 		${1}
 	elif [[ "$selected_ort" == "$option_left" ]]; then
 		e_DP1_ori=0x0
-		HDMI_A_1_ori=1920x0
+		HDMI_A_1_ori=1360x0
 		${1}
 	elif [[ "$selected_ort" == "$option_right" ]]; then
-		e_DP1_ori=1920x0
+		e_DP1_ori=1360x0
 		HDMI_A_1_ori=0x0
 		${1}
 	elif [[ "$selected_ort" == "$option_down" ]]; then
 		e_DP1_ori=0x0
-		HDMI_A_1_ori=0x1080
+		HDMI_A_1_ori=0x768
 		${1}
 	fi
 }
@@ -95,26 +89,17 @@ ort_run() {
 #For X support use xrandr commands
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,0x0,1
+		$HOME/mrduarte-github/dotfiles/hypr/set-displays-swayidle
 		hyprctl keyword monitor HDMI-A-1,disable
-		#killall hyprpaper && sleep 0.5
-		#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	elif [[ "$1" == '--opt2' ]]; then
 		hyprctl keyword monitor HDMI-A-1,1920x1080,0x0,1
 		hyprctl keyword monitor eDP-1,disable
-		#killall hyprpaper && sleep 0.5
-		#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	elif [[ "$1" == '--opt3' ]]; then
 		ort_run
-		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10 #bug in 10 bits
-		hyprctl keyword monitor HDMI-A-1,1920x1080,$HDMI_A_1_ori,1
-		#killall hyprpaper && sleep 0.5
-		#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+		$HOME/mrduarte-github/dotfiles/hypr/set-displays-swayidle
 	elif [[ "$1" == '--opt4' ]]; then
 		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,0x0,1,bitdepth,10 #bug in 10 bits
 		hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1,mirror,eDP-1
-		#killall hyprpaper && sleep 0.5
-		#Thyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	fi
 }
 

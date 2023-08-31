@@ -41,12 +41,12 @@ save=' Save'
 copy_save='Copy & Save'
 edit='Edit Screenshot'
 
-
 # Rofi CMD
 rofi_cmd() {
 	rofi -theme-str "window {width: $win_width;}" \
 		-theme-str "listview {columns: $list_col; lines: $list_row;}" \
 		-theme-str 'textbox-prompt-colon {str: "";}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p "$prompt" \
 		-mesg "$mesg" \
@@ -61,12 +61,13 @@ run_rofi() {
 ####
 # Choose Timer
 # CMD
-timer_cmd () {
+timer_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 1; lines: 5;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p 'Choose Option' \
 		-mesg 'Choose timer:'
@@ -78,36 +79,37 @@ timer_exit() {
 }
 
 # Confirm and execute
-timer_run () {	
+timer_run() {
 	selected_timer="$(timer_exit)"
 	if [[ "$selected_timer" == "$option_time_1" ]]; then
 		countdown=5
-    	${1}
+		${1}
 	elif [[ "$selected_timer" == "$option_time_2" ]]; then
 		countdown=10
-    	${1}
+		${1}
 	elif [[ "$selected_timer" == "$option_time_3" ]]; then
 		countdown=20
-        ${1}
-    elif [[ "$selected_timer" == "$option_time_4" ]]; then
-       countdown=30
-        ${1}
+		${1}
+	elif [[ "$selected_timer" == "$option_time_4" ]]; then
+		countdown=30
+		${1}
 	elif [[ "$selected_timer" == "$option_time_5" ]]; then
-    	countdown=60
-        ${1}
-    fi	
+		countdown=60
+		${1}
+	fi
 }
 ###
 
 ####
 # Chose Screenshot Type
 # CMD
-type_screenshot_cmd () {
+type_screenshot_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 1; lines: 3;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p 'Choose Option' \
 		-mesg 'Type Of Screenshot:'
@@ -119,30 +121,31 @@ type_screenshot_exit() {
 }
 
 # Confirm and execute
-type_screenshot_run () {	
+type_screenshot_run() {
 	selected_type_screenshot="$(type_screenshot_exit)"
 	if [[ "$selected_type_screenshot" == "$option_capture_1" ]]; then
 		option_type_screenshot=screen
-    	${1}
+		${1}
 	elif [[ "$selected_type_screenshot" == "$option_capture_2" ]]; then
 		option_type_screenshot=output
-    	${1}
+		${1}
 	elif [[ "$selected_type_screenshot" == "$option_capture_3" ]]; then
 		option_type_screenshot=area
-        ${1}
-    fi	
+		${1}
+	fi
 }
 ###
 
 ####
 # Choose to save or copy photo
 # CMD
-copy_save_editor_cmd () {
+copy_save_editor_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 2;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p 'Choose Option' \
 		-mesg 'Copy/save the screenshot or open in image editor'
@@ -154,28 +157,28 @@ copy_save_editor_exit() {
 }
 
 # Confirm and execute
-copy_save_editor_run () {	
+copy_save_editor_run() {
 	selected_chosen="$(copy_save_editor_exit)"
 	if [[ "$selected_chosen" == "$copy" ]]; then
 		option_chosen=copy
-    	${1}
+		${1}
 	elif [[ "$selected_chosen" == "$save" ]]; then
 		option_chosen=save
-    	${1}
+		${1}
 	elif [[ "$selected_chosen" == "$copy_save" ]]; then
 		option_chosen=copysave
-        ${1}
-    elif [[ "$selected_chosen" == "$edit" ]]; then
-        option_chosen=edit
-        ${1}
-    fi	
+		${1}
+	elif [[ "$selected_chosen" == "$edit" ]]; then
+		option_chosen=edit
+		${1}
+	fi
 }
 ###
 
-timer () {
+timer() {
 	if [[ $countdown -gt 10 ]]; then
 		notify-send -t 1000 "Taking Screenshot in ${countdown} seconds"
-		countdown_less_10=$(( $countdown - 10 ))
+		countdown_less_10=$(($countdown - 10))
 		sleep $countdown_less_10
 		countdown=10
 	else
@@ -183,18 +186,18 @@ timer () {
 	fi
 	while [[ $countdown -ne 0 ]]; do
 		notify-send -t 1000 "Taking Screenshot in ${countdown}"
-		countdown=$(( $countdown - 1 ))
+		countdown=$(($countdown - 1))
 		sleep 1
 	done
 }
 
 # take shots
-takescreenshot () {
+takescreenshot() {
 	sleep 0.6
 	grimblast --notify $option_chosen $option_type_screenshot
 }
 
-takescreenshot_timer () {
+takescreenshot_timer() {
 	sleep 0.6
 	timer
 	grimblast --notify $option_chosen $option_type_screenshot
@@ -203,11 +206,11 @@ takescreenshot_timer () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		type_screenshot_run 
+		type_screenshot_run
 		copy_save_editor_run "takescreenshot"
 	elif [[ "$1" == '--opt2' ]]; then
-		timer_run 
-		type_screenshot_run 
+		timer_run
+		type_screenshot_run
 		copy_save_editor_run "takescreenshot_timer"
 	fi
 }
@@ -215,12 +218,10 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $option_1)
-		run_cmd --opt1
-        ;;
-    $option_2)
-		run_cmd --opt2
-        ;;
+$option_1)
+	run_cmd --opt1
+	;;
+$option_2)
+	run_cmd --opt2
+	;;
 esac
-
-

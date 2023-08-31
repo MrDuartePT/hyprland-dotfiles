@@ -34,6 +34,7 @@ rofi_cmd() {
 	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
 		-theme-str 'textbox-prompt-colon {str: "";}' \
 		-dmenu \
+		-theme ../rofi/style-powermenu.rasi
 		-p $prompt \
 		-mesg "$mesg" \
 		-markup-rows
@@ -51,6 +52,7 @@ confirm_cmd() {
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-theme ../rofi/style.rasi \
 		-dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?'
