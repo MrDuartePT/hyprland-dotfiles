@@ -8,5 +8,3 @@ else
 	/bin/echo quiet > /sys/firmware/acpi/platform_profile
 fi
 
-/bin/systemctl restart lenovo-fancurve.service #systemd restart on profile change
-

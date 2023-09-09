@@ -10,7 +10,7 @@ laptop=eDP-1
 
 [ $EUID = 0 ] || hyprctl -j monitors > /tmp/grep_output.txt
 grep -F -q -e 'HDMI-A-1' /tmp/grep_output.txt && EXT_MONITOR=1 || EXT_MONITOR=0
-POWER_ADAPTER=$(cat /sys/class/power_supply/ADP0/online | grep '1')
+POWER_ADAPTER=$(cat /sys/class/power_supply/ADP0/online)
 
 #Verify if swayidle and hyprpaper is running
 swayidle_running="$(ps -fC 'grep' -N | grep 'swayidle' | wc -l)"
@@ -20,7 +20,7 @@ if [[ $swayidle_running -gt 1 && $hyprpaper_running -gt 1 ]]; then
 fi
 
 #Set Refresh Rate & Time Values
-[ $POWER_ADAPTER ] && refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 || refresh_rate="60hz" && time_1=270 && time_2=280 && time_3=300
+[ $POWER_ADAPTER -eq 1 ] && refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 || refresh_rate="60hz" && time_1=270 && time_2=280 && time_3=300
 
 case "$1" in
 lid_close)
@@ -30,7 +30,7 @@ lid_open)
 	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
 	;;
 verify_player)
-	[[ $(playerctl -l -s) == "" || $(playerctl status) == "Paused" ]] && systemctl suspend || hyprctl dispatch dpms off
+	[[ $(playerctl -l -s) == "" || $(playerctl status) == "Paused" ]] && systemctl suspend
 	;;
 set_res)
 	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1 || hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10

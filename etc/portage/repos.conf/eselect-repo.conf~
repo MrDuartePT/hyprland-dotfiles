@@ -70,11 +70,6 @@ sync-type = git
 sync-uri = https://github.com/an-anime-team/aagl-ebuilds.git
 priority = 100
 
-[librewolf]
-location = /var/db/repos/librewolf
-sync-type = git
-sync-uri = https://gitlab.com/librewolf-community/browser/gentoo.git
-
 [brave-overlay]
 location = /var/db/repos/brave-overlay
 sync-type = git
@@ -101,7 +96,38 @@ sync-type = git
 sync-uri = https://github.com/MrDuartePT/mrduarte-ebuilds.git
 
 
-[pentoo]
-location = /var/db/repos/pentoo
+
+[loatchi]
+location = /var/db/repos/loatchi
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/pentoo.git
+sync-uri = https://github.com/gentoo-mirror/loatchi.git
+
+[ap-overlay]
+location = /var/db/repos/ap-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/ap-overlay.git
+
+[nest]
+location = /var/db/repos/nest
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/nest.git
+
+[lanodanOverlay]
+location = /var/db/repos/lanodanOverlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/lanodanOverlay.git
+
+[gentoo-bootstrap]
+location = /var/db/repos/gentoo-bootstrap
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/gentoo-bootstrap.git
+
+[librewolf]
+location = /var/db/repos/librewolf
+sync-type = git
+sync-uri = https://codeberg.org/librewolf/gentoo.git
+
+[pf4public]
+location = /var/db/repos/pf4public
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/pf4public.git

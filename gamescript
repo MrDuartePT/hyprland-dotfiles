@@ -1,0 +1,19 @@
+#!/bin/bash
+
+[ $EUID != 0 ] && echo "Pls run as root" && exit
+
+#Start nvidia-powerd (Allow Dynamic Boost to 150W)
+systemctl start nvidia-powerd.service
+
+case "$1" in
+custom-mode)
+	echo balanced-performance >/sys/firmware/acpi/platform_profile #Allow 150W dynamic Boost
+	;;
+perfomance-mode)
+	echo performance >/sys/firmware/acpi/platform_profile #Allow 130W dynamic Boost
+	;;
+exit)
+	systemctl stop nvidia-powerd.service            #disable dynamic Boost
+	echo quiet >/sys/firmware/acpi/platform_profile #set quiet mode after game close
+	;;
+esac

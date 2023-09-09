@@ -1,4 +1,4 @@
->=dev-libs/openssl-3.0.0
+#>=dev-libs/openssl-3.0.0
 dev-lang/rust-bin
 =net-libs/webkit-gtk-2.40.0-r410::fictitiousexistence
 =x11-libs/gtk+-3.24.37::mv
@@ -18,3 +18,4 @@ gui-wm/hyprland::thegreatmcpain
 virtual/linux-sources::zGentoo
 virtual/linux-sources::gentoo-zh
 virtual/linux-sources::thegreatmcpain
+=gui-wm/gamescope-3.12.5::gentoo

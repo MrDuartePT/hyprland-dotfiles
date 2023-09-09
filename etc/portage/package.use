@@ -23,9 +23,13 @@ media-libs/libsdl2 gles2 pipewire
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs
 
+dev-util/electron -clang
+
 x11-libs/cairo X aqua
 dev-cpp/cairomm X
 media-libs/imlib2 -shm
+
+net-misc/freerdp X
 
 games-util/mangohud tools abi_x86_32 abi_x86_64 
 media-libs/glew abi_x86_32 abi_x86_64
@@ -71,6 +75,7 @@ dev-lang/ldc2 dmd-2_099
 #wine
 virtual/wine proton
 app-emulation/wine-proton fontconfig -llvm-libunwind gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
+app-emulation/wine-wayland X fontconfig -llvm-libunwind gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
 app-emulation/vkd3d abi_x86_32
 games-util/gamemode systemd
 gui-wm/gamescope wsi-layer
@@ -147,9 +152,38 @@ x11-misc/gammastep appindicator nls wayland
 
 dev-util/vulkan-tools X -wayland cube
 
+net-im/webcord systray
+
 #sci-mathematics/octave curl doc fftw fltk gnuplot hdf5 imagemagick java json portaudio postscript sndfile sundials
 
 ## AUTOUNMAKS
+# required by sys-libs/pam-1.5.3::gentoo
+# required by net-misc/openssh-9.3_p2::gentoo[pam]
+# required by virtual/openssh-0::gentoo
+# required by gnome-base/gnome-keyring-42.1-r2::gentoo[ssh-agent]
+# required by sys-auth/pambase-20220214::gentoo[gnome-keyring]
+# required by sys-apps/shadow-4.13-r4::gentoo[pam]
+# required by @system
+# required by @world (argument)
+>=sys-process/audit-3.1.1 abi_x86_32
+# required by dev-libs/glib-2.76.4::gentoo
+# required by app-emulation/libvirt-9.4.0-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=sys-libs/libselinux-3.5-r1 abi_x86_32
+# required by sys-libs/libselinux-3.5-r1::gentoo
+# required by app-containers/lxc-5.0.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=sys-libs/libsepol-3.5 abi_x86_32
+# required by dev-util/electron-25.8.0::thegreatmcpain
+# required by net-im/webcord-4.4.0::thegreatmcpain
+# required by webcord (argument)
+>=net-libs/nodejs-20.5.1 inspector
+# required by x11-base/xwayland-23.1.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/libepoxy-1.5.10-r2 X
 # required by dev-util/rpmdevtools-9.5::gentoo
 # required by rpmdevtools (argument)
 >=app-arch/rpm-4.18.0 python
