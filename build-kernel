@@ -187,6 +187,11 @@ compile_kernel() {
 	env-update
 	cd /usr/src/linux
 
+	#Copy MOK efikeys
+	cp /etc/efikeys/MOK/signing_key.x509 /usr/src/linux/certs/signing_key.pem
+	cp /etc/efikeys/MOK/signing_key.priv /usr/src/linux/certs/
+	cp /etc/efikeys/MOK/x509.genkey /usr/src/linux/certs/
+
 	#Start building Kernel
 	echo "Customize Kernel - Menuconfig"
 	make LLVM=1 LLVM_IAS=1 menuconfig
@@ -203,11 +208,7 @@ compile_kernel() {
 	sleep 2
 	make LLVM=1 LLVM_IAS=1 install
 
-	echo "Refind config"
-	mkrlconf
-
 	echo "Move Kernel to /boot/efi/gentoo folder"
-	mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf,linux-*.efi} /boot/EFI/gentoo
 	read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
@@ -219,7 +220,16 @@ rebuild_modules() {
 build_initramfs() {
 	echo "Rebulding Initramfs (dracut)" && sleep 2
 	dracut -f --regenerate-all
-	mv /boot/initramfs-* /boot/EFI/gentoo
+	
+	#Not using unfied kernel image
+	#mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo 
+	
+	#Using unfied Kernel Image
+	mkdir /boot/cleanup
+	mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/cleanup
+	mv /boot/EFI/Linux/* /boot/EFI/gentoo
+	rm -r /boot/EFI/Linux/ /boot/cleanup
+
 	echo Done!
 	read -n 1 -s -r -p "Press any key to continue..." && echo
 }
@@ -236,8 +246,8 @@ tpm_enroll_luks() {
 	if [[ $LUKS_DISABLE -eq 0 ]]; then
 		clevis luks unbind -d $NVME_1 -s 1
 		clevis luks unbind -d $EXTERNAL_HDD -s 1
-		clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7"}'
-		clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7"}'
+		clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,2,3,5,6,7,11"}'
+		clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,11"}'
 	else
 		echo && echo "$(tput bold)This option is disable set LUKS_DISABLE to 0$(tput sgr0)" && echo
 	fi
@@ -255,9 +265,9 @@ start_menu() {
 	echo "4 - Compile the kernel"
 	echo "5 - Rebuil out of tree kernel modules"
 	echo "6 - Rebuil initramfs"
-	echo "7 - Sign Kernel Secure Boot"
-	echo "8 - Enroll Disks Luks key in TPM"
-	echo "9 - Run All"
+	#echo "7 - Sign Kernel Secure Boot"
+	echo "7 - Enroll Disks Luks key in TPM"
+	echo "8 - Run All"
 	echo
 	read -p "Choose your option (any other key + Enter to cancel): " option
 
@@ -290,22 +300,22 @@ start_menu() {
 		build_initramfs
 		start_menu
 		;;
+	#7)
+		#sign_kernel
+		#start_menu
+		#;;
 	7)
-		sign_kernel
-		start_menu
-		;;
-	8)
 		tpm_enroll_luks
 		start_menu
 		;;
-	9)
+	8)
 		set_kernel
 		patch_kernel
 		copy_kernel_config
 		compile_kernel
 		rebuild_modules
 		build_initramfs
-		sign_kernel
+		#sign_kernel
 		echo "Done!!! - Reboot the system"
 		;;
 
