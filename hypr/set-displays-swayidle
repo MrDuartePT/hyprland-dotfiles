@@ -34,12 +34,12 @@ verify_player)
 	;;
 set_res)
 	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1 || hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
-	#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+	hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	;;
 *)
 	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
 	hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1
-	#hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
+	hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	;;
 esac
 

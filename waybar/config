@@ -5,11 +5,11 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris"],
     "modules-right": ["idle_inhibitor", "wireplumber", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "clock", "tray"],
     // Modules configuration
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "sort-by-number": true,
         "disable-scroll": true,
         "on-click": "activate",
