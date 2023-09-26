@@ -1,8 +1,10 @@
 ##Kernel, Firmware && Tools
+=sys-boot/mokutil-0.6.0::gentoo ~amd64
+=dev-util/xxd-8.2.4092::guru ~amd64
+=app-misc/yq-3.2.2::gentoo ~amd64
 sys-kernel/gentoo-sources ~amd64
 sys-kernel/gentoo-kernel-bin ~amd64
 virtual/dist-kernel ~amd64
-
 =sys-firmware/lenovolegionlinux-9999 **
 =dev-util/rpmlint-2.4.0::nest ~amd64
 sys-kernel/zenpower3 ~amd64
@@ -21,6 +23,9 @@ sys-kernel/git-sources ~amd64
 sys-power/tlp ~amd64
 ##
 
+#Fix Gentoo one later
+=x11-misc/xwaylandvideobridge-20230814::gentoo-zh ~amd64
+
 =media-video/pipewire-0.3.74 ~amd64
 
 ##Desktop
@@ -32,7 +37,7 @@ gui-apps/waybar::gentoo ~amd64
 gui-wm/hyprland ~amd64
 gui-apps/hyprpaper ~amd64
 gui-libs/xdg-desktop-portal-hyprland **
-=app-misc/hyprland-contrib-9999 **
+gui-wm/hyprland-contrib ~amd64
 gui-apps/hyprland-plugins ~amd64
 dev-libs/hyprland-protocols ~amd64
 =gui-apps/gtklock-2.1.0::guru ~amd64
@@ -93,6 +98,8 @@ app-crypt/tpm2-tss ~amd64
 app-crypt/tpm2-pkcs11 ~amd64
 dev-python/tpm2-pytss ~amd64
 app-crypt/clevis ~amd64
+dev-libs/luksmeta ~amd64
+dev-libs/jose ~amd64
 ##
 
 ##Nvidia
@@ -110,7 +117,13 @@ app-emulation/86BoxManagerX ~amd64
 =app-emulation/86Box-3.11::gentoo ~amd64
 games-emulation/xemu ~amd64
 games-util/gamemode ~amd64
-=games-util/lutris-0.5.13-r2::gentoo ~amd64
+games-util/lutris::gentoo ~amd64
+=app-emulation/bottles-51.9::src_prepare-overlay ~amd64
+dev-python/icoextract::src_prepare-overlay ~amd64
+dev-python/vkbasalt-cli::src_prepare-overlay ~amd64
+media-libs/vkBasalt::src_prepare-overlay ~amd64
+=dev-python/pathvalidate-3.2.0::gentoo ~amd64
+dev-python/FVS::src_prepare-overlay ~amd64
 =dev-python/pyrate-limiter-2.10.0::gentoo ~amd64
 games-util/steam-launcher ~amd64
 games-util/steam-meta ~amd64
@@ -126,6 +139,7 @@ gui-wm/gamescope ~amd64
 sys-apps/polychromatic ~amd64
 app-emulation/wine-proton ~amd64
 app-emulation/wine-mono ~amd64
+app-emulation/wine-staging ~amd64
 app-emulation/dxvk ~amd64
 =games-util/mangohud-9999-r6::thegreatmcpain **
 sys-process/nvtop ~amd64
@@ -164,14 +178,17 @@ dev-ruby/colorize ~amd64
 ##
 
 #QT stuff
-=dev-python/pyside6-6.5.1.1::gentoo ~amd64
-=dev-python/shiboken6-6.5.1.1::gentoo ~amd64
-=dev-qt/qtsvg-6.5.1::gentoo ~amd64
-=dev-qt/qtwebchannel-6.5.1::gentoo ~amd64
-=dev-qt/qtwebsockets-6.5.1::gentoo ~amd64
-=dev-qt/qtwebengine-6.5.1::gentoo ~amd64
-=dev-python/PyQt6-6.5.1::gentoo ~amd64
-=dev-qt/qttools-6.5.1::gentoo  ~amd64
-=dev-qt/qtbase-6.5.1-r1::gentoo ~amd64
-=dev-python/PyQt6-sip-13.5.1::gentoo ~amd64
-=dev-qt/qtwayland-6.5.1-r1::gentoo ~amd64
+=dev-python/pyside6-6.5.2-r1::gentoo ~amd64
+=dev-python/shiboken6-6.5.2::gentoo ~amd64
+=dev-qt/qtsvg-6.5.2::gentoo ~amd64
+=dev-qt/qtwebchannel-6.5.2-r2::gentoo ~amd64
+=dev-qt/qtwebsockets-6.5.2-r1::gentoo ~amd64
+=dev-qt/qtwebengine-6.5.2-r1::gentoo ~amd64
+=dev-python/PyQt6-6.5.2::gentoo ~amd64
+=dev-qt/qttools-6.5.2-r1::gentoo  ~amd64
+=dev-qt/qtbase-6.5.2-r2::gentoo ~amd64
+=dev-python/PyQt6-sip-13.5.2::gentoo ~amd64
+=dev-qt/qtwayland-6.5.2-r3::gentoo ~amd64
+=dev-qt/qttranslations-6.5.2::gentoo ~amd64
+=dev-qt/qtdeclarative-6.5.2-r1::gentoo ~amd64
+=dev-qt/qtshadertools-6.5.2::gentoo ~amd64

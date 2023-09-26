@@ -27,7 +27,7 @@ dev-util/electron -clang
 
 x11-libs/cairo X aqua
 dev-cpp/cairomm X
-media-libs/imlib2 -shm
+media-libs/imlib2 shm
 
 net-misc/freerdp X
 
@@ -49,9 +49,10 @@ media-video/vlc -vaapi -gui
 
 #Hyprland
 gui-apps/hyprland-plugins -csgo-vulkan-fix split-monitor-workspaces hyprbars -borders-plus-plus
-dev-qt/qttools designer
+dev-qt/qttools designer qml
 dev-python/PyQt6 gles2-only designer
 dev-qt/qtbase opengl egl eglfs gles2-only
+dev-qt/qt3d gles2-only
 dev-qt/qtdeclarative opengl
 gui-wm/hyprland X systemd
 sys-apps/xdg-desktop-portal screencast
@@ -61,6 +62,7 @@ gui-apps/gtklock-extras playerctl powerbar userinfo
 net-irc/weechat alias buflist charset exec fifo fset irc logger nls perl python relay scripts spell trigger typing xfer
 gui-apps/ReGreet gtk4 logs cage
 net-misc/networkmanager-dmenu -dmenu rofi
+net-misc/networkmanager -ppp
 dev-qt/qtgui jpeg vulkan eglfs egl X
 
 #Webkit-gtk
@@ -73,13 +75,14 @@ dev-lang/ldc2 dmd-2_099
 >=x11-libs/libfm-1.3.2 gtk
 
 #wine
-virtual/wine proton
-app-emulation/wine-proton fontconfig -llvm-libunwind gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
-app-emulation/wine-wayland X fontconfig -llvm-libunwind gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
+virtual/wine proton -staging
+app-emulation/wine-staging fontconfig gecko alsa gstreamer -scanner sdl v4l xinerama abi_x86_32 -pulseaudio
+app-emulation/wine-proton fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
+app-emulation/wine-wayland X fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
 app-emulation/vkd3d abi_x86_32
 games-util/gamemode systemd
 gui-wm/gamescope wsi-layer
-x11-drivers/nvidia-drivers abi_x86_32 persistenced -kernel-open X
+x11-drivers/nvidia-drivers abi_x86_32 persistenced X
 
 #obs
 media-video/obs-studio pulseaudio browser pipewire python vlc websocket alsa nvenc truetype v4l wayland
@@ -105,7 +108,7 @@ app-arch/createrepo_c zstd
 app-crypt/tpm2-tss fapi openssl
 
 #desktop
-x11-terms/alacritty wayland debug
+x11-terms/alacritty X  wayland debug
 x11-misc/rofi drun windowmode
 app-admin/doas persist
 gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network sndio tray wifi jack libinput
@@ -113,12 +116,12 @@ gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network
 app-crypt/pinentry gtk
 >=app-misc/openrazer-3.3.0 client daemon
 >=dev-qt/qtmultimedia-5.15.8 widgets
-media-libs/mesa X vaapi d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vulkan vulkan-overlay wayland
+media-libs/mesa X vaapi d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vulkan vulkan-overlay wayland vdpau
 
 #RUST
 >=virtual/rust-1.66.1 rustfmt abi_x86_32
 #>=dev-lang/rust-bin-1.66.1-r1 abi_x86_32 rustfmt
-dev-lang/rust clippy dist doc lto system-llvm llvm-libunwind nightly rust-analyzer rust-src rustfmt system-bootstrap parallel-compiler abi_x86_32
+dev-lang/rust clippy dist doc lto system-llvm -llvm-libunwind nightly rust-analyzer rust-src rustfmt abi_x86_32
 app-crypt/tpm2-tools fapi
 app-crypt/tpm2-tss fapi openssl
 net-wireless/wpa_supplicant -tkip -qt5
@@ -152,11 +155,46 @@ x11-misc/gammastep appindicator nls wayland
 
 dev-util/vulkan-tools X -wayland cube
 
+sys-apps/rng-tools jitterentropy nistbeacon
+
 net-im/webcord systray
 
 #sci-mathematics/octave curl doc fftw fltk gnuplot hdf5 imagemagick java json portaudio postscript sndfile sundials
 
 ## AUTOUNMAKS
+# required by kde-frameworks/kcoreaddons-5.108.0-r1::gentoo
+# required by kde-frameworks/knotifications-5.108.0::gentoo
+# required by x11-misc/xwaylandvideobridge-20230814::gentoo-zh
+# required by x11-misc/xwaylandvideobridge (argument)
+>=dev-qt/qtcore-5.15.10-r1 icu
+# required by app-office/libreoffice-bin-7.5.5.2::gentoo
+# required by libreoffice-bin (argument)
+>=dev-libs/xmlsec-1.3.1 nss
+# required by x11-misc/xdg-utils-1.1.3_p20210805-r1::gentoo
+# required by app-eselect/eselect-wine-2.0.2-r2::gentoo[xdg]
+# required by app-emulation/wine-desktop-common-20150204-r1::gentoo
+# required by app-emulation/wine-proton-8.0.3c::gentoo
+# required by wine-proton (argument)
+>=app-text/xmlto-0.0.28-r10 text
+# required by media-libs/mesa-23.1.6::gentoo
+# required by media-libs/libepoxy-1.5.10-r2::gentoo[egl]
+# required by x11-libs/gtk+-3.24.38::gentoo
+# required by gnome-extra/polkit-gnome-0.105-r2::gentoo
+# required by sys-auth/polkit-122-r1::gentoo[gtk]
+# required by x11-misc/colord-1.4.6-r1::gentoo
+>=media-libs/libglvnd-1.6.0 X
+# required by media-gfx/sane-backends-1.2.1::gentoo[sane_backends_escl]
+# required by x11-misc/colord-1.4.6-r1::gentoo[scanner]
+# required by x11-libs/gtk+-3.24.38::gentoo[colord]
+# required by gnome-extra/polkit-gnome-0.105-r2::gentoo
+# required by sys-auth/polkit-122-r1::gentoo[gtk]
+# required by sys-apps/systemd-253.6::gentoo[policykit]
+# required by virtual/libudev-251-r1::gentoo[systemd]
+# required by dev-qt/qtgui-5.15.10-r1::gentoo
+# required by dev-qt/qtwidgets-5.15.10-r2::gentoo
+# required by dev-qt/qtdeclarative-5.15.10-r2::gentoo[widgets]
+# required by dev-qt/qtwayland-5.15.10-r4::gentoo
+>=app-text/poppler-23.08.0 cairo
 # required by sys-libs/pam-1.5.3::gentoo
 # required by net-misc/openssh-9.3_p2::gentoo[pam]
 # required by virtual/openssh-0::gentoo
