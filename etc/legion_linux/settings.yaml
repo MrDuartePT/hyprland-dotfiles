@@ -2,4 +2,4 @@ setting_entries:
   close_to_tray: true
   open_closed_to_tray: true
   enable_gui_monitoring: true
-  icon_color_mode: automatic
+  icon_color_mode: always-light
