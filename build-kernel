@@ -43,6 +43,13 @@ patch_cachyos() {
 	read -n 1 -s -r -p "Press any key to continue..." && echo
 }
 
+patch_clang_pgo() {
+	cd /usr/src/linux
+	curl https://raw.githubusercontent.com/CachyOS/kernel-patches/master/$kernel_ver/misc/0001-Clang-PGO.patch -o 0001-Clang-PGO.patch
+	patch -p1 <0001-Clang-PGO.patch
+	read -n 1 -s -r -p "Press any key to continue..." && echo
+}
+
 patch_tsc() {
 	cd /usr/src/linux
 	#Dowload tsc patches
@@ -104,12 +111,13 @@ patch_file() {
 patch_kernel() {
 	echo "Chose the kernel patch:"
 	echo
-	echo "1 - CachyOS Kernel Patch"
-	echo "2 - TSC Kernel Patch (requires tsc=directsync kernel cmd)"
-	echo "3 - EEVDF Kernel Patch (dont apply 4 & 5 patch)"
-	echo "4 - BORE EEVDF Kernel Patch (dont apply 3 & 5 patch)"
-	echo "5 - BORE CachyOS Kernel Patch (dont apply 3 & 4 patch)"
-	echo "6 - From file/link"
+	echo "1 - CachyOS Kernels Patches"
+	echo "2 - CachyOS Clang PGO Patch (not included in 1)"
+	echo "3 - TSC Kernel Patch (requires tsc=directsync kernel cmd)"
+	echo "4 - EEVDF Kernel Patch (dont apply 4 & 5 patch)"
+	echo "5 - BORE EEVDF Kernel Patch (dont apply 3 & 5 patch)"
+	echo "6 - BORE CachyOS Kernel Patch (dont apply 3 & 4 patch)"
+	echo "7 - From file/link"
 	echo
 	echo "Choose your option (Press Enter when done patching)"
 	read -p "Note: Dont run the same patch twices: " option
@@ -120,22 +128,26 @@ patch_kernel() {
 		patch_kernel
 		;;
 	2)
-		patch_tsc
+		patch_clang_pgo
 		patch_kernel
 		;;
 	3)
-		patch_EEVDF
+		patch_tsc
 		patch_kernel
 		;;
 	4)
-		patch_bore_eevdf
+		patch_EEVDF
 		patch_kernel
 		;;
 	5)
-		patch_bore_cachyos
+		patch_bore_eevdf
 		patch_kernel
 		;;
 	6)
+		patch_bore_cachyos
+		patch_kernel
+		;;
+	7)
 		patch_file
 		patch_kernel
 		;;
@@ -188,9 +200,8 @@ compile_kernel() {
 	cd /usr/src/linux
 
 	#Copy MOK efikeys
-	cp /etc/efikeys/MOK/signing_key.x509 /usr/src/linux/certs/signing_key.pem
-	cp /etc/efikeys/MOK/signing_key.priv /usr/src/linux/certs/
-	cp /etc/efikeys/MOK/x509.genkey /usr/src/linux/certs/
+	cp /etc/efikeys/MOK/x509.genkey /usr/src/linux/certs
+	cp /etc/efikeys/MOK/MOK-merge.pem /usr/src/linux/certs/MOK.pem #Combined private and public key
 
 	#Start building Kernel
 	echo "Customize Kernel - Menuconfig"
@@ -220,15 +231,15 @@ rebuild_modules() {
 build_initramfs() {
 	echo "Rebulding Initramfs (dracut)" && sleep 2
 	dracut -f --regenerate-all
-	
+
 	#Not using unfied kernel image
-	#mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo 
-	
+	#mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/EFI/gentoo
+
 	#Using unfied Kernel Image
-	mkdir /boot/cleanup
-	mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/cleanup
+	#mkdir /boot/cleanup
+	#mv /boot/{System.map-*,config-*,vmlinuz-*,refind_linux.conf} /boot/cleanup
 	mv /boot/EFI/Linux/* /boot/EFI/gentoo
-	rm -r /boot/EFI/Linux/ /boot/cleanup
+	rm -r /boot/EFI/Linux
 
 	echo Done!
 	read -n 1 -s -r -p "Press any key to continue..." && echo
@@ -246,8 +257,8 @@ tpm_enroll_luks() {
 	if [[ $LUKS_DISABLE -eq 0 ]]; then
 		clevis luks unbind -d $NVME_1 -s 1
 		clevis luks unbind -d $EXTERNAL_HDD -s 1
-		clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,2,3,5,6,7,11"}'
-		clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7,11"}'
+		clevis luks bind -d $NVME_1 tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7"}'
+		clevis luks bind -d $EXTERNAL_HDD tpm2 '{"pcr_bank":"sha256","pcr_ids":"0,1,2,3,5,6,7"}'
 	else
 		echo && echo "$(tput bold)This option is disable set LUKS_DISABLE to 0$(tput sgr0)" && echo
 	fi
@@ -300,7 +311,7 @@ start_menu() {
 		build_initramfs
 		start_menu
 		;;
-	#7)
+		#7)
 		#sign_kernel
 		#start_menu
 		#;;
