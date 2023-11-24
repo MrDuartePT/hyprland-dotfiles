@@ -134,3 +134,4 @@ alias integrated_mode="systemctl stop nvidia-persistenced.service && supergfxctl
 alias sudoo="doas"
 alias emerge_@modules="doas su -c 'LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin'"
 alias rebuild_iniramfs="doas su -c 'LLVM=1 emerge @module-rebuild --exclude=sys-kernel/gentoo-kernel-bin' && doas dracut -f && luks_reenroll_tpm"
+alias clang_make="make LLVM=1 LLVM_IAS=1"

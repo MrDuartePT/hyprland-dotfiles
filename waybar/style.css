@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(0, 0, 0, 0.70);
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -77,34 +77,97 @@ button:hover {
 }
 
 #clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
-    padding: 0 10px;
+
+#battery{
+  padding: 0 7px
+}
+
+#battery button {
+    padding: 0 5px;
+    background-color: transparent;
     color: #ffffff;
 }
 
-#custom-displays {
-    padding: 5px;
-    background-color: #B5B5B5;
+#battery button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
-#custom-gfx {
-    padding: 5px;
-    background-color: #B5B5B5;
+
+#custom-fan {
+    padding: 0 3px;
+    font-weight: bold;
 }
+
+#cpu {
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+
+#user {
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+
+#memory{
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+
+#disk {
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+
+#temperature.cpu {
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+#temperature.cpu.critical {
+    color:#f53c3c
+}
+
+#temperature.gpu {
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+#temperature.gpu.critical {
+    color:#f53c3c
+}
+
+#temperature.ic {
+    padding: 0 3px;
+    font-weight: bold;
+    color:#ffffff
+}
+#temperature#ic.critical {
+    color:#f53c3c
+}
+
+#pulseaudio{
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+#wireplumber,
+#tray,
+#idle_inhibitor,
+
+#custom-displays {
+    padding: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: transparent;
+}
+
 
 #window,
 #workspaces {
@@ -130,27 +193,55 @@ button:hover {
     color: #000000;
 }
 
+#language {
+    padding: 0 3px;
+    font-weight: bold;
+}
+
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 8px;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #07F523;
+    font-weight: bold;
 }
 
-@keyframes blink {
+@keyframes blink-yellow {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #ffff00;
+        color: #ffffff;
+        font-weight: bold;
+    }
+}
+
+@keyframes blink-red {
+    to {
+        background-color: #BE0000;
+        color: #ffffff;
+        font-weight: bold;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: transparent;
     color: #ffffff;
-    animation-name: blink;
+    font-weight: bold;
+    animation-name: blink-red;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    animation-name: blink-yellow;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -161,78 +252,40 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
 #backlight {
-    background-color: #90b1b1;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 5px;
 }
 
 #bluetooth {
-    background-color: #2980b9;
+    background-color: transparent;
+    font-weight: bold;
 }
 
 #bluetooth.off {
-    background-color: #f53c3c;
+    background-color: transparent;
+    color: #f53c3c;
+    font-weight: bold;
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 0 5px;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: transparent;
+    color: #f53c3c;
+    font-weight: bold;
 }
 
 #custom-media {
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 
 #tray > .passive {
@@ -245,7 +298,7 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    background-color: transparent;
 }
 
 #idle_inhibitor.activated {
@@ -253,59 +306,11 @@ label:focus {
     color: #2d3436;
 }
 
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
-}
 #custom-notification {
     font-family: "NotoSansMono Nerd Font";
 }
 #custom-weather {
-    padding: 0 5px;
+    padding: 0 2px;
 }
 #custom-notification {
     font-size: 17px;

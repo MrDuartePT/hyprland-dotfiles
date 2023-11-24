@@ -10,12 +10,12 @@
 ## Applets : Power Menu
 
 #Command to lock the device
-lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg'
+lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/Lenovo\ Wallpapers/cyber_box.jpg -s fill'
 #lock='swaylock --clock --indicator --indicator-idle-visible --grace-no-mouse --effect-blur 10x2 -i /home/mrduarte/Pictures/wallpapers/DSC_01.jpg -s fill'
 
 # Applet Elements
 prompt:"Power Menu"
-mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
+mesg="Uptime : $(uptime -p | sed -e 's/up //g')"
 list_col='1'
 list_row='6'
 
@@ -35,7 +35,7 @@ rofi_cmd() {
 		-theme-str 'textbox-prompt-colon {str: "";}' \
 		-dmenu \
 		-theme ../rofi/style-powermenu.rasi
-		-p $prompt \
+	-p $prompt \
 		-mesg "$mesg" \
 		-markup-rows
 }
@@ -64,13 +64,13 @@ confirm_exit() {
 }
 
 # Confirm and execute
-confirm_run () {	
+confirm_run() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
-        ${1} && ${2} && ${3}
-    else
-        exit
-    fi	
+		${1} && ${2} && ${3}
+	else
+		exit
+	fi
 }
 
 run_cmd() {
@@ -92,23 +92,22 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $option_1)
-		run_cmd --opt1
-        ;;
-    $option_2)
-		run_cmd --opt2
-        ;;
-    $option_3)
-		run_cmd --opt3
-        ;;
-    $option_4)
-		run_cmd --opt4
-        ;;
-    $option_5)
-		run_cmd --opt5
-        ;;
-    $option_6)
-		run_cmd --opt6
-        ;;
+$option_1)
+	run_cmd --opt1
+	;;
+$option_2)
+	run_cmd --opt2
+	;;
+$option_3)
+	run_cmd --opt3
+	;;
+$option_4)
+	run_cmd --opt4
+	;;
+$option_5)
+	run_cmd --opt5
+	;;
+$option_6)
+	run_cmd --opt6
+	;;
 esac
-

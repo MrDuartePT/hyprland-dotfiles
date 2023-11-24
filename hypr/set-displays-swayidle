@@ -4,23 +4,21 @@
 set -ex
 
 ##Starter Commands
-lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg'
-lock_suspend='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/wallpapers/DSC_01.jpg && hyprctl dispatch dpms on'
+lock="gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/Lenovo\ Wallpapers/cyber_box.jpg -s fill"
+lock_suspend='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/Lenovo\ Wallpapers/cyber_box.jpg -s fill && hyprctl dispatch dpms on'
 laptop=eDP-1
 
 [ $EUID = 0 ] || hyprctl -j monitors > /tmp/grep_output.txt
 grep -F -q -e 'HDMI-A-1' /tmp/grep_output.txt && EXT_MONITOR=1 || EXT_MONITOR=0
 POWER_ADAPTER=$(cat /sys/class/power_supply/ADP0/online)
 
-#Verify if swayidle and hyprpaper is running
-swayidle_running="$(ps -fC 'grep' -N | grep 'swayidle' | wc -l)"
-hyprpaper_running="$(ps -fC 'grep' -N | grep 'hyprpaper' | wc -l)"
-if [[ $swayidle_running -gt 1 && $hyprpaper_running -gt 1 ]]; then
-	pkill -f --older 1 'swayidle'
-fi
+#Verify if swayidle and swww is running (hyprland start swww-daemon)
+killall swayidle || true
+killall swww_randomize || true
+nohup $HOME/.config/hypr/swww_randomize $HOME/Pictures/wallpapers &
 
 #Set Refresh Rate & Time Values
-[ $POWER_ADAPTER -eq 1 ] && refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 || refresh_rate="60hz" && time_1=270 && time_2=280 && time_3=300
+[ $POWER_ADAPTER -eq 1 ] && refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 || refresh_rate="96.012hz" && time_1=270 && time_2=280 && time_3=300
 
 case "$1" in
 lid_close)
@@ -34,12 +32,10 @@ verify_player)
 	;;
 set_res)
 	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1 || hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
-	hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	;;
 *)
-	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
+	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10,vrr,1
 	hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1
-	hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	;;
 esac
 

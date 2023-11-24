@@ -1,215 +1,98 @@
-{
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+[{
+    "layer": "top",
+    "name" : "top",
+    "position": "top", 
+    "height": 15,
+    "spacing": 4,
+    "modules-left": ["hyprland/window"],
     "modules-center": ["mpris"],
-    "modules-right": ["idle_inhibitor", "wireplumber", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "custom/displays", "battery", "custom/notification", "clock", "tray"],
-    // Modules configuration
-    "hyprland/workspaces": {
-        "sort-by-number": true,
-        "disable-scroll": true,
-        "on-click": "activate",
-        "all-outputs": true,
-        "format": "{name}",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-         "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-             "urgent": "",
-             "focused": "",
-             "default": ""
-         }
-    },
+    "modules-right": ["network", "bluetooth", "pulseaudio", "backlight", "custom/displays", "battery", "clock", "custom/weather", "custom/notification", "tray"],
+   
+    // Top Modules configuration
+
     "hyprland/window": {
+        "icon": true,
+        "icon-size": 16,
         "format": "{}",
         "separate-outputs": true
     },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+             "default": "▶",
+             "mpv": "🎵"
         },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+        "status-icons": {
+             "paused": "⏸"
         },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "ignored-players": ["librewolf-bin"]
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        "interval": 1, 
-        "format": "{:%H:%M:%S}", 
-        "timezone": "Europe/Lisbon",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format-critical": "{} {icon}",
-        "format": "{}°C {icon}",
-        "format-icons": ["", "", ""],
-        "return-type": "json",
-        "exec": "$HOME/.config/waybar/modules/temperature-cpu-gpu.sh",
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) 󰖩",
         "format-ethernet": "{ipaddr}/{cidr} 󰈀",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) 󰈂",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "networkmanager_dmenu"
     },
+
     "bluetooth": {
-        "format": "{device_alias}:  ",
+        "format": "{device_alias}:  ",
         "format-off": "Disconnected 󰂲 ",
-        "format-connected": "{device_alias}  ",
-        "format-connected-battery": "{device_alias} {device_battery_percentage}%  ",
+        "format-connected": "{device_alias} 󰂱 ",
+        "format-connected-battery": "{device_alias} {device_battery_percentage}% 󰥈",
         "on-click": "$HOME/.local/bin/rofi-bluetooth",
         "tooltip-format": "{status}"
     },
+
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon}  {volume}% {format_source}",
+        "format-bluetooth-muted": "󰖁 {volume}%  {format_source}",
+        "format-muted": "󰖁 {volume}% {format_source}",
+        "format-source": "{volume}% 󰍬",
+        "format-source-muted": "{volume}% 󰍭",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "phone": "󰏲",
+            "car": "󰸛",
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click": "~/.config/rofi/applets/volume.sh",
-        "on-click-right": "pavucontrol"
+        "on-click": "pavucontrol"
     },
-    "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": "{volume}% ",
-        "on-click": "$HOME/.config/rofi/applets/volume.sh",
-        "signal": 8,
-        "interval": "once",
-        "on-click-right": "pavucontrol",
-        "format-icons": ["󰕿", "󰖀", "󰕾"]
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["󰃞", "󰃝", "󰃝", "󰃝", "󰃟", "󰃟", "󰃟", "󰃠", "󰃠"]
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/waybar-mpris": {
-        "return-type": "json",
-        "exec": "waybar-mpris -F",
-        "on-click": "waybar-mpris --send toggle",
-        "on-scroll-up": "waybar-mpris --send next",
-        "on-scroll-down": "waybar-mpris --send prev",
-        "escape": true,
-    },
+    
     "custom/displays": {
         "format": "󰍹",
         "on-click": "wdisplays"
     },
-    "custom/weather": {
-        "format": "{}",
-        "tooltip": true,
-        "interval": 2,
-        "exec": "$HOME/.config/waybar/modules/waybar-wttr.py",
-        "return-type": "json"
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% %{icon}",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": ["  ", "  ", "  ", "  ", "  "],
     },
+
     "custom/notification": {
         "tooltip": false,
         "format": "{icon}",
@@ -228,29 +111,145 @@
         "escape": true
     },
 
+    "clock": {
+        "interval": 1, 
+        "format": "{:%H:%M:%S}", 
+        "timezone": "Europe/Lisbon",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "custom/weather": {
+        "format": "{} º",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar",
+        "return-type": "json"
+    },
+
     "tray": {
         "show-passive-items": true
     },
+},
 
-    "mpris": {
-        "format": "{player_icon} {dynamic}",
-        "format-paused": "{status_icon} <i>{dynamic}</i>",
-        "player-icons": {
-             "default": "▶",
-             "mpv": "🎵"
-        },
-        "status-icons": {
-             "paused": "⏸"
-        },
-        "ignored-players": ["librewolf-bin"]
-   },
+{
+      "name" : "bottom",
+      "layer": "top", 
+      "position": "bottom", 
+      "height": 15, 
+      "spacing": 4, // Gaps between modules (4px)
+      "modules-left": ["cpu", "memory", "disk", "user"],
+      "modules-center": ["hyprland/workspaces", "image#gentoo"],
+      "modules-right": ["custom/fan", "temperature#cpu", "temperature#gpu", "temperature#ic","hyprland/language", "idle_inhibitor"],
 
-    "custom/gfx": {
-        "format": "{}",
-        "interval": 3,
-        "return-type": "json", 
-        "exec": "bash $HOME/.config/waybar/modules/gfx.sh",
-        "on-click": "bash $HOME/.config/waybar/modules/gfxmenu.sh"
-    }
-}
+    "hyprland/workspaces": {
+        "sort-by-number": true,
+        "disable-scroll": true,
+        "on-click": "activate",
+        "all-outputs": false,
+        "active-only": false,
+        "format": "{name}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}% {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15} {avg_frequency} Ghz",
+        "format-icons": [
+          "<span color='#07F523'>▁</span>", // green
+          "<span color='#07F523'>▂</span>", // green
+          "<span color='#07F523'>▃</span>", // green
+          "<span color='#ffff00'>▄</span>", // yellow
+          "<span color='#ffff00'>▅</span>", // yellow
+          "<span color='#ffbf00'>▆</span>", // orange
+          "<span color='#ffbf00'>▇</span>", // orange
+          "<span color='#BE0000'>█</span>"  // red
+        ]
+    },
+
+    "memory":{
+        "interval": 30,
+        "format": " {percentage}% {icon}",
+        "format-icons": [
+          "<span color='#07F523'>▁</span>", // green
+          "<span color='#07F523'>▂</span>", // green
+          "<span color='#07F523'>▃</span>", // green
+          "<span color='#ffff00'>▄</span>", // yellow
+          "<span color='#ffff00'>▅</span>", // yellow
+          "<span color='#ffbf00'>▆</span>", // orange
+          "<span color='#ffbf00'>▇</span>", // orange
+          "<span color='#BE0000'>█</span>"  // red
+        ],
+      },
+
+    "disk": {
+        "format": " {percentage_used}% of {total}",
+        "interval": 30,
+    },
+
+    "image#gentoo": {
+	    "path": "$HOME/.config/waybar/images/Gblend.png",
+  	  "size": 32,
+    },
+
+    "image#hyprland": {
+	    "path": "$HOME/.config/waybar/images/Gblend.png",
+  	  "size": 32,
+    },
+
+    "user": {
+        "format": "Uptime: {work_H}:{work_M}",
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": true,
+    },
+
+    "hyprland/language": {
+    "format": "KB Lang: {}",
+    "format-pt": "PT",
+    "format-en": "EN",
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "temperature#cpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 85,
+        "interval": 5,
+        "format-critical": "CPU: {temperatureC}°C ",
+        "format": "CPU: {temperatureC}°C"
+    },
+    
+    "temperature#gpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
+        "critical-threshold": 85,
+        "interval": 5,
+        "format-critical": "GPU: {temperatureC}°C ",
+        "format": "GPU: {temperatureC}°C"
+    },
+
+    "temperature#ic": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp3_input",
+        "critical-threshold": 75,
+        "interval": 5,
+        "format-critical": "CPU: {temperatureC}°C ",
+        "format": "IC: {temperatureC}°C"
+    },
+    
+    "custom/fan": {
+        "tooltip": false,
+        "restart-interval": 5,
+        "exec": "$HOME/.config/waybar/modules/fan.sh",
+    },
+
+
+}]
 
