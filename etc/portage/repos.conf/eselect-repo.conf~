@@ -1,10 +1,5 @@
 # created by eselect-repo
 
-[brother-overlay]
-location = /var/db/repos/brother-overlay
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/brother-overlay.git
-
 
 
 
@@ -88,7 +83,7 @@ sync-uri = https://github.com/woomymy/woomy-overlay.git
 [thegreatmcpain]
 location = /var/db/repos/thegreatmcpain
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/thegreatmcpain.git
+sync-uri = https://gitlab.com/TheGreatMcPain/thegreatmcpain-overlay.git
 
 [mrduarte-ebuilds]
 location = /var/db/repos/mrduarte-ebuilds
@@ -101,11 +96,6 @@ sync-uri = https://github.com/MrDuartePT/mrduarte-ebuilds.git
 location = /var/db/repos/loatchi
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/loatchi.git
-
-[ap-overlay]
-location = /var/db/repos/ap-overlay
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/ap-overlay.git
 
 [nest]
 location = /var/db/repos/nest
@@ -127,7 +117,25 @@ location = /var/db/repos/librewolf
 sync-type = git
 sync-uri = https://codeberg.org/librewolf/gentoo.git
 
-[pf4public]
-location = /var/db/repos/pf4public
+
+[src_prepare-overlay]
+location = /var/db/repos/src_prepare-overlay
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/pf4public.git
+sync-uri = https://github.com/gentoo-mirror/src_prepare-overlay.git
+
+[cova]
+location = /var/db/repos/cova
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/cova.git
+
+
+[ap-overlay]
+location = /var/db/repos/ap-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/ap-overlay.git
+
+
+[brother-overlay]
+location = /var/db/repos/brother-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/brother-overlay.git

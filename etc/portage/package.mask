@@ -17,8 +17,16 @@ virtual/linux-sources::zGentoo
 virtual/linux-sources::gentoo-zh
 virtual/linux-sources::thegreatmcpain
 
+<sys-power/tlp-1.6.1::gentoo
+
 #Convert to libunwind (broken proton and other custom wines)
 sys-libs/llvm-libunwind
 #Prevent broken glibc
 sys-libs/libcxx 
 sys-libs/libcxxabi
+
+#Dont nned nano
+app-editors/nano
+
+#Use my ebuid PR instead
+<=media-video/obs-studio-29.1.3-r2

@@ -11,7 +11,7 @@ media-libs/libsdl2 gles2 pipewire
 >=dev-python/PyQt5-5.15.9 svg network webchannel printsupport
 >=dev-qt/qtwebengine-5.15.8_p20230313 widgets jumbo-build jumbo-frames -pulseaudio
 >=dev-qt/qtwebchannel-5.15.8 qml
->=media-video/ffmpeg-4.4.3 x264 x265 fdk abi_x86_32 sdl openssl openh264 dav1d rav1e svt-av1 bluray kvazaar libaom
+>=media-video/ffmpeg-4.4.3 x264 x265 fdk abi_x86_32 sdl openssl openh264 dav1d rav1e svt-av1 bluray kvazaar libaom mp3 flac vorbis xvid amf amr amrenc
 >=dev-libs/boost-1.81.0-r1 icu
 >=media-libs/gegl-0.4.42-r1 cairo
 >=dev-qt/qtmultimedia-5.15.8 qml
@@ -23,15 +23,17 @@ media-libs/libsdl2 gles2 pipewire
 media-video/pipewire ffmpeg echo-cancel v4l
 sys-boot/refind btrfs ntfs
 
-dev-util/electron -clang
+media-libs/opencolorio -opengl
 
 x11-libs/cairo X aqua
 dev-cpp/cairomm X
 media-libs/imlib2 shm
 
+media-libs/opencv qt5
+
 net-misc/freerdp X
 
-games-util/mangohud tools abi_x86_32 abi_x86_64 
+games-util/mangohud tools abi_x86_32 abi_x86_64 X 
 media-libs/glew abi_x86_32 abi_x86_64
 games-util/gamemode abi_x86_32
 
@@ -44,11 +46,18 @@ net-p2p/transmission -qt5
 
 media-tv/kodi airplay bluray gbm optical udf -vdpau
 
-media-video/mpv vaapi X opengl
-media-video/vlc -vaapi -gui
+media-video/mpv vaapi -X -opengl
+media-video/vlc vaapi X -gui
+dev-util/electron X
+dev-lang/php gd
+
+media-sound/yewtube test
 
 #Hyprland
-gui-apps/hyprland-plugins -csgo-vulkan-fix split-monitor-workspaces hyprbars -borders-plus-plus
+# required by app-emulation/pcem-17-r1::gentoo
+# required by pcem (argument)
+>=x11-libs/wxGTK-3.0.5.1-r1:3.0-gtk3 tiff
+gui-apps/hyprland-plugins csgo-vulkan-fix split-monitor-workspaces hyprbars -borders-plus-plus
 dev-qt/qttools designer qml
 dev-python/PyQt6 gles2-only designer
 dev-qt/qtbase opengl egl eglfs gles2-only
@@ -75,22 +84,23 @@ dev-lang/ldc2 dmd-2_099
 >=x11-libs/libfm-1.3.2 gtk
 
 #wine
-virtual/wine proton -staging
-app-emulation/wine-staging fontconfig gecko alsa gstreamer -scanner sdl v4l xinerama abi_x86_32 -pulseaudio
-app-emulation/wine-proton fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
-app-emulation/wine-wayland X fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -pulseaudio
+virtual/wine proton staging
+app-emulation/wine-staging X fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32 -scanner
+app-emulation/wine-proton  X fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32
+app-emulation/wine-wayland X fontconfig gecko alsa gstreamer sdl v4l xinerama abi_x86_32
+app-emulation/gallium-nine-standalone abi_x86_32
 app-emulation/vkd3d abi_x86_32
 games-util/gamemode systemd
 gui-wm/gamescope wsi-layer
 x11-drivers/nvidia-drivers abi_x86_32 persistenced X
 
 #obs
-media-video/obs-studio pulseaudio browser pipewire python vlc websocket alsa nvenc truetype v4l wayland
+media-video/obs-studio pulseaudio browser pipewire python vlc websocket alsa nvenc truetype v4l wayland streamfx qt6 amf
 media-video/pipewire echo-cancel jack-client system-service bluetooth ffmpeg gstreamer v4l sound-server extra
 #libvirt and qemu
 app-emulation/libvirt -firewalld lvm qemu virt-network
 app-emulation/virt-manager gui policykit
-app-emulation/qemu alsa spice usb usbredir vhost-net virtfs opengl jack virgl
+app-emulation/qemu alsa spice usb usbredir vhost-net virtfs opengl jack virgl -xen
 >=net-misc/spice-gtk-0.42 usbredir
 >=sys-fs/lvm2-2.03.20 lvm
 >=net-firewall/nftables-1.0.7-r1 xtables json python
@@ -108,7 +118,7 @@ app-arch/createrepo_c zstd
 app-crypt/tpm2-tss fapi openssl
 
 #desktop
-x11-terms/alacritty X  wayland debug
+x11-terms/alacritty -X wayland debug
 x11-misc/rofi drun windowmode
 app-admin/doas persist
 gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network sndio tray wifi jack libinput
@@ -116,7 +126,9 @@ gui-apps/waybar evdev popups udev experimental mpd mpris upower pipewire network
 app-crypt/pinentry gtk
 >=app-misc/openrazer-3.3.0 client daemon
 >=dev-qt/qtmultimedia-5.15.8 widgets
-media-libs/mesa X vaapi d3d9 gles1 gles2 llvm lm-sensors opencl proprietary-codecs vulkan vulkan-overlay wayland vdpau
+media-libs/mesa X vaapi d3d9 zink gles1 gles2 llvm lm-sensors opencl proprietary-codecs vulkan vulkan-overlay wayland vdpau
+x11-apps/mesa-progs X
+media-libs/amdgpu-pro-vulkan abi_x86_32
 
 #RUST
 >=virtual/rust-1.66.1 rustfmt abi_x86_32
@@ -129,6 +141,9 @@ net-wireless/wpa_supplicant -tkip -qt5
 #GIMP gtk flag
 >=media-gfx/gimp-2.10.34-r1:0/2::gentoo gtk
 
+#AI
+sci-libs/caffe2 ffmpeg opencv
+
 #vulkan
 media-libs/vulkan-loader layers X wayland
 >=media-libs/vulkan-layers-1.3.243 abi_x86_32
@@ -139,11 +154,12 @@ media-sound/spotify libnotify
 
 dev-lang/python tk lto pgo
 
-sys-firmware/lenovolegionlinux legion-acpi systemd ryzenadj legion-tools
+sys-firmware/lenovolegionlinux -legion-acpi systemd legion-tools
 
-dev-python/pyside6 widgets webengine webchannel quick qml gles2-only printsupport sql designer
+dev-python/pyside6 widgets webengine quick webchannel qml
 
 dev-util/nvidia-cuda-toolkit profiler
+x11-drivers/nvidia-drivers
 dev-python/numpy lapack
 >=dev-libs/libclc-15.0.7 spirv
 
@@ -153,15 +169,79 @@ media-gfx/sane-backends sane_backends_escl
 net-dns/avahi gtk mdnsresponder-compat
 x11-misc/gammastep appindicator nls wayland
 
-dev-util/vulkan-tools X -wayland cube
+dev-util/vulkan-tools -X wayland cube
+
+sys-apps/systemd boot
 
 sys-apps/rng-tools jitterentropy nistbeacon
 
 net-im/webcord systray
 
+app-text/texlive context extra graphics humanities luatex metapost pdfannotextractor pstricks publishers science tex4ht texi2html xetex
+
+x11-libs/wxGTK X
+
 #sci-mathematics/octave curl doc fftw fltk gnuplot hdf5 imagemagick java json portaudio postscript sndfile sundials
 
+#app-emulation/xen efi
+#app-emulation/xen-tools -qemu system-qemu system-seabios ovmf
+
+net-dns/dnsmasq tftp dnssec
+
 ## AUTOUNMAKS
+# required by games-util/ProtonUp-Qt-2.8.2::guru
+# required by ProtonUp-Qt (argument)
+>=dev-python/pyside6-6.5.2-r3 designer
+# required by media-video/ffmpeg-6.0-r9::gentoo[amr]
+# required by media-video/obs-studio-29.1.3-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/opencore-amr-0.1.6 abi_x86_32
+# required by media-video/ffmpeg-6.0-r9::gentoo[encode,amrenc]
+# required by media-video/obs-studio-29.1.3-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/vo-amrwbenc-0.1.3 abi_x86_32
+# required by dev-python/pyside6-6.5.2-r3::gentoo
+# required by pyside6 (argument)
+>=dev-qt/qtbase-6.5.2-r2 -gles2-only
+# required by games-emulation/yuzu-9999::guru
+# required by yuzu (argument)
+>=net-libs/mbedtls-2.28.1 cmac
+# required by games-emulation/yuzu-9999::guru
+# required by yuzu (argument)
+>=dev-libs/boost-1.82.0-r1 context
+# required by app-emulation/xen-4.16.5::gentoo[efi]
+# required by @selected
+# required by @world (argument)
+#>=sys-devel/binutils-2.40-r5 multitarget
+# required by app-emulation/libguestfs-1.48.6::gentoo
+# required by libguestfs (argument)
+#>=app-arch/unzip-6.0_p27-r1 natspec
+# required by dev-util/android-sdk-update-manager-24.4.1-r1::gentoo
+# required by dev-util/android-sdk-cmdline-tools-6.0.8092744::zGentoo
+# required by android-sdk-cmdline-tools (argument)
+>=dev-java/swt-3.7.2-r3:3.7 cairo
+# required by dev-util/android-sdk-update-manager-24.4.1-r1::gentoo
+# required by dev-util/android-sdk-cmdline-tools-6.0.8092744::zGentoo
+# required by android-sdk-cmdline-tools (argument)
+>=sys-libs/ncurses-compat-6.4_p20230401 abi_x86_32
+# required by x11-libs/wxGTK-3.2.2.1-r2::gentoo
+# required by wxGTK (argument)
+>=dev-libs/libpcre2-10.42-r1 pcre32
+# required by dev-texlive/texlive-xetex-2021-r1::gentoo
+# required by dev-texlive/texlive-formatsextra-2021::gentoo
+# required by app-text/texlive-2021-r1::gentoo[extra,-xml]
+# required by texlive (argument)
+>=app-text/texlive-core-2021-r7 xetex
+# required by dev-php/composer-2.1.12::gentoo
+# required by composer (argument)
+>=dev-lang/php-8.1.20-r1 curl
+# required by games-util/steam-launcher-1.0.0.76-r2::steam-overlay[joystick,wayland]
+# required by games-util/steam-meta-0-r20220320::steam-overlay
+# required by @selected
+# required by @world (argument)
+>=x11-base/xwayland-23.2.1 libei
 # required by kde-frameworks/kcoreaddons-5.108.0-r1::gentoo
 # required by kde-frameworks/knotifications-5.108.0::gentoo
 # required by x11-misc/xwaylandvideobridge-20230814::gentoo-zh
@@ -952,7 +1032,7 @@ net-im/webcord systray
 # required by app-emulation/libvirt-glib-4.0.0::gentoo
 # required by app-emulation/virt-manager-4.1.0::gentoo[-test]
 # required by virt-manager (argument)
->=sys-apps/systemd-253.3-r1 abi_x86_32 gnuefi
+>=sys-apps/systemd-253.3-r1 abi_x86_32 gnuefi kernel-install
 # required by sys-apps/systemd-253.3-r1::gentoo
 # required by x11-libs/vte-0.72.1::gentoo[systemd]
 # required by app-emulation/virt-manager-4.1.0::gentoo[gui,-test]
