@@ -53,11 +53,6 @@ sync-type = git
 sync-uri = https://github.com/gentoo-mirror/steam-overlay.git
 
 
-[zGentoo]
-location = /var/db/repos/zGentoo
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/zGentoo.git
-
 
 [The-Anime-Game]
 location = /var/db/repos/theanimegame
@@ -139,3 +134,18 @@ sync-uri = https://github.com/gentoo-mirror/ap-overlay.git
 location = /var/db/repos/brother-overlay
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/brother-overlay.git
+
+[ros-overlay]
+location = /var/db/repos/ros-overlay
+sync-type = git
+sync-uri = https://github.com/MrDuartePT/ros-overlay.git
+
+[zGentoo]
+location = /var/db/repos/zGentoo
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/zGentoo.git
+
+[average]
+location = /var/db/repos/average
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/average.git

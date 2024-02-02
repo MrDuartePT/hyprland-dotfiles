@@ -1,2 +1,3 @@
 virtual/wine -staging
 media-gfx/blender -cuda
+dev-lang/rust -nightly -parallel-compiler -system-llvm
