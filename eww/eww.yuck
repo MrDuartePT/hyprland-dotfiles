@@ -1,45 +1,233 @@
-(defwidget bar []
+(defwidget top_bar_0 []
+(box :class "bar"
   (centerbox :orientation "h"
-    (workspaces)
-    (music)
-    (sidestuff)))
+    (workspaces0)
+    (clock)
+    (top_right_modules)))
+)
 
-  (defwidget workspaces []
-    (box :class "workspaces"
-         :orientation "h"
-         :space-evenly true
-         :halign "start"
-         :spacing 10
-      (button :onclick "hyprctl dispatch workspace 1" 1)
-      (button :onclick "hyprctl dispatch workspace 2" 2)
-      (button :onclick "hyprctl dispatch workspace 3" 3)
-      (button :onclick "hyprctl dispatch workspace 4" 4)
-      (button :onclick "hyprctl dispatch workspace 5" 5)
-      (button :onclick "hyprctl dispatch workspace 6" 6)
-      (button :onclick "hyprctl dispatch workspace 7" 7)
-      (button :onclick "hyprctl dispatch workspace 8" 8)
-      (button :onclick "hyprctl dispatch workspace 9" 9)
-      (button :onclick "hyprctl dispatch workspace 10" 10)))
 
-(defwidget music []
-  (box :class "music"
+(defwidget top_bar_1 []
+(box :class "bar"
+  (centerbox :orientation "h"
+    (workspaces1)
+    (clock)
+    (top_right_modules)))
+)
+
+(defwidget workspaces0 []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :onclick "hyprctl dispatch workspace 1" 1)
+    (button :onclick "hyprctl dispatch workspace 2" 2)
+    (button :onclick "hyprctl dispatch workspace 3" 3)
+    (button :onclick "hyprctl dispatch workspace 4" 4)
+    (button :onclick "hyprctl dispatch workspace 5" 5)))
+
+(defwidget workspaces1 []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :onclick "hyprctl dispatch workspace 6" 6)
+    (button :onclick "hyprctl dispatch workspace 7" 7)
+    (button :onclick "hyprctl dispatch workspace 8" 8)
+    (button :onclick "hyprctl dispatch workspace 9" 9)
+    (button :onclick "hyprctl dispatch workspace 10" 10)))
+
+
+(defwidget clock []
+  (box :class "clock"
        :orientation "h"
        :space-evenly false
        :halign "center"
-    {music != "" ? "🎵${music}" : ""}))
+    (button
+        :class ""
+	:onclick "scripts/calendar.sh show"
+        date-time)
+  )
+)
 
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
-      :value volume
-      :onchange "amixer -D pulse sset Master {}%")
-    (metric :label ""
-        :value {EWW_RAM.used_mem_perc}
-        :onchange "")
-    (metric :label "💾"
-        :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-        :onchange "")
-  time))
+(defwidget top_right_modules []
+  (box :class "top_right_modules" :orientation "h" :space-evenly false :halign "end"
+    (network)
+;;  (bluetooth)
+    (metric_rightclick_opt 
+            :label volume_speaker_icons
+            :value volume_speaker
+            :label_opt volume_speaker_percentage
+            :onchange "wpctl set-volume @DEFAULT_SINK {}%"
+            :onrightclick "pavucontrol")
+    (metric_rightclick_opt 
+            :label volume_mic_icons
+            :value volume_mic
+            :label_opt volume_mic_percentage
+            :onchange "wpctl set-volume @DEFAULT_SOURCE {}%"
+            :onrightclick "pavucontrol")
+    (metric_opt 
+            :label brightness_icons
+            :value brightness
+            :label_opt brightness_percentage
+            :onchange "brightnessctl s {}%")
+    (display)
+    (battery)
+  )
+)
+
+(defwidget network[]
+  (box :class "network"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (button
+        :class ""
+	      :onclick "scripts/network_manager.sh ShowInfo"
+        :onrightclick "networkmanager_dmenu"
+        network)
+  )
+)
+
+(defwidget display[]
+  (box :class "display"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (button
+        :class ""
+        :onclick "wdisplays"
+        "󰍹")
+  )
+)
+
+(defwidget battery[]
+  (box :class "battery"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (button
+        :class ""
+	      :onclick "scripts battery.sh EwwClick"
+        battery)
+  )
+)
+
+
+
+
+
+;(defwidget music []
+;  (box :class "music"
+;       :orientation "h"
+;       :space-evenly false
+;       :halign "center"
+;    {music != "" ? "🎵${music}" : ""}))
+
+;(deflisten music :initial ""
+;  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+
+
+
+
+
+
+
+
+
+;; Frist Screen
+(defwindow top_bar_0
+  :monitor 1
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "top center")
+  :stacking "bt"
+  :exclusive "true"
+  :focusable "false"
+  (top_bar_0)
+)
+
+(defwindow bottom_bar_0
+  :monitor 1
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "bottom center")
+  :stacking "bt"
+  :exclusive "true"
+  :focusable "false"
+  (top_bar_0)
+)
+
+;; Second Screen
+(defwindow top_bar_1
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "top center")
+  :stacking "bt"
+  :exclusive "true"
+  :focusable "false"
+  (top_bar_1)
+)
+
+(defwindow bottom_bar_1
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "bottom center")
+  :stacking "bt"
+  :exclusive "true"
+  :focusable "false"
+  (top_bar_1)
+)
+
+
+;;Define metric
+(defwidget metric_rightclick_opt [label value onchange label_opt onrightclick]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (button
+        :class ""
+        :onrightclick onrightclick
+        label)
+    (scale :min 0
+           :max 100
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)
+    (box :class "label_opt" label_opt)
+  )
+)
+
+(defwidget metric_opt [label value onchange label_opt]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 100
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)
+    (box :class "label_opt" label_opt)
+  )
+)
 
 (defwidget metric [label value onchange]
   (box :orientation "h"
@@ -47,27 +235,51 @@
        :space-evenly false
     (box :class "label" label)
     (scale :min 0
-           :max 101
+           :max 100
            :active {onchange != ""}
            :value value
-           :onchange onchange)))
+           :onchange onchange)
+  )
+)
 
-(deflisten music :initial ""
-  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
-(defpoll volume :interval "1s"
-  "scripts/getvol")
+;;Scripts calls
 
-(defpoll time :interval "10s"
-  "date '+%H:%M %b %d, %Y'")
+(defpoll date-time :interval "1s"
+  "scripts/date-time.sh")
 
-(defwindow bar
-  :monitor 0
-  :windowtype "dock"
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "90%"
-                      :height "10px"
-                      :anchor "top center")
-  :reserve (struts :side "top" :distance "4%")
-  (bar))
+(defpoll network :interval "1s"
+  "scripts/network_manager.sh")
+
+;;(defpoll bluetooth :interval "1s"
+;;  "scripts/bluetooth.sh")
+
+(defpoll volume_speaker_icons :interval "1s"
+  "scripts/simple_cpmmands.sh volume_speaker_icons")
+
+(defpoll volume_speaker :interval "1s"
+  "scripts/simple_cpmmands.sh volume_speaker")
+
+(defpoll volume_speaker_percentage :interval "1s"
+  "scripts/simple_cpmmands.sh volume_speaker_percentage")
+
+(defpoll volume_mic_icons :interval "1s"
+  "scripts/simple_cpmmands.sh volume_mic_icons")
+
+(defpoll volume_mic :interval "1s"
+  "scripts/simple_cpmmands.sh volume_mic")
+
+(defpoll volume_mic_percentage :interval "1s"
+  "scripts/simple_cpmmands.sh volume_mic_percentage")
+
+(defpoll brightness :interval "1s"
+  "scripts/simple_cpmmands.sh brightness_value")
+
+(defpoll brightness_icons :interval "1s"
+  "scripts/simple_cpmmands.sh brightness_icons")
+
+(defpoll brightness_percentage :interval "1s"
+  "scripts/simple_cpmmands.sh brightness_percentage")
+
+(defpoll battery :interval "1s"
+  "scripts/battery.sh")

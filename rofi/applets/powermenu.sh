@@ -9,10 +9,6 @@
 
 ## Applets : Power Menu
 
-#Command to lock the device
-lock='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/Lenovo\ Wallpapers/cyber_box.jpg -s fill'
-#lock='swaylock --clock --indicator --indicator-idle-visible --grace-no-mouse --effect-blur 10x2 -i /home/mrduarte/Pictures/wallpapers/DSC_01.jpg -s fill'
-
 # Applet Elements
 prompt:"Power Menu"
 mesg="Uptime : $(uptime -p | sed -e 's/up //g')"
@@ -75,7 +71,7 @@ confirm_run() {
 
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		$lock
+		lock
 	elif [[ "$1" == '--opt2' ]]; then
 		systemctl suspend
 	elif [[ "$1" == '--opt3' ]]; then

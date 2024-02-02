@@ -38,8 +38,9 @@ win_width='300px'
 
 copy=' Copy'
 save=' Save'
-copy_save='Copy & Save'
-edit='Edit Screenshot'
+copy_save='  Copy & Save'
+edit=' Edit Screenshot'
+annotate='󰴓 Annotate Screenshot'
 
 # Rofi CMD
 rofi_cmd() {
@@ -142,7 +143,7 @@ type_screenshot_run() {
 copy_save_editor_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 2;}' \
+		-theme-str 'listview {columns: 1; lines: 5;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
 		-theme ../rofi/style.rasi \
@@ -153,7 +154,7 @@ copy_save_editor_cmd() {
 
 # Ask for confirmation
 copy_save_editor_exit() {
-	echo -e "$copy\n$save\n$copy_save\n$edit" | copy_save_editor_cmd
+	echo -e "$copy\n$save\n$copy_save\n$edit\n$annotate\n" | copy_save_editor_cmd
 }
 
 # Confirm and execute
@@ -171,7 +172,11 @@ copy_save_editor_run() {
 	elif [[ "$selected_chosen" == "$edit" ]]; then
 		option_chosen=edit
 		${1}
+	elif [[ "$selected_chosen" == "$annotate" ]]; then
+		option_chosen=annotate
+		${1}
 	fi
+
 }
 ###
 

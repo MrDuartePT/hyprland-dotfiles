@@ -1,49 +1,55 @@
-#!/bin/zsh
+#!/bin/bash
 #ADD TO HYPERLAND CONFIG: exec = $HOME/.config/hypr/set-displays-swayidle set_res
 
 set -ex
 
 ##Starter Commands
-lock="gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/Lenovo\ Wallpapers/cyber_box.jpg -s fill"
-lock_suspend='gtklock -d -m /usr/lib/gtklock/playerctl-module.so -m /usr/lib/gtklock/powerbar-module.so -m /usr/lib/gtklock/userinfo-module.so -b /home/mrduarte/Pictures/Lenovo\ Wallpapers/cyber_box.jpg -s fill && hyprctl dispatch dpms on'
-laptop=eDP-1
-
-[ $EUID = 0 ] || hyprctl -j monitors > /tmp/grep_output.txt
-grep -F -q -e 'HDMI-A-1' /tmp/grep_output.txt && EXT_MONITOR=1 || EXT_MONITOR=0
+laptop_igpu=eDP-2
+laptop_dgpu=eDP-1
+external_display=HDMI-A-1
+laptop_ori=0x0
+external_display_ori=1920x0
+hyprctl -j monitors | grep -F -q $external_display && EXT_MONITOR=1 || EXT_MONITOR=0
 POWER_ADAPTER=$(cat /sys/class/power_supply/ADP0/online)
-
-#Verify if swayidle and swww is running (hyprland start swww-daemon)
-killall swayidle || true
-killall swww_randomize || true
-nohup $HOME/.config/hypr/swww_randomize $HOME/Pictures/wallpapers &
 
 #Set Refresh Rate & Time Values
 [ $POWER_ADAPTER -eq 1 ] && refresh_rate="165hz" && time_1=300 && time_2=310 && time_3=600 || refresh_rate="96.012hz" && time_1=270 && time_2=280 && time_3=300
 
+main() {
+  #Verify if swayidle is running
+  killall swayidle || true
+
+  swww img "/home/mrduarte/Pictures/Lenovo Wallpapers/cyber_box.jpg" || true
+
+	#Set display
+  hyprctl keyword monitor $laptop_igpu,1920x1080@$refresh_rate,$laptop_ori,1,bitdepth,10,vrr,1
+  hyprctl keyword monitor $laptop_dgpu,1920x1080@$refresh_rate,$laptop_ori,1,bitdepth,10,vrr,1
+	hyprctl keyword monitor $external_display,preferred,$external_display_ori,1,bitdepth,10,vrr,1
+
+  #Set Swayidle For Suspend
+  ## GTKLock command
+  swayidle \
+	  timeout $time_1 'hyprctl dispatch dpms off' \
+    timeout $time_2 'lock' \
+	  resume 'hyprctl dispatch dpms on' \
+	  timeout $time_3 '$HOME/.config/hypr/set-displays-swayidle verify_player' \
+	  before-sleep 'lock' &
+}
+
 case "$1" in
 lid_close)
-	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor "eDP-1, disable" || systemctl suspend
+	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor "${laptop_igpu}, disable" && hyprctl keyword monitor "${laptop_dgpu}, disable"  || systemctl suspend
 	;;
 lid_open)
-	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
+	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor ${laptop_igpu},1920x1080@${refresh_rate},${laptop_ori},1,bitdepth,10,vrr,1 && hyprctl keyword monitor ${laptop_dgpu},1920x1080@${refresh_rate},${laptop_ori},1,bitdepth,10,vrr,1, || true
 	;;
 verify_player)
-	[[ $(playerctl -l -s) == "" || $(playerctl status) == "Paused" ]] && systemctl suspend
+	[[ $(playerctl status) == "Playing" ]] && hyprctl dispatch dpms off || systemctl suspend
 	;;
 set_res)
-	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1 || hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
+	[[ $EXT_MONITOR -eq 1 ]] && hyprctl keyword monitor $external_display,preferred,$external_display_ori,1 || hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10
 	;;
 *)
-	hyprctl keyword monitor $laptop,1920x1080@$refresh_rate,$e_DP1_ori,1,bitdepth,10,vrr,1
-	hyprctl keyword monitor HDMI-A-1,preferred,$HDMI_A_1_ori,1
+  main
 	;;
 esac
-
-#Set Swayidle For Suspend
-## GTKLock command
-swayidle -w \
-	timeout $time_1 'hyprctl dispatch dpms off' \
-	resume 'hyprctl dispatch dpms on' \
-	timeout $time_2 $lock \
-	timeout $time_3 '$HOME/.config/hypr/set-displays-swayidle verify_player' \
-	before-sleep $lock_suspend &

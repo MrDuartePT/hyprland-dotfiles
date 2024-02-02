@@ -138,7 +138,7 @@
       "position": "bottom", 
       "height": 15, 
       "spacing": 4, // Gaps between modules (4px)
-      "modules-left": ["cpu", "memory", "disk", "user"],
+      "modules-left": ["cpu", "memory", "disk#1", "disk#2", "user"],
       "modules-center": ["hyprland/workspaces", "image#gentoo"],
       "modules-right": ["custom/fan", "temperature#cpu", "temperature#gpu", "temperature#ic","hyprland/language", "idle_inhibitor"],
 
@@ -183,10 +183,18 @@
         ],
       },
 
-    "disk": {
-        "format": " {percentage_used}% of {total}",
+    "disk#1": {
+        "format": " nvme0n1: {percentage_used}% of {total}",
         "interval": 30,
+	"path": "/",
     },
+
+    "disk#2": {
+        "format": " nvme1n1: {percentage_used}% of {total}",
+        "interval": 30,
+	"path": "/home",
+    },
+
 
     "image#gentoo": {
 	    "path": "$HOME/.config/waybar/images/Gblend.png",
@@ -199,11 +207,11 @@
     },
 
     "user": {
-        "format": "Uptime: {work_H}:{work_M}",
+        "format": "Uptime: {work_d}d {work_H}h {work_M}m",
         "interval": 60,
         "height": 30,
         "width": 30,
-        "icon": true,
+        "icon": false,
     },
 
     "hyprland/language": {
@@ -221,7 +229,7 @@
     },
 
     "temperature#cpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
         "critical-threshold": 85,
         "interval": 5,
         "format-critical": "CPU: {temperatureC}°C ",
@@ -229,7 +237,7 @@
     },
     
     "temperature#gpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp2_input",
         "critical-threshold": 85,
         "interval": 5,
         "format-critical": "GPU: {temperatureC}°C ",
@@ -237,7 +245,7 @@
     },
 
     "temperature#ic": {
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp3_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp3_input",
         "critical-threshold": 75,
         "interval": 5,
         "format-critical": "CPU: {temperatureC}°C ",

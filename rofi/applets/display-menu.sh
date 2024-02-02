@@ -66,20 +66,20 @@ ort_exit() {
 ort_run() {
 	selected_ort="$(ort_exit)"
 	if [[ "$selected_ort" == "$option_up" ]]; then
-		e_DP1_ori=0x768
-		HDMI_A_1_ori=0x0
+		laptop_ori=0x768
+		external_display_ori=0x0
 		${1}
 	elif [[ "$selected_ort" == "$option_left" ]]; then
-		e_DP1_ori=0x0
-		HDMI_A_1_ori=1360x0
+		laptop_ori=0x0
+		external_display_ori=1360x0
 		${1}
 	elif [[ "$selected_ort" == "$option_right" ]]; then
-		e_DP1_ori=1360x0
-		HDMI_A_1_ori=0x0
+		laptop_ori=1360x0
+		external_display_ori=0x0
 		${1}
 	elif [[ "$selected_ort" == "$option_down" ]]; then
-		e_DP1_ori=0x0
-		HDMI_A_1_ori=0x768
+		laptop_ori=0x0
+		external_display_ori=0x768
 		${1}
 	fi
 }
@@ -93,14 +93,12 @@ run_cmd() {
 	elif [[ "$1" == '--opt2' ]]; then
 		hyprctl keyword monitor HDMI-A-1,1920x1080,0x0,1
 		hyprctl keyword monitor eDP-1,disable
-		hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	elif [[ "$1" == '--opt3' ]]; then
 		ort_run
 		$HOME/mrduarte-github/dotfiles/hypr/set-displays-swayidle
 	elif [[ "$1" == '--opt4' ]]; then
 		hyprctl keyword monitor eDP-1,1920x1080@$refresh_rate,0x0,1,bitdepth,10 #bug in 10 bits
 		hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1,mirror,eDP-1
-		hyprpaper -c $HOME/.config/hypr/hyprpaper.conf &
 	fi
 }
 
